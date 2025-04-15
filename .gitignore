@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+# Folders to ignore
+.godot/              # Cache data created by Godot editor
+.import/             # Contains imported asset data
+
+# Files to ignore
+export/              # Exported builds
+*.import             # Asset metadata for imported files
