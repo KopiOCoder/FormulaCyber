@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dl2q6xfrb2kqa"
+path="res://.godot/imported/road-side-exit-barrier.obj-fea45cce20f3ba2536d9c552f3e6482f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-side-exit-barrier.obj-fea45cce20f3ba2536d9c552f3e6482f.mesh"]
+
+source_file="res://City map/Models/OBJ format/road-side-exit-barrier.obj"
+dest_files=["res://.godot/imported/road-side-exit-barrier.obj-fea45cce20f3ba2536d9c552f3e6482f.mesh", "res://.godot/imported/road-side-exit-barrier.obj-fea45cce20f3ba2536d9c552f3e6482f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
