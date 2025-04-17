@@ -5,7 +5,7 @@
 [sub_resource type="GDScript" id="GDScript_y2uan"]
 script/source = "extends VehicleBody3D
 
-const MAX_STEER = 0.8
+const MAX_STEER = 0.7
 
 const ENGINE_POWER = 300
 
@@ -201,7 +201,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hrssd")
 
 [node name="race" type="VehicleBody3D"]
-gravity_scale = 2.0
+mass = 50.0
+gravity_scale = 3.5
 script = SubResource("GDScript_y2uan")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -220,9 +221,10 @@ shape = SubResource("ConvexPolygonShape3D_gvgjh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.880114)
 use_as_traction = true
 wheel_roll_influence = 0.01
-wheel_friction_slip = 1.1
-suspension_travel = 0.15
-suspension_stiffness = 80.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.2
+suspension_travel = 0.04
+suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BL"]
 mesh = SubResource("ArrayMesh_020ms")
@@ -232,9 +234,10 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, -0.880114)
 use_as_traction = true
 wheel_roll_influence = 0.01
-wheel_friction_slip = 1.1
-suspension_travel = 0.15
-suspension_stiffness = 80.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 1.2
+suspension_travel = 0.04
+suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BR"]
 mesh = SubResource("ArrayMesh_hrtws")
