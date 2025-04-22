@@ -35,6 +35,7 @@ func _physics_process(delta):
 		cooldown_timer = boost_cooldown
 		ENGINE_POWER += boost_power
 		boost_fuel -= boost_deplete_rate * delta
+		print(engine_force)
 	else:
 		is_boosting = false
 		boost_fuel = clamp(boost_fuel + boost_replenish_rate * delta, 0, 10)  
@@ -242,10 +243,10 @@ shape = SubResource("ConvexPolygonShape3D_gvgjh")
 [node name="BL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.880114)
 use_as_traction = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_rest_length = 0.1
 wheel_friction_slip = 1.2
-suspension_travel = 0.04
+suspension_travel = 0.03
 suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BL"]
@@ -255,10 +256,10 @@ skeleton = NodePath("")
 [node name="BR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, -0.880114)
 use_as_traction = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_rest_length = 0.1
 wheel_friction_slip = 1.2
-suspension_travel = 0.04
+suspension_travel = 0.03
 suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BR"]
@@ -268,7 +269,7 @@ skeleton = NodePath("")
 [node name="FL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, 0.639886)
 use_as_steering = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_friction_slip = 1.4
 suspension_travel = 0.15
 suspension_stiffness = 120.0
@@ -280,7 +281,7 @@ skeleton = NodePath("")
 [node name="FR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, 0.639886)
 use_as_steering = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_friction_slip = 1.4
 suspension_travel = 0.15
 suspension_stiffness = 120.0
