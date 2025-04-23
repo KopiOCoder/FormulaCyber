@@ -19,9 +19,13 @@ shadow_enabled = true
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58711, 0.231946, 26.3514)
-size = Vector3(42.7635, 1, 68.6984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2323, 0.231946, 82.9063)
+size = Vector3(225.736, 1, 181.808)
 material = SubResource("StandardMaterial3D_haa73")
+
+[node name="CSGBox3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.216315, 0, -3.99415, 0, 4, 0, 3.99415, 0, 0.216315, -0.0598917, -0.106279, 45.2223)
+polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.927893, 3.44923, 0.270927)
 
 [node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.56491, -2.48576)
