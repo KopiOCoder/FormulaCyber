@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cir7hn7anugml"]
+[gd_scene load_steps=28 format=4 uid="uid://cir7hn7anugml"]
 
 [ext_resource type="Script" uid="uid://c7v4op3ucdpw8" path="res://gtr.gd" id="1_h4xrs"]
 
@@ -473,6 +473,30 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eff7b")
 
+[sub_resource type="Gradient" id="Gradient_h4xrs"]
+offsets = PackedFloat32Array(0.572727, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qgvpe"]
+gradient = SubResource("Gradient_h4xrs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7kf8u"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 0.0
+initial_velocity_max = 20.6
+gravity = Vector3(0, -4, 0)
+color = Color(1, 0.766667, 0, 1)
+color_initial_ramp = SubResource("GradientTexture1D_qgvpe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kf8u"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_3lklo"]
+material = SubResource("StandardMaterial3D_7kf8u")
+size = Vector3(0.05, 0.05, 0.05)
+
 [node name="Nissan GTR" type="VehicleBody3D"]
 center_of_mass_mode = 1
 center_of_mass = Vector3(-0.0150012, -0.0576145, 1.40894)
@@ -522,7 +546,20 @@ mesh = SubResource("ArrayMesh_legmr")
 skeleton = NodePath("")
 
 [node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.926036)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, -3.66697e-08, 7.93604e-08, 0, 0.907777, 0.419452, -8.74228e-08, 0.419452, -0.907777, 0, 2.3827, -4.90476)
+transform = Transform3D(-1, 5.28557e-08, -6.96349e-08, 0, 0.79653, 0.604599, 8.74228e-08, 0.604599, -0.79653, 0, 3.22663, -5.33676)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.399588, -0.0726852, -2.8518)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257672, 0.425401, 0)
+emitting = false
+amount = 35
+lifetime = 0.1
+explosiveness = 0.13
+process_material = SubResource("ParticleProcessMaterial_7kf8u")
+draw_pass_1 = SubResource("BoxMesh_3lklo")

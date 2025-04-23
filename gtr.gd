@@ -35,13 +35,17 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("boost") and cooldown_timer <= 0 and boost_fuel > 0:
 		is_boosting = true
+		$Node3D/GPUParticles3D.emitting = true
 		cooldown_timer = boost_cooldown
 		ENGINE_POWER += boost_power
 		boost_fuel -= boost_deplete_rate * delta
 		print(engine_force)
+		print($Node3D/GPUParticles3D.emitting)
 	else:
 		is_boosting = false
 		boost_fuel = clamp(boost_fuel + boost_replenish_rate * delta, 0, 10)  
-			
+		await get_tree().create_timer(3).timeout  # 0.1 seconds delay
+		$Node3D/GPUParticles3D.emitting = false
+		
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
