@@ -1,15 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsf1kx2yakruw"]
+[gd_scene load_steps=4 format=3 uid="uid://bsf1kx2yakruw"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
-[ext_resource type="PackedScene" uid="uid://bu2ckrk4i165q" path="res://Car.tscn" id="2_haa73"]
-[ext_resource type="ArrayMesh" uid="uid://p1nol547y61p" path="res://City map/Models/OBJ format/construction-cone.obj" id="3_b55i6"]
+[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_haa73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haa73"]
 albedo_texture = ExtResource("1_tbtb0")
 uv1_triplanar = true
 uv1_world_triplanar = true
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_n3hra"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -22,186 +19,13 @@ shadow_enabled = true
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58711, 0.231946, 26.3514)
-size = Vector3(42.7635, 1, 68.6984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2323, 0.231946, 82.9063)
+size = Vector3(225.736, 1, 181.808)
 material = SubResource("StandardMaterial3D_haa73")
 
-[node name="race" parent="." instance=ExtResource("2_haa73")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13714, 0.994728, -3.84991)
+[node name="CSGBox3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.216315, 0, -3.99415, 0, 4, 0, 3.99415, 0, 0.216315, -0.0598917, -0.106279, 45.2223)
+polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.927893, 3.44923, 0.270927)
 
-[node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38237, 0.978992, 8.52667)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-skeleton = NodePath("../../RigidBody3D2")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045516, 1.41688, 12.018)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0856, 1.32361, 19.6905)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30861, 0.719763, 6.39728)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89692, 1.3918, 16.119)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D6" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.44274, 1.22673, 10.7815)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D6"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D7" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90335, 1.22464, 15.2225)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D7"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D8" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08625, 1.47715, 20.8244)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29597, 0.841392, -0.840048)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D8"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.337573, 0.532796, -0.900141)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D9" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.02214, 1.73622, 23.7432)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D9"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D10" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451193, 1.3918, 23.2385)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D10"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D11" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34724, 1.40366, 24.513)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D11"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D12" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95818, 1.3918, 23.0002)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D12"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D13" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.84829, 1.3918, 28.0072)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D13"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D14" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3918, 31.939)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D14"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D15" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33945, 1.3918, 31.0127)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D15"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
-
-[node name="RigidBody3D16" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.132, 1.37256, 29.8067)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537002, 0.41872, -0.00115132)
-shape = SubResource("SphereShape3D_n3hra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D16"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = ExtResource("3_b55i6")
+[node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.56491, -2.48576)
