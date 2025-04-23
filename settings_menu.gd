@@ -1,12 +1,30 @@
 extends Control
 
-
-func _on_back_pressed() -> void:
-	pass # Replace with function body.
-	get_tree().change_scene_to_file("res://main_menu.tscn")
-
-
+func ready():
+	$AnimationPlayer.play("RESET")
 
 func _on_resume_pressed() -> void:
-	pass # Replace with function body.
-	get_tree().change_scene_to_file("res://testing_level.tscn")
+	resume()
+
+
+func _on_button_pressed() -> void:
+	AudioServer.set_bus_volume_db(0, linear_to_db($PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect/VolumeSlider.value))
+
+func resume():
+	get_tree().paused = false
+	$AnimationPlayer.play_backwards("Blur")
+	$"../UI".visible = true
+
+
+func pause():
+	get_tree().paused = true
+	$AnimationPlayer.play("Blur")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_pause_pressed() -> void:
+	pause()
+	$"../UI".visible = false

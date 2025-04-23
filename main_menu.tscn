@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgur6s3cttspk"]
+[gd_scene load_steps=18 format=3 uid="uid://bgur6s3cttspk"]
 
 [ext_resource type="Script" uid="uid://83ygjptgoqut" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://cpjhect3s1i7l" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_GreyOutline_Square.png" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://bqwdl5xfsjweq" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blue_Square.png" id="2_qe12f"]
 [ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="3_glbon"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="3_jix8l"]
+[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="5_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://dxlfnil35j3qc" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Square.png" id="6_qe12f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
 texture = ExtResource("3_glbon")
@@ -26,6 +29,15 @@ texture = ExtResource("3_glbon")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
 texture = ExtResource("3_glbon")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k4wn"]
+texture = ExtResource("6_qe12f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5v2v"]
+texture = ExtResource("6_qe12f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotk1"]
+texture = ExtResource("6_qe12f")
+
 [node name="ui-game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -40,21 +52,24 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -95.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1, 1.1)
 
 [node name="Startup-Menu" type="MarginContainer" parent="Main-Menu"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Main-Menu/Startup-Menu"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("2_fu7sn")
-region_rect = Rect2(0, -2, 373, 371)
+texture = ExtResource("2_qe12f")
+region_rect = Rect2(0, -2, 359, 359)
 patch_margin_left = 250
 patch_margin_top = 300
 patch_margin_right = 200
@@ -104,6 +119,45 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
 text = "Tutorial"
 icon_alignment = 1
 
+[node name="Exit" type="MarginContainer" parent="Main-Menu/Startup-Menu/NinePatchRect"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 479.0
+offset_right = 507.0
+offset_bottom = 655.0
+scale = Vector2(0.5, 0.5)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit"]
+layout_mode = 2
+texture = ExtResource("5_nlkkf")
+
+[node name="Button" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect"]
+layout_mode = 2
+offset_right = 176.0
+offset_bottom = 176.0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_0k4wn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j5v2v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iotk1")
+icon = ExtResource("5_glbon")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 22.0
+offset_right = 140.0
+offset_bottom = 51.0
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 17
+text = "Formular
+   Cyberjaya25"
+
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect/Button" to="." method="_on_button_pressed"]
