@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmu1l7g7epgvv"]
+[gd_scene load_steps=7 format=3 uid="uid://bmu1l7g7epgvv"]
 
 [ext_resource type="Script" uid="uid://dkkldbknxoaa7" path="res://settings_menu.gd" id="1_ufg0w"]
+[ext_resource type="Texture2D" uid="uid://co4xabuj4cnyd" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Rounded.png" id="2_0cmel"]
+[ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="3_d0eu6"]
+[ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_fiqec"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h437d"]
+texture = ExtResource("3_d0eu6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2tlyv"]
+texture = ExtResource("4_fiqec")
 
 [node name="Settings-Menu" type="Control"]
 layout_mode = 3
@@ -12,19 +21,56 @@ grow_vertical = 2
 script = ExtResource("1_ufg0w")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(350, 350)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "Volume"
+texture = ExtResource("2_0cmel")
+patch_margin_left = 200
+patch_margin_top = 200
+patch_margin_right = 200
+patch_margin_bottom = 200
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = 63.0
+offset_right = -39.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/MarginContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
-text = "Back"
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 10
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Resume" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_h437d")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/MarginContainer/Buttons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_2tlyv")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/MarginContainer/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/MarginContainer/Buttons/Quit" to="." method="_on_back_pressed"]

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
 [ext_resource type="PackedScene" uid="uid://bu2ckrk4i165q" path="res://Car.tscn" id="2_haa73"]
 [ext_resource type="ArrayMesh" uid="uid://p1nol547y61p" path="res://City map/Models/OBJ format/construction-cone.obj" id="3_b55i6"]
-[ext_resource type="Texture2D" uid="uid://cac0tp8gx3oa6" path="res://ui Design for FC/Icons/Icon_Large_Menu_Blank.png" id="4_th68x"]
-[ext_resource type="Script" uid="uid://xmns3c1l1yxb" path="res://Menu.gd" id="5_th68x"]
+[ext_resource type="Script" uid="uid://dup1vn66f165n" path="res://menu.gd" id="4_th68x"]
+[ext_resource type="Texture2D" uid="uid://dw7u6u3jmcba2" path="res://ui Design for FC/Icons/Icon_Small_Blank_Menu.png" id="5_th68x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haa73"]
 albedo_texture = ExtResource("1_tbtb0")
@@ -215,14 +215,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_th68x")
 
 [node name="UI" type="MarginContainer" parent="Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 573.0
+offset_top = 3.0
+offset_right = 573.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
 [node name="Menu" type="MarginContainer" parent="Menu/UI"]
 layout_mode = 2
@@ -230,17 +236,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_left = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/UI/Menu"]
+[node name="Pause" type="Button" parent="Menu/UI/Menu"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
+icon = ExtResource("5_th68x")
+flat = true
 
-[node name="Menubutton" type="Button" parent="Menu/UI/Menu/VBoxContainer"]
-layout_mode = 2
-theme_override_icons/icon = ExtResource("4_th68x")
-alignment = 2
-icon_alignment = 2
-vertical_icon_alignment = 0
-script = ExtResource("5_th68x")
-
-[connection signal="pressed" from="Menu/UI/Menu/VBoxContainer/Menubutton" to="Menu/UI/Menu/VBoxContainer/Menubutton" method="_on_pressed"]
+[connection signal="pressed" from="Menu/UI/Menu/Pause" to="Menu" method="_on_pause_pressed"]
