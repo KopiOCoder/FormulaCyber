@@ -25,7 +25,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
-	engine_force = Input.get_axis("move_down", "move_up") * ENGINE_POWER
+	engine_force = clamp(Input.get_axis("move_down", "move_up") * ENGINE_POWER, -600, 600)
 	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20)
 	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta * 10)
 	look_at = look_at.lerp(global_position + linear_velocity, delta * 5)
@@ -37,7 +37,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("boost") and cooldown_timer <= 0 and boost_fuel > 0:
 		is_boosting = true
-		$Node3D/GPUParticles3D.emitting = true
+		$Node3D/GPUParticles3D.emitting = is_boosting
 		cooldown_timer = boost_cooldown
 		ENGINE_POWER += boost_power
 		boost_fuel -= boost_deplete_rate * delta
@@ -46,12 +46,12 @@ func _physics_process(delta):
 	else:
 		is_boosting = false
 		boost_fuel = clamp(boost_fuel + boost_replenish_rate * delta, 0, 10)  
-		await get_tree().create_timer(3).timeout  # 0.1 seconds delay
-		$Node3D/GPUParticles3D.emitting = false
 		
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
-
+	if Input.is_action_just_released("boost"):
+		$Node3D/GPUParticles3D.emitting = false
+	
 func _check_camera_switch():
 	if linear_velocity.dot(transform.basis.z) > -1:
 		camera_3d.current = true

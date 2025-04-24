@@ -1,6 +1,6 @@
 [gd_scene load_steps=78 format=4 uid="uid://lyt2mk250he2"]
 
-[ext_resource type="PackedScene" uid="uid://bu2ckrk4i165q" path="res://Car.tscn" id="2_4dc8p"]
+[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
 [ext_resource type="ArrayMesh" uid="uid://cj8oply017t28" path="res://City map/Models/OBJ format/road-roundabout.obj" id="4_etcck"]
 [ext_resource type="Texture2D" uid="uid://desvdgri8h8si" path="res://mapsatellite3-2.png" id="4_sa3md"]
@@ -314,8 +314,8 @@ shadow_enabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_sa3md")
 
-[node name="race" parent="Floor" instance=ExtResource("2_4dc8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -253.089, 1.42738, 131.95)
+[node name="Nissan GTR" parent="Floor" instance=ExtResource("1_131ww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.391, 1.74819, 129.869)
 
 [node name="reference" type="CSGBox3D" parent="."]
 visible = false
@@ -1456,9 +1456,7 @@ shape = SubResource("ConcavePolygonShape3D_nixjv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86953, 0.05, 32.091)
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="Road/G3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_af74i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/G3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_3svkf")
