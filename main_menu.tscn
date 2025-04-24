@@ -1,163 +1,99 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgur6s3cttspk"]
+[gd_scene load_steps=9 format=3 uid="uid://45dpmikdinvs"]
 
-[ext_resource type="Script" uid="uid://83ygjptgoqut" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://bqwdl5xfsjweq" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blue_Square.png" id="2_qe12f"]
-[ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="3_glbon"]
-[ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="3_jix8l"]
-[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="5_glbon"]
-[ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="5_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://dxlfnil35j3qc" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Square.png" id="6_qe12f"]
+[ext_resource type="Script" uid="uid://s22b7xmhgyf2" path="res://main_menu.gd" id="1_257up"]
+[ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_dnfjo"]
+[ext_resource type="Texture2D" uid="uid://ddy7d3r68qijk" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Square.png" id="3_3mro0"]
+[ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_tu7k8"]
+[ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="5_5cvai"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
-texture = ExtResource("3_glbon")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t301m"]
+texture = ExtResource("3_3mro0")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
-texture = ExtResource("3_glbon")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_es6ti"]
+texture = ExtResource("4_tu7k8")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glbon"]
-texture = ExtResource("3_jix8l")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
+texture = ExtResource("5_5cvai")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qe12f"]
-texture = ExtResource("3_glbon")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qtwp"]
-texture = ExtResource("3_glbon")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dy7ct"]
-texture = ExtResource("3_glbon")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
-texture = ExtResource("3_glbon")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k4wn"]
-texture = ExtResource("6_qe12f")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5v2v"]
-texture = ExtResource("6_qe12f")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotk1"]
-texture = ExtResource("6_qe12f")
-
-[node name="ui-game" type="Control"]
+[node name="Main_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06t4h")
+script = ExtResource("1_257up")
 
-[node name="Main-Menu" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = -95.0
-offset_bottom = -48.0
+offset_left = 474.0
+offset_top = 58.0
+offset_right = -85.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.1, 1.1)
 
-[node name="Startup-Menu" type="MarginContainer" parent="Main-Menu"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_stretch_ratio = 0.0
+texture = ExtResource("1_dnfjo")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Main-Menu/Startup-Menu"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("2_qe12f")
-region_rect = Rect2(0, -2, 359, 359)
-patch_margin_left = 250
-patch_margin_top = 300
-patch_margin_right = 200
-patch_margin_bottom = 300
-
-[node name="MarginContainer" type="MarginContainer" parent="Main-Menu/Startup-Menu/NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -144.5
-offset_top = -86.0
-offset_right = 144.5
-offset_bottom = 86.0
+offset_left = -506.5
+offset_top = -602.0
+offset_right = 1.5
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
 
-[node name="Buttons" type="VBoxContainer" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer"]
-layout_mode = 2
-
-[node name="Play" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_nlkkf")
-theme_override_styles/hover = SubResource("StyleBoxTexture_jix8l")
-theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
-text = "Play"
-icon_alignment = 1
-
-[node name="Options" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_qe12f")
-theme_override_styles/hover = SubResource("StyleBoxTexture_8qtwp")
-theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
-text = "Options"
-icon_alignment = 1
-
-[node name="Tutorial" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_dy7ct")
-theme_override_styles/hover = SubResource("StyleBoxTexture_0o4t1")
-theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
-text = "Tutorial"
-icon_alignment = 1
-
-[node name="Exit" type="MarginContainer" parent="Main-Menu/Startup-Menu/NinePatchRect"]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 479.0
-offset_right = 507.0
-offset_bottom = 655.0
-scale = Vector2(0.5, 0.5)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit"]
-layout_mode = 2
-texture = ExtResource("5_nlkkf")
-
-[node name="Button" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect"]
-layout_mode = 2
-offset_right = 176.0
-offset_bottom = 176.0
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_0k4wn")
-theme_override_styles/hover = SubResource("StyleBoxTexture_j5v2v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_iotk1")
-icon = ExtResource("5_glbon")
-flat = true
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_left = 22.0
-offset_right = 140.0
-offset_bottom = 51.0
-scale = Vector2(5, 5)
-
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 17
-text = "Formular
-   Cyberjaya25"
+size_flags_vertical = 4
+theme_override_constants/separation = 15
 
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect/Button" to="." method="_on_button_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 8
+
+[node name="Race-mode-button" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_t301m")
+text = "Race
+Mode"
+
+[node name="Garage-button" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_es6ti")
+text = "Garage"
+
+[node name="Shop-button" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_domf7")
+text = "Shop"
+icon_alignment = 1
