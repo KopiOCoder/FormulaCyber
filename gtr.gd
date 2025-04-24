@@ -11,7 +11,7 @@ var ENGINE_POWER = 300
 @export var boost_replenish_rate = 0.5
 @onready var camera_pivot = $CameraPivot
 @onready var camera_3d = $CameraPivot/Camera3D
-
+@onready var reverse_cam = $CameraPivot/ReverseCam
 var is_boosting = false
 var cooldown_timer = 0
 var look_at
@@ -27,9 +27,11 @@ func _process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
 	engine_force = Input.get_axis("move_down", "move_up") * ENGINE_POWER
 	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20)
-	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta * 5)
+	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta * 10)
 	look_at = look_at.lerp(global_position + linear_velocity, delta * 5)
 	camera_3d.look_at(look_at)
+	reverse_cam.look_at(look_at)
+	_check_camera_switch()
 	
 func _physics_process(delta):
 	
@@ -49,3 +51,9 @@ func _physics_process(delta):
 		
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
+
+func _check_camera_switch():
+	if linear_velocity.dot(transform.basis.z) > -1:
+		camera_3d.current = true
+	else:
+		reverse_cam.current = true
