@@ -551,6 +551,10 @@ top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(-1, 5.28557e-08, -6.96349e-08, 0, 0.79653, 0.604599, 8.74228e-08, 0.604599, -0.79653, 0, 3.22663, -5.33676)
+current = true
+
+[node name="ReverseCam" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.79653, 0.604599, 0, -0.604599, 0.79653, 0, 3.22663, 5.20054)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.399588, -0.0726852, -2.8518)
