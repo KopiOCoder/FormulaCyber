@@ -24,7 +24,11 @@ size = Vector3(225.736, 1, 181.808)
 material = SubResource("StandardMaterial3D_haa73")
 
 [node name="CSGBox3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.216315, 0, -3.99415, 0, 4, 0, 3.99415, 0, 0.216315, -0.0598917, -0.106279, 45.2223)
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -0.977909, -0.109255, 19.5646)
+polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.927893, 3.44923, 0.270927)
+
+[node name="CSGBox3D3" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 4.0425, -0.657372, 89.1227)
 polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.927893, 3.44923, 0.270927)
 
 [node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
