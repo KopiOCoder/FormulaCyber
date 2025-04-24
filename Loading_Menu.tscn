@@ -112,14 +112,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
 text = "Options"
 icon_alignment = 1
 
-[node name="Tutorial" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons"]
+[node name="Info" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons"]
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_dy7ct")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0o4t1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
-text = "Tutorial"
+text = "Info"
 icon_alignment = 1
 
 [node name="Exit" type="MarginContainer" parent="Main-Menu/Startup-Menu/NinePatchRect"]
@@ -162,5 +162,5 @@ text = "Formular
 
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Info" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect/Button" to="." method="_on_button_pressed"]

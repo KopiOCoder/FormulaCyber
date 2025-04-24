@@ -97,3 +97,8 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_domf7")
 text = "Shop"
 icon_alignment = 1
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Race-mode-button" to="." method="_on_racemodebutton_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Garage-button" to="." method="_on_garagebutton_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Shop-button" to="." method="_on_shopbutton_pressed"]
