@@ -15,11 +15,19 @@ var ENGINE_POWER = 300
 var is_boosting = false
 var cooldown_timer = 0
 var look_at
+var initial_position : Vector3
+var current_position : Vector3
+var last_position : Vector3
+var total_distance = 0
+var distance = initial_position.distance_to(current_position)
+var score = int(distance)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	look_at = global_position
+	initial_position = global_transform.origin
+	last_position = global_transform.origin
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +40,12 @@ func _process(delta: float) -> void:
 	camera_3d.look_at(look_at)
 	reverse_cam.look_at(look_at)
 	_check_camera_switch()
+	current_position = global_transform.origin
+	distance = last_position.distance_to(current_position)
+	total_distance += distance
+	last_position = current_position
+	score = int(total_distance)
+	$"../Gui/Score".text = str(score)
 	
 func _physics_process(delta):
 	
