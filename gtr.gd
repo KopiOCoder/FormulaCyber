@@ -6,8 +6,8 @@ var ENGINE_POWER = 300
 
 @export var boost_power = 200
 @export var boost_fuel = 10
-@export var boost_cooldown = 2
-@export var boost_deplete_rate = 1
+@export var boost_cooldown = 3.5
+@export var boost_deplete_rate = 1.5
 @export var boost_replenish_rate = 0.5
 @onready var camera_pivot = $CameraPivot
 @onready var camera_3d = $CameraPivot/Camera3D
@@ -21,6 +21,7 @@ var last_position : Vector3
 var total_distance = 0
 var distance = initial_position.distance_to(current_position)
 var score = int(distance)
+var audio_played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 	look_at = global_position
 	initial_position = global_transform.origin
 	last_position = global_transform.origin
+	boost_fuel = clamp(boost_fuel, 0, 10)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,18 +56,37 @@ func _physics_process(delta):
 		$Node3D/GPUParticles3D.emitting = is_boosting
 		cooldown_timer = boost_cooldown
 		ENGINE_POWER += boost_power
-		boost_fuel -= boost_deplete_rate * delta
+		boost_fuel -= boost_deplete_rate
 		print(engine_force)
+		print(boost_fuel)
+		print(is_boosting)
 		print($Node3D/GPUParticles3D.emitting)
-	else:
-		is_boosting = false
-		boost_fuel = clamp(boost_fuel + boost_replenish_rate * delta, 0, 10)  
+		
+		
+		if audio_played == false:
+			$AudioStreamPlayer3D.playing = true
+			audio_played = true
+			
+		await get_tree().create_timer(3.5).timeout 
+		
+		if audio_played == true:
+			$AudioStreamPlayer3D.playing = false
+		
+	if boost_fuel < 0:
+		$Node3D/GPUParticles3D.emitting = false
 		
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
+		
 	if Input.is_action_just_released("boost"):
 		$Node3D/GPUParticles3D.emitting = false
+		$AudioStreamPlayer3D.playing = false
+		audio_played = false
+		is_boosting = false
 	
+	if is_boosting == false:
+		boost_fuel += boost_replenish_rate * delta
+		
 func _check_camera_switch():
 	if linear_velocity.dot(transform.basis.z) > -1:
 		camera_3d.current = true
