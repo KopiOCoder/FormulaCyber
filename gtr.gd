@@ -22,6 +22,9 @@ var total_distance = 0
 var distance = initial_position.distance_to(current_position)
 var score = int(distance)
 var audio_played = false
+const zoomed_in_fov = 90.0
+const default_fov = 80.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,7 +64,7 @@ func _physics_process(delta):
 		print(boost_fuel)
 		print(is_boosting)
 		print($Node3D/GPUParticles3D.emitting)
-		
+		camera_3d.fov = zoomed_in_fov
 		
 		if audio_played == false:
 			$AudioStreamPlayer3D.playing = true
@@ -74,6 +77,7 @@ func _physics_process(delta):
 		
 	if boost_fuel < 0:
 		$Node3D/GPUParticles3D.emitting = false
+		is_boosting = false
 		
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
@@ -83,6 +87,7 @@ func _physics_process(delta):
 		$AudioStreamPlayer3D.playing = false
 		audio_played = false
 		is_boosting = false
+		camera_3d.fov = default_fov
 	
 	if is_boosting == false:
 		boost_fuel += boost_replenish_rate * delta
