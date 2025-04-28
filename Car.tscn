@@ -7,7 +7,16 @@ script/source = "extends VehicleBody3D
 
 const MAX_STEER = 0.7
 
-const ENGINE_POWER = 300
+var ENGINE_POWER = 300
+
+@export var boost_power = 200
+@export var boost_fuel = 10
+@export var boost_cooldown = 2
+@export var boost_deplete_rate = 1
+@export var boost_replenish_rate = 0.5
+
+var is_boosting = false
+var cooldown_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +28,20 @@ func _process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis(\"move_right\", \"move_left\") * MAX_STEER, delta * 2.5)
 	engine_force = Input.get_axis(\"move_down\", \"move_up\") * ENGINE_POWER
 	
+func _physics_process(delta):
+	
+	if Input.is_action_pressed(\"boost\") and cooldown_timer <= 0 and boost_fuel > 0:
+		is_boosting = true
+		cooldown_timer = boost_cooldown
+		ENGINE_POWER += boost_power
+		boost_fuel -= boost_deplete_rate * delta
+		print(engine_force)
+	else:
+		is_boosting = false
+		boost_fuel = clamp(boost_fuel + boost_replenish_rate * delta, 0, 10)  
+			
+	if cooldown_timer > 0:
+		cooldown_timer -= delta
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3mk7"]
@@ -220,10 +243,10 @@ shape = SubResource("ConvexPolygonShape3D_gvgjh")
 [node name="BL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.880114)
 use_as_traction = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_rest_length = 0.1
 wheel_friction_slip = 1.2
-suspension_travel = 0.04
+suspension_travel = 0.03
 suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BL"]
@@ -233,10 +256,10 @@ skeleton = NodePath("")
 [node name="BR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, -0.880114)
 use_as_traction = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_rest_length = 0.1
 wheel_friction_slip = 1.2
-suspension_travel = 0.04
+suspension_travel = 0.03
 suspension_stiffness = 90.0
 
 [node name="mesh" type="MeshInstance3D" parent="BR"]
@@ -246,7 +269,7 @@ skeleton = NodePath("")
 [node name="FL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, 0.639886)
 use_as_steering = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_friction_slip = 1.4
 suspension_travel = 0.15
 suspension_stiffness = 120.0
@@ -258,7 +281,7 @@ skeleton = NodePath("")
 [node name="FR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.3, 0.639886)
 use_as_steering = true
-wheel_roll_influence = 0.01
+wheel_roll_influence = 0.0
 wheel_friction_slip = 1.4
 suspension_travel = 0.15
 suspension_stiffness = 120.0
