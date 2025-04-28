@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=79 format=4 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
@@ -10,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cg05x688j3hbv" path="res://City map/Models/OBJ format/road-intersection-line.obj" id="8_k2nc4"]
 [ext_resource type="Texture2D" uid="uid://5seh3r8m3emc" path="res://City map/Models/OBJ format/Textures/colormap.png" id="9_cyjlh"]
 [ext_resource type="ArrayMesh" uid="uid://0tnjhbdloix0" path="res://City map/Models/OBJ format/road-crossroad-line.obj" id="10_131ww"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="11_mcgcu"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sa3md"]
 
@@ -1460,3 +1461,16 @@ mesh = SubResource("ArrayMesh_af74i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/G3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3svkf")
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="gui"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+clip_text = true
+
+[node name="Pause-Menu" parent="gui" instance=ExtResource("11_mcgcu")]

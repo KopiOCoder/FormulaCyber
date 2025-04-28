@@ -11,9 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Menu" type="CanvasLayer" parent="."]
 
-[node name="Pause Menu" type="Control" parent="CanvasLayer"]
+[node name="Viewport" type="Control" parent="Menu"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -22,10 +22,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Settings-Menu" parent="CanvasLayer/Pause Menu" instance=ExtResource("1_nwcfo")]
+[node name="Settings-Menu" parent="Menu/Viewport" instance=ExtResource("1_nwcfo")]
 layout_mode = 1
 
-[node name="UI" type="MarginContainer" parent="CanvasLayer/Pause Menu"]
+[node name="UI" type="MarginContainer" parent="Menu/Viewport"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 15
@@ -39,15 +39,15 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
-[node name="Menu" type="MarginContainer" parent="CanvasLayer/Pause Menu/UI"]
+[node name="Menu" type="MarginContainer" parent="Menu/Viewport/UI"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_left = 0
 
-[node name="Pause" type="Button" parent="CanvasLayer/Pause Menu/UI/Menu"]
+[node name="Pause" type="Button" parent="Menu/Viewport/UI/Menu"]
 layout_mode = 2
 icon = ExtResource("2_05uyy")
 flat = true
 
-[connection signal="pressed" from="CanvasLayer/Pause Menu/UI/Menu/Pause" to="CanvasLayer/Pause Menu/Settings-Menu" method="_on_pause_pressed"]
+[connection signal="pressed" from="Menu/Viewport/UI/Menu/Pause" to="Menu/Viewport/Settings-Menu" method="_on_pause_pressed"]
