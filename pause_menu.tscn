@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcpcogfafhf3e"]
+
+[ext_resource type="PackedScene" uid="uid://bmu1l7g7epgvv" path="res://settings_menu.tscn" id="1_nwcfo"]
+[ext_resource type="Texture2D" uid="uid://dw7u6u3jmcba2" path="res://ui Design for FC/Icons/Icon_Small_Blank_Menu.png" id="2_05uyy"]
+
+[node name="Pause-Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Viewport" type="Control" parent="Menu"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings-Menu" parent="Menu/Viewport" instance=ExtResource("1_nwcfo")]
+layout_mode = 1
+
+[node name="UI" type="MarginContainer" parent="Menu/Viewport"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 573.0
+offset_top = 3.0
+offset_right = 573.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="Menu" type="MarginContainer" parent="Menu/Viewport/UI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 0
+
+[node name="Pause" type="Button" parent="Menu/Viewport/UI/Menu"]
+layout_mode = 2
+icon = ExtResource("2_05uyy")
+flat = true
+
+[connection signal="pressed" from="Menu/Viewport/UI/Menu/Pause" to="Menu/Viewport/Settings-Menu" method="_on_pause_pressed"]
