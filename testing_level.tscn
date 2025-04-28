@@ -1,7 +1,9 @@
+
 [gd_scene load_steps=4 format=3 uid="uid://bsf1kx2yakruw"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_haa73"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haa73"]
 albedo_texture = ExtResource("1_tbtb0")
@@ -36,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.82576, -2.48576)
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
+
 [node name="Score" type="Label" parent="Gui"]
 offset_left = -2.0
 offset_top = -2.0
@@ -45,3 +48,49 @@ theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 2
 clip_text = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D16"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("3_b55i6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Pause Menu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings-Menu" parent="CanvasLayer/Pause Menu" instance=ExtResource("6_du6cx")]
+layout_mode = 1
+
+[node name="UI" type="MarginContainer" parent="CanvasLayer/Pause Menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 573.0
+offset_top = 3.0
+offset_right = 573.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="Menu" type="MarginContainer" parent="CanvasLayer/Pause Menu/UI"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 0
+
+[node name="Pause" type="Button" parent="CanvasLayer/Pause Menu/UI/Menu"]
+layout_mode = 2
+icon = ExtResource("5_th68x")
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/Pause Menu/UI/Menu/Pause" to="CanvasLayer/Pause Menu/Settings-Menu" method="_on_pause_pressed"]
