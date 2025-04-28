@@ -32,9 +32,6 @@ polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 4.0425, -0.657372, 89.1227)
 polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.927893, 3.44923, 0.270927)
 
-[node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.82576, -2.48576)
-
 [node name="Gui" type="CanvasLayer" parent="."]
 
 [node name="Score" type="Label" parent="Gui"]
@@ -47,3 +44,6 @@ text = "0"
 clip_text = true
 
 [node name="Pause-Menu" parent="Gui" instance=ExtResource("3_b55i6")]
+
+[node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.82576, -2.48576)

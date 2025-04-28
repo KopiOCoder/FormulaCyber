@@ -144,14 +144,14 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_iotk1")
 icon = ExtResource("7_8xc5h")
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="game-title" type="MarginContainer" parent="."]
 layout_mode = 2
 offset_left = 22.0
 offset_right = 140.0
 offset_bottom = 51.0
 scale = Vector2(5, 5)
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Title" type="Label" parent="game-title"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
