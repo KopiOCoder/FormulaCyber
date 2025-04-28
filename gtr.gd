@@ -47,8 +47,7 @@ func _process(delta: float) -> void:
 	total_distance += distance
 	last_position = current_position
 	score = int(total_distance)
-	$"../Gui/Score".text = str(score)	
-
+	$"../Gui/Score".text = str(score)
 
 func _physics_process(delta):
 	
