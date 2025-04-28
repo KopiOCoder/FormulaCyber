@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=21 format=3 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="PackedScene" uid="uid://bu2ckrk4i165q" path="res://Car.tscn" id="2_4dc8p"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
@@ -7,8 +7,6 @@
 [ext_resource type="ArrayMesh" uid="uid://8v484j2envfb" path="res://City map/Models/OBJ format/road-straight.obj" id="5_idgh4"]
 [ext_resource type="ArrayMesh" uid="uid://ex0s2d8kl0nj" path="res://City map/Models/OBJ format/road-straight-half.obj" id="6_k2nc4"]
 [ext_resource type="ArrayMesh" uid="uid://bri5u22jix5xg" path="res://City map/Models/OBJ format/road-curve.obj" id="7_cyjlh"]
-[ext_resource type="PackedScene" uid="uid://bmu1l7g7epgvv" path="res://settings_menu.tscn" id="8_cyjlh"]
-[ext_resource type="Texture2D" uid="uid://dw7u6u3jmcba2" path="res://ui Design for FC/Icons/Icon_Small_Blank_Menu.png" id="9_131ww"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sa3md"]
 
@@ -550,44 +548,3 @@ transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 
 shape = SubResource("ConvexPolygonShape3D_ilgwd")
 
 [node name="G1" type="CSGCombiner3D" parent="Road"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Pause Menu" type="Control" parent="CanvasLayer"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Settings-Menu" parent="CanvasLayer/Pause Menu" instance=ExtResource("8_cyjlh")]
-layout_mode = 1
-
-[node name="UI" type="MarginContainer" parent="CanvasLayer/Pause Menu"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 573.0
-offset_top = 3.0
-offset_right = 573.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-
-[node name="Menu" type="MarginContainer" parent="CanvasLayer/Pause Menu/UI"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_constants/margin_left = 0
-
-[node name="Pause" type="Button" parent="CanvasLayer/Pause Menu/UI/Menu"]
-layout_mode = 2
-icon = ExtResource("9_131ww")
-flat = true
-
-[connection signal="pressed" from="CanvasLayer/Pause Menu/UI/Menu/Pause" to="CanvasLayer/Pause Menu/Settings-Menu" method="_on_pause_pressed"]
