@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgur6s3cttspk"]
+[gd_scene load_steps=21 format=3 uid="uid://bgur6s3cttspk"]
 
 [ext_resource type="Script" uid="uid://83ygjptgoqut" path="res://UI/Loading_Menu.gd" id="1_oyspe"]
 [ext_resource type="Texture2D" uid="uid://bqwdl5xfsjweq" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blue_Square.png" id="2_i2kn7"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="4_p6eeh"]
 [ext_resource type="Texture2D" uid="uid://dqifbcepwk5lq" path="res://ui Design for FC/ButtonsText/ButtonText_Small_Square.png" id="5_fthbb"]
 [ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="6_1byfj"]
-[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="7_8xc5h"]
 [ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="7_016wm"]
+[ext_resource type="Texture2D" uid="uid://b3g8y3uuax4r6" path="res://ui Design for FC/ButtonsText/PremadeButtons_ExitOrange.png" id="8_1byfj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
 texture = ExtResource("3_e736c")
@@ -36,8 +36,14 @@ texture = ExtResource("6_1byfj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvugv"]
 texture = ExtResource("7_016wm")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_016wm"]
+texture = ExtResource("8_1byfj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57lhi"]
+texture = ExtResource("8_1byfj")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1byfj"]
-texture = ExtResource("7_8xc5h")
+texture = ExtResource("8_1byfj")
 
 [node name="ui-game" type="Control"]
 layout_mode = 3
@@ -211,11 +217,11 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_xvugv")
 text = "No"
 
 [node name="Back button" type="NinePatchRect" parent="."]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 543.0
-offset_right = 125.0
-offset_bottom = 627.0
-texture = ExtResource("4_p6eeh")
+offset_right = 214.0
+offset_bottom = 632.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Back button"]
 layout_mode = 1
@@ -231,6 +237,8 @@ grow_vertical = 2
 
 [node name="back" type="Button" parent="Back button/MarginContainer"]
 layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_016wm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_57lhi")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1byfj")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

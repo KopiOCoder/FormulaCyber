@@ -1,11 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://2a8s6cqy1gjv"]
+[gd_scene load_steps=22 format=3 uid="uid://2a8s6cqy1gjv"]
 
 [ext_resource type="Script" uid="uid://crhmwwtd4rfud" path="res://UI/options_menu.gd" id="1_onhes"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_q6x1i"]
 [ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="2_onhes"]
+[ext_resource type="Texture2D" uid="uid://bwt7mwcquri43" path="res://ui Design for FC/ButtonsText/SVG/ButtonText_Small_Blue_Square.svg" id="2_t83re"]
+[ext_resource type="Texture2D" uid="uid://1ddlel31ftvx" path="res://ui Design for FC/ButtonsText/SVG/ButtonText_Large_Orange_Square.svg" id="3_ceaio"]
+[ext_resource type="PackedScene" uid="uid://bjqtytycj4c0o" path="res://Input settings/Input_settings.tscn" id="4_hrc50"]
+[ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="4_jpfgy"]
+[ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_odouo"]
+[ext_resource type="Texture2D" uid="uid://bopjlw67o6x7c" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Rounded.png" id="9_l8r4g"]
+[ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="10_xdpr0"]
+[ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="11_13cjo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r4g"]
+texture = ExtResource("4_jpfgy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdpr0"]
+texture = ExtResource("4_jpfgy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13cjo"]
+texture = ExtResource("4_jpfgy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrc50"]
 texture = ExtResource("2_onhes")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_442dt"]
+bg_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5j4i"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mtuf"]
+texture = ExtResource("9_l8r4g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng0rr"]
+texture = ExtResource("9_l8r4g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1leo"]
+texture = ExtResource("10_xdpr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgnc0"]
+texture = ExtResource("11_13cjo")
 
 [node name="Options-menu" type="Control"]
 layout_mode = 3
@@ -16,14 +51,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_onhes")
 
-[node name="Back button" type="NinePatchRect" parent="."]
+[node name="Gui" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Gui"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t83re")
+region_rect = Rect2(36.5, 47, 451, 139)
+
+[node name="InputSettings" parent="Gui" instance=ExtResource("4_hrc50")]
+
+[node name="MarginContainer" type="MarginContainer" parent="Gui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1015.0
+offset_top = -125.0
+offset_right = 1117.0
+offset_bottom = -26.0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Gui/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_ceaio")
+
+[node name="Key-Back" type="Button" parent="Gui/MarginContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = 13.0
+offset_right = 89.0
+offset_bottom = 89.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8r4g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xdpr0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_13cjo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back button" type="NinePatchRect" parent="Control"]
+process_mode = 3
+layout_mode = 0
 offset_left = 41.0
 offset_top = 543.0
 offset_right = 125.0
 offset_bottom = 627.0
 texture = ExtResource("1_q6x1i")
 
-[node name="MarginContainer" type="MarginContainer" parent="Back button"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Back button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,8 +118,112 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Back button/MarginContainer"]
+[node name="Button" type="Button" parent="Control/Back button/MarginContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_hrc50")
 
-[connection signal="pressed" from="Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -254.0
+offset_right = 350.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_odouo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 58.0
+offset_right = -68.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Option" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 50
+text = "Options "
+
+[node name="Volume" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 25
+text = "Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="Seperator" type="Control" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Keybinds" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Keybind" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 25
+text = "Keybinds"
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="Config-button" type="Button" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds/NinePatchRect"]
+layout_mode = 2
+offset_left = -8.0
+offset_top = 42.0
+offset_right = 564.0
+offset_bottom = 121.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_442dt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_442dt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5j4i")
+text = "Configure Keybinds"
+
+[node name="ApplyButton" type="Button" parent="Control"]
+offset_left = 938.0
+offset_top = 232.0
+offset_right = 1097.0
+offset_bottom = 312.0
+theme_override_constants/outline_size = 5
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7mtuf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ng0rr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d1leo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kgnc0")
+text = "Apply"
+
+[connection signal="pressed" from="Gui/MarginContainer/NinePatchRect/Key-Back" to="." method="_on_key_back_pressed"]
+[connection signal="pressed" from="Control/Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/VolumeSlider" to="." method="_on_volume_slider_mouse_exited"]
+[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/VolumeSlider" to="." method="_on_volume_slider_ready"]
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds/NinePatchRect/Config-button" to="." method="_on_configbutton_pressed"]
+[connection signal="pressed" from="Control/ApplyButton" to="." method="_on_apply_button_pressed"]
