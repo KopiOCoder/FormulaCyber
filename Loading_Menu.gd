@@ -18,3 +18,7 @@ func _on_tutorial_pressed() -> void:
 func _on_button_pressed() -> void:
 	get_tree().quit()
 	
+
+
+func _on_ready() -> void:
+	get_viewport().gui_disable_input = false
