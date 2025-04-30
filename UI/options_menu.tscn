@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://2a8s6cqy1gjv"]
+[gd_scene load_steps=5 format=3 uid="uid://2a8s6cqy1gjv"]
+
+[ext_resource type="Script" uid="uid://crhmwwtd4rfud" path="res://UI/options_menu.gd" id="1_onhes"]
+[ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_q6x1i"]
+[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="2_onhes"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrc50"]
+texture = ExtResource("2_onhes")
 
 [node name="Options-menu" type="Control"]
 layout_mode = 3
@@ -7,3 +14,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_onhes")
+
+[node name="Back button" type="NinePatchRect" parent="."]
+offset_left = 41.0
+offset_top = 543.0
+offset_right = 125.0
+offset_bottom = 627.0
+texture = ExtResource("1_q6x1i")
+
+[node name="MarginContainer" type="MarginContainer" parent="Back button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Back button/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_hrc50")
+
+[connection signal="pressed" from="Back button/MarginContainer/Button" to="." method="_on_button_pressed"]

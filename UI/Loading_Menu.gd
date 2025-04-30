@@ -15,6 +15,18 @@ func _on_tutorial_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/Info.tscn")
 
 
-func _on_button_pressed() -> void:
+
+func _on_yes_pressed() -> void:
 	get_tree().quit()
-	
+
+
+func _on_no_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_ready() -> void:
+	$quit.visible = false
+
+
+func _on_button_pressed() -> void:
+	$quit.visible = true

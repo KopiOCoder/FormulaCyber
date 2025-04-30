@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgur6s3cttspk"]
+[gd_scene load_steps=19 format=3 uid="uid://bgur6s3cttspk"]
 
 [ext_resource type="Script" uid="uid://83ygjptgoqut" path="res://UI/Loading_Menu.gd" id="1_oyspe"]
 [ext_resource type="Texture2D" uid="uid://bqwdl5xfsjweq" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blue_Square.png" id="2_i2kn7"]
 [ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="3_e736c"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="4_p6eeh"]
-[ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="5_snbwp"]
-[ext_resource type="Texture2D" uid="uid://dxlfnil35j3qc" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Square.png" id="6_dw0un"]
+[ext_resource type="Texture2D" uid="uid://dqifbcepwk5lq" path="res://ui Design for FC/ButtonsText/ButtonText_Small_Square.png" id="5_fthbb"]
+[ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="6_1byfj"]
 [ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="7_8xc5h"]
+[ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="7_016wm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
 texture = ExtResource("3_e736c")
@@ -29,14 +30,14 @@ texture = ExtResource("3_e736c")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0o4t1"]
 texture = ExtResource("3_e736c")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k4wn"]
-texture = ExtResource("6_dw0un")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7sccx"]
+texture = ExtResource("6_1byfj")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5v2v"]
-texture = ExtResource("6_dw0un")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvugv"]
+texture = ExtResource("7_016wm")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iotk1"]
-texture = ExtResource("6_dw0un")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1byfj"]
+texture = ExtResource("7_8xc5h")
 
 [node name="ui-game" type="Control"]
 layout_mode = 3
@@ -122,28 +123,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_glbon")
 text = "Info"
 icon_alignment = 1
 
-[node name="Exit" type="MarginContainer" parent="Main-Menu/Startup-Menu/NinePatchRect"]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 479.0
-offset_right = 507.0
-offset_bottom = 655.0
-scale = Vector2(0.5, 0.5)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit"]
-layout_mode = 2
-texture = ExtResource("5_snbwp")
-
-[node name="Button" type="Button" parent="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect"]
-layout_mode = 2
-offset_right = 176.0
-offset_bottom = 176.0
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_0k4wn")
-theme_override_styles/hover = SubResource("StyleBoxTexture_j5v2v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_iotk1")
-icon = ExtResource("7_8xc5h")
-flat = true
-
 [node name="game-title" type="MarginContainer" parent="."]
 layout_mode = 2
 offset_left = 22.0
@@ -160,7 +139,104 @@ theme_override_font_sizes/font_size = 17
 text = "Formular
    Cyberjaya25"
 
+[node name="quit" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="quit"]
+self_modulate = Color(0.11, 0.11, 0.11, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quit menu" type="MarginContainer" parent="quit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 180.0
+offset_right = -306.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="quit/Quit menu"]
+layout_mode = 2
+texture = ExtResource("5_fthbb")
+
+[node name="Label" type="Label" parent="quit/Quit menu/NinePatchRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 52.0
+offset_right = 516.0
+offset_bottom = 160.0
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 35
+text = "Are You Sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="quit/Quit menu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = 159.0
+offset_right = -66.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quit/Quit menu/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Yes" type="Button" parent="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_7sccx")
+text = "Yes"
+icon_alignment = 1
+
+[node name="No" type="Button" parent="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_xvugv")
+text = "No"
+
+[node name="Back button" type="NinePatchRect" parent="."]
+offset_left = 41.0
+offset_top = 543.0
+offset_right = 125.0
+offset_bottom = 627.0
+texture = ExtResource("4_p6eeh")
+
+[node name="MarginContainer" type="MarginContainer" parent="Back button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="Back button/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_1byfj")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/MarginContainer/Buttons/Info" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Main-Menu/Startup-Menu/NinePatchRect/Exit/NinePatchRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Back button/MarginContainer/back" to="." method="_on_button_pressed"]

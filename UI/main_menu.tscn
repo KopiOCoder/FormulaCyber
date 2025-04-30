@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://45dpmikdinvs"]
+[gd_scene load_steps=16 format=3 uid="uid://45dpmikdinvs"]
 
 [ext_resource type="Script" uid="uid://s22b7xmhgyf2" path="res://UI/main_menu.gd" id="1_257up"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_dnfjo"]
 [ext_resource type="Texture2D" uid="uid://ddy7d3r68qijk" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Square.png" id="3_3mro0"]
 [ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_tu7k8"]
 [ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="5_5cvai"]
+[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="6_8ctay"]
+[ext_resource type="Texture2D" uid="uid://dqifbcepwk5lq" path="res://ui Design for FC/ButtonsText/ButtonText_Small_Square.png" id="7_2mudq"]
+[ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="8_cafmx"]
+[ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="9_tcix6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t301m"]
 texture = ExtResource("3_3mro0")
@@ -14,6 +18,15 @@ texture = ExtResource("4_tu7k8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
 texture = ExtResource("5_5cvai")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ev3b6"]
+texture = ExtResource("6_8ctay")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmlvu"]
+texture = ExtResource("8_cafmx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aorne"]
+texture = ExtResource("9_tcix6")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -98,7 +111,104 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_domf7")
 text = "Shop"
 icon_alignment = 1
 
-[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[node name="Back button" type="NinePatchRect" parent="."]
+offset_left = 41.0
+offset_top = 543.0
+offset_right = 125.0
+offset_bottom = 627.0
+texture = ExtResource("1_dnfjo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Back button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Back button/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ev3b6")
+
+[node name="quit" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="quit"]
+self_modulate = Color(0.11, 0.11, 0.11, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quit menu" type="MarginContainer" parent="quit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 180.0
+offset_right = -306.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="quit/Quit menu"]
+layout_mode = 2
+texture = ExtResource("7_2mudq")
+
+[node name="Label" type="Label" parent="quit/Quit menu/NinePatchRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 52.0
+offset_right = 516.0
+offset_bottom = 160.0
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 35
+text = "Are You Sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="quit/Quit menu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = 159.0
+offset_right = -66.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quit/Quit menu/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Yes" type="Button" parent="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_mmlvu")
+text = "Yes"
+icon_alignment = 1
+
+[node name="No" type="Button" parent="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_aorne")
+text = "No"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Race-mode-button" to="." method="_on_racemodebutton_pressed"]
 [connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Garage-button" to="." method="_on_garagebutton_pressed"]
 [connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Shop-button" to="." method="_on_shopbutton_pressed"]
+[connection signal="pressed" from="Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="quit/Quit menu/NinePatchRect/MarginContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
