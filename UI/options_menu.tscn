@@ -210,6 +210,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u5j4i")
 text = "Configure Keybinds"
 
 [node name="ApplyButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 938.0
 offset_top = 232.0
 offset_right = 1097.0
