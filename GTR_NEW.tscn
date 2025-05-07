@@ -551,6 +551,7 @@ rings = 1
 is_hemisphere = true
 
 [node name="Nissan GTR" type="VehicleBody3D"]
+mass = 25.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(-0.0150012, -0.0576145, 1.40894)
 script = ExtResource("1_h4xrs")
@@ -563,40 +564,46 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_qgvpe")
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01101, -0.416011, -1.65789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.011, -0.43, -1.658)
 use_as_traction = true
+wheel_rest_length = 0.2
+suspension_travel = 0.3
+suspension_stiffness = 10.0
 
 [node name="Circle_003" type="MeshInstance3D" parent="VehicleWheel3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01101, 0.386814, 1.65789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01101, 0.350956, 1.65789)
 mesh = SubResource("ArrayMesh_pg8yh")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.047, -0.416, -1.675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.047, -0.43, -1.675)
 use_as_traction = true
+wheel_rest_length = 0.2
+suspension_travel = 0.3
+suspension_stiffness = 10.0
 
 [node name="Circle_002" type="MeshInstance3D" parent="VehicleWheel3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04686, 0.382276, 1.67486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.047, 0.351, 1.675)
 mesh = SubResource("ArrayMesh_iuifp")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.003, -0.416, 1.959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.003, -0.43, 1.959)
 use_as_steering = true
 wheel_rest_length = 0.2
 
 [node name="Circle_001" type="MeshInstance3D" parent="VehicleWheel3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0032, 0.360105, -1.95913)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.003, 0.351, -1.959)
 mesh = SubResource("ArrayMesh_tipoj")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.015, -0.416, 1.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.015, -0.43, 1.95)
 use_as_steering = true
 wheel_rest_length = 0.2
 
 [node name="Circle" type="MeshInstance3D" parent="VehicleWheel3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01543, 0.403271, -1.95017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.015, 0.351, -1.95)
 mesh = SubResource("ArrayMesh_legmr")
 skeleton = NodePath("")
 
@@ -605,7 +612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.926036)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0, 3.22663, -5.33676)
+transform = Transform3D(-1, -7.54979e-08, 1.30766e-07, 0, 0.866025, 0.5, -1.50996e-07, 0.5, -0.866025, 0, 3.22663, -5.33676)
 current = true
 
 [node name="ReverseCam" type="Camera3D" parent="CameraPivot"]
