@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=231 format=4 uid="uid://lyt2mk250he2"]
-=======
-[gd_scene load_steps=79 format=4 uid="uid://lyt2mk250he2"]
->>>>>>> main
 
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
@@ -13,16 +9,12 @@
 [ext_resource type="ArrayMesh" uid="uid://cg05x688j3hbv" path="res://City map/Models/OBJ format/road-intersection-line.obj" id="8_k2nc4"]
 [ext_resource type="Texture2D" uid="uid://5seh3r8m3emc" path="res://City map/Models/OBJ format/Textures/colormap.png" id="9_cyjlh"]
 [ext_resource type="ArrayMesh" uid="uid://0tnjhbdloix0" path="res://City map/Models/OBJ format/road-crossroad-line.obj" id="10_131ww"]
-<<<<<<< HEAD
 [ext_resource type="ArrayMesh" uid="uid://uba2kja2tnt3" path="res://City map/Models/OBJ format/road-crossroad-path.obj" id="10_mcgcu"]
 [ext_resource type="ArrayMesh" uid="uid://cwiiivxjujtoj" path="res://City map/Models/OBJ format/road-split.obj" id="11_mcgcu"]
 [ext_resource type="ArrayMesh" uid="uid://cwf0fwc8r2x3b" path="res://City map/Models/OBJ format/road-slant.obj" id="12_7lb0s"]
 [ext_resource type="ArrayMesh" uid="uid://bri5u22jix5xg" path="res://City map/Models/OBJ format/road-curve.obj" id="13_0bku8"]
 [ext_resource type="ArrayMesh" uid="uid://lcyv4r5j5qfl" path="res://City map/Models/OBJ format/road-intersection-path.obj" id="14_ilgwd"]
 [ext_resource type="ArrayMesh" uid="uid://brd4di6vc88g5" path="res://City map/Models/OBJ format/road-bend-square.obj" id="14_tgii8"]
-=======
-[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="11_mcgcu"]
->>>>>>> main
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sa3md"]
 
@@ -1579,12 +1571,9 @@ shadow_enabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_sa3md")
 
-<<<<<<< HEAD
 [node name="Nissan GTR" parent="Floor" instance=ExtResource("1_131ww")]
 transform = Transform3D(-0.350567, 0, -0.936538, 0, 1, 0, 0.936538, 0, -0.350567, 198.093, 3.72022, 138.548)
 
-=======
->>>>>>> main
 [node name="reference" type="CSGBox3D" parent="."]
 visible = false
 material_override = SubResource("StandardMaterial3D_4dc8p")
@@ -2823,7 +2812,6 @@ mesh = SubResource("ArrayMesh_af74i")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/G3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3svkf")
 
-<<<<<<< HEAD
 [node name="StaticBody3D63" type="StaticBody3D" parent="Road/G3"]
 transform = Transform3D(-0.258818, 0, -0.965923, 0, 0.999997, 0, 0.965923, 0, -0.258818, -2.70095, 0.0500002, 32.6526)
 
@@ -6945,20 +6933,3 @@ mesh = SubResource("ArrayMesh_0aw7n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/G11/StaticBody3D26"]
 shape = SubResource("ConcavePolygonShape3D_qe4hd")
-=======
-[node name="Nissan GTR" parent="." instance=ExtResource("1_131ww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -251.168, 1.73296, 131.111)
-
-[node name="Gui" type="CanvasLayer" parent="."]
-
-[node name="Score" type="Label" parent="Gui"]
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 81.0
-theme_override_font_sizes/font_size = 60
-text = "0"
-clip_text = true
-
-[node name="Pause-Menu" parent="Gui" instance=ExtResource("11_mcgcu")]
->>>>>>> main
