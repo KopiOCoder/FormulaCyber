@@ -170,14 +170,28 @@ layout_mode = 2
 [node name="Volume" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+[node name="Label_Vol" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
 theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 25
-text = "Volume"
+text = "Master Volume"
 vertical_alignment = 1
 
-[node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+[node name="Master_Vol" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_xdpr0")
+
+[node name="Label_SFX" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 25
+text = "SFX Volume"
+vertical_alignment = 1
+
+[node name="sfx" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
 size_flags_vertical = 1
 max_value = 1.0
@@ -229,7 +243,11 @@ text = "Apply"
 
 [connection signal="pressed" from="Gui/MarginContainer/NinePatchRect/Key-Back" to="." method="_on_key_back_pressed"]
 [connection signal="pressed" from="Control/Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/VolumeSlider" to="." method="_on_volume_slider_mouse_exited"]
-[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/VolumeSlider" to="." method="_on_volume_slider_ready"]
+[connection signal="drag_ended" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_master_vol_drag_ended"]
+[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_volume_slider_mouse_exited"]
+[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_volume_slider_ready"]
+[connection signal="drag_ended" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_sfx_drag_ended"]
+[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_volume_slider_mouse_exited"]
+[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_volume_slider_ready"]
 [connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds/NinePatchRect/Config-button" to="." method="_on_configbutton_pressed"]
 [connection signal="pressed" from="Control/ApplyButton" to="." method="_on_apply_button_pressed"]

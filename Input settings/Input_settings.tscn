@@ -246,6 +246,46 @@ theme_override_font_sizes/font_size = 20
 text = "input"
 horizontal_alignment = 1
 
+[node name="Input-button6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_iyfh6")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Input-button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Input-button6/MarginContainer2"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Input-button6/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Input-button6/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Input-button6/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 20
+text = "input"
+horizontal_alignment = 1
+
 [node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
