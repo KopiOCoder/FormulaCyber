@@ -1,6 +1,8 @@
-[gd_scene load_steps=28 format=4 uid="uid://cir7hn7anugml"]
+[gd_scene load_steps=40 format=4 uid="uid://cir7hn7anugml"]
 
 [ext_resource type="Script" uid="uid://c7v4op3ucdpw8" path="res://gtr.gd" id="1_h4xrs"]
+[ext_resource type="AudioStream" uid="uid://5bewof30otfo" path="res://nissan_gtr_boost_sound.mp3" id="2_qgvpe"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="3_7kf8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4aod"]
 resource_name = "chasis"
@@ -473,31 +475,83 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eff7b")
 
+[sub_resource type="Curve" id="Curve_qgvpe"]
+_data = [Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.558824, 0.539326), 0.0, 0.0, 0, 0, Vector2(0.823529, 0.303371), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7kf8u"]
+curve = SubResource("Curve_qgvpe")
+
 [sub_resource type="Gradient" id="Gradient_h4xrs"]
-offsets = PackedFloat32Array(0.572727, 1)
+offsets = PackedFloat32Array(0.954545, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qgvpe"]
 gradient = SubResource("Gradient_h4xrs")
 
+[sub_resource type="Gradient" id="Gradient_3lklo"]
+offsets = PackedFloat32Array(0.936364, 0.972727)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7lidk"]
+gradient = SubResource("Gradient_3lklo")
+
+[sub_resource type="Curve" id="Curve_ecqfm"]
+_data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.830882, 0.157303), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xok8f"]
+curve = SubResource("Curve_ecqfm")
+
+[sub_resource type="Curve" id="Curve_sf0u3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -0.280899), 0.0, 0.0, 0, 0, Vector2(0.919118, -0.707865), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bm6in"]
+curve = SubResource("Curve_sf0u3")
+
+[sub_resource type="Curve" id="Curve_ih0jx"]
+_data = [Vector2(0.154412, 0.865169), 0.0, 0.0, 0, 0, Vector2(0.808824, 0.359551), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l6r4n"]
+curve = SubResource("Curve_ih0jx")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7kf8u"]
 emission_shape_scale = Vector3(0.2, 0.2, 0.2)
-emission_shape = 1
-emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
 spread = 0.0
-initial_velocity_max = 20.6
-gravity = Vector3(0, -4, 0)
-color = Color(1, 0.766667, 0, 1)
+initial_velocity_max = 30.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_l6r4n")
+color = Color(0.858824, 0.380392, 0, 1)
+color_ramp = SubResource("GradientTexture1D_7lidk")
 color_initial_ramp = SubResource("GradientTexture1D_qgvpe")
+alpha_curve = SubResource("CurveTexture_7kf8u")
+emission_curve = SubResource("CurveTexture_xok8f")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("CurveTexture_bm6in")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kf8u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rvt4"]
 vertex_color_use_as_albedo = true
+proximity_fade_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_3lklo"]
-material = SubResource("StandardMaterial3D_7kf8u")
-size = Vector3(0.05, 0.05, 0.05)
+[sub_resource type="SphereMesh" id="SphereMesh_p0qxd"]
+material = SubResource("StandardMaterial3D_7rvt4")
+radial_segments = 4
+rings = 1
+is_hemisphere = true
 
 [node name="Nissan GTR" type="VehicleBody3D"]
+mass = 25.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(-0.0150012, -0.0576145, 1.40894)
 script = ExtResource("1_h4xrs")
@@ -510,40 +564,46 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_qgvpe")
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01101, -0.386814, -1.65789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.011, -0.43, -1.658)
 use_as_traction = true
+wheel_rest_length = 0.2
+suspension_travel = 0.3
+suspension_stiffness = 10.0
 
 [node name="Circle_003" type="MeshInstance3D" parent="VehicleWheel3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01101, 0.386814, 1.65789)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01101, 0.350956, 1.65789)
 mesh = SubResource("ArrayMesh_pg8yh")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04686, -0.382276, -1.67486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.047, -0.43, -1.675)
 use_as_traction = true
+wheel_rest_length = 0.2
+suspension_travel = 0.3
+suspension_stiffness = 10.0
 
 [node name="Circle_002" type="MeshInstance3D" parent="VehicleWheel3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04686, 0.382276, 1.67486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.047, 0.351, 1.675)
 mesh = SubResource("ArrayMesh_iuifp")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0032, -0.360105, 1.95913)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.003, -0.43, 1.959)
 use_as_steering = true
 wheel_rest_length = 0.2
 
 [node name="Circle_001" type="MeshInstance3D" parent="VehicleWheel3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0032, 0.360105, -1.95913)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.003, 0.351, -1.959)
 mesh = SubResource("ArrayMesh_tipoj")
 skeleton = NodePath("")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01543, -0.403271, 1.95017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.015, -0.43, 1.95)
 use_as_steering = true
 wheel_rest_length = 0.2
 
 [node name="Circle" type="MeshInstance3D" parent="VehicleWheel3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01543, 0.403271, -1.95017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.015, 0.351, -1.95)
 mesh = SubResource("ArrayMesh_legmr")
 skeleton = NodePath("")
 
@@ -552,20 +612,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.926036)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, 5.28557e-08, -6.96349e-08, 0, 0.79653, 0.604599, 8.74228e-08, 0.604599, -0.79653, 0, 3.22663, -5.33676)
+transform = Transform3D(-1, -7.54979e-08, 1.30766e-07, 0, 0.866025, 0.5, -1.50996e-07, 0.5, -0.866025, 0, 3.22663, -5.33676)
 current = true
 
 [node name="ReverseCam" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.79653, 0.604599, 0, -0.604599, 0.79653, 0, 3.22663, 5.20054)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.399588, -0.0726852, -2.8518)
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.399588, -0.175104, -2.8518)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257672, 0.425401, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.358829, -0.357233, 0.0402943)
 emitting = false
-amount = 35
-lifetime = 0.1
+amount = 50
+lifetime = 0.3
 explosiveness = 0.13
 process_material = SubResource("ParticleProcessMaterial_7kf8u")
-draw_pass_1 = SubResource("BoxMesh_3lklo")
+draw_pass_1 = SubResource("SphereMesh_p0qxd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_qgvpe")
+volume_db = -10.0
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="Gui"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+clip_text = true
+
+[node name="Pause-Menu" parent="Gui" instance=ExtResource("3_7kf8u")]
