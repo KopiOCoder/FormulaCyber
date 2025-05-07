@@ -46,6 +46,7 @@ texture = ExtResource("8_1byfj")
 texture = ExtResource("8_1byfj")
 
 [node name="ui-game" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

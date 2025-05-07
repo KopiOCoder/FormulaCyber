@@ -27,6 +27,7 @@ texture = ExtResource("7_k0a0m")
 texture = ExtResource("7_k0a0m")
 
 [node name="Main_Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

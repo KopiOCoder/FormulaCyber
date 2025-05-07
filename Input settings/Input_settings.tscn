@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drc5sc0ubl8ig" path="res://input_button.tscn" id="2_iyfh6"]
 
 [node name="InputSettings" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

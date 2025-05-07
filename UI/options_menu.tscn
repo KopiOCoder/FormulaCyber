@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://2a8s6cqy1gjv"]
+[gd_scene load_steps=23 format=3 uid="uid://2a8s6cqy1gjv"]
 
 [ext_resource type="Script" uid="uid://crhmwwtd4rfud" path="res://UI/options_menu.gd" id="1_onhes"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_q6x1i"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="4_jpfgy"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_odouo"]
 [ext_resource type="Texture2D" uid="uid://bopjlw67o6x7c" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Rounded.png" id="9_l8r4g"]
+[ext_resource type="Script" uid="uid://b01b713e6tthu" path="res://UI/volume_slider.gd" id="9_xdpr0"]
 [ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="10_xdpr0"]
 [ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="11_13cjo"]
 
@@ -43,6 +44,7 @@ texture = ExtResource("10_xdpr0")
 texture = ExtResource("11_13cjo")
 
 [node name="Options-menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,6 +180,9 @@ vertical_alignment = 1
 [node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_xdpr0")
 
 [node name="Seperator" type="Control" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
