@@ -2,7 +2,7 @@ extends VehicleBody3D
 
 const MAX_STEER = 0.7
 
-var ENGINE_POWER = 300
+var ENGINE_POWER = 150
 
 @export var boost_power = 200
 @export var boost_fuel = 10
@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
-	engine_force = clamp(Input.get_axis("move_down", "move_up") * ENGINE_POWER, -600, 600)
+	engine_force = clamp(Input.get_axis("move_down", "move_up") * ENGINE_POWER, -150, 150)
 	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20)
 	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta * 10)
 	look_at = look_at.lerp(global_position + linear_velocity, delta * 5)

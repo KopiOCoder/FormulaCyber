@@ -15,5 +15,5 @@ mesh = ExtResource("1_8yg3k")
 [node name="StaticBody3D" type="StaticBody3D" parent="Road"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_8yg3k")
