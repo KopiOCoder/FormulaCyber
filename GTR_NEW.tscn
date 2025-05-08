@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7v4op3ucdpw8" path="res://gtr.gd" id="1_h4xrs"]
 [ext_resource type="AudioStream" uid="uid://5bewof30otfo" path="res://nissan_gtr_boost_sound.mp3" id="2_qgvpe"]
-[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="3_7kf8u"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="3_7kf8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4aod"]
 resource_name = "chasis"
@@ -635,6 +635,7 @@ draw_pass_1 = SubResource("SphereMesh_p0qxd")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_qgvpe")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
