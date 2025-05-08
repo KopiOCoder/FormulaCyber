@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_haa73"]
-[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="3_b55i6"]
+[ext_resource type="PackedScene" uid="uid://n0x0do1nv8xq" path="res://Assets/cone.tscn" id="3_b55i6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haa73"]
 albedo_texture = ExtResource("1_tbtb0")
@@ -35,15 +35,11 @@ polygon = PackedVector2Array(3.44343, -0.0471266, 1.22696, 0.160103, 3.46004, 0.
 [node name="Nissan GTR" parent="." instance=ExtResource("2_haa73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96798, 1.82576, -2.48576)
 
-[node name="Gui" type="CanvasLayer" parent="."]
+[node name="Node3D" parent="." instance=ExtResource("3_b55i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97704, 8.90875, -1.05017)
 
-[node name="Score" type="Label" parent="Gui"]
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 81.0
-theme_override_font_sizes/font_size = 60
-text = "0"
-clip_text = true
+[node name="Node3D2" parent="." instance=ExtResource("3_b55i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76436, 4.39884, 13.9598)
 
-[node name="Pause-Menu" parent="Gui" instance=ExtResource("3_b55i6")]
+[node name="Node3D3" parent="." instance=ExtResource("3_b55i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77873, 5.26852, 8.11919)

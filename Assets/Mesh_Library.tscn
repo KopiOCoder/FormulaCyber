@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0h62jxbmm8ti"]
+
+[ext_resource type="ArrayMesh" uid="uid://8v484j2envfb" path="res://City map/Models/OBJ format/road-straight.obj" id="1_8yg3k"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8yg3k"]
+points = PackedVector3Array(0.507937, 0.0238095, 0.507937, -0.507937, -0.0079334, -0.507937, -0.507937, 0.0238095, -0.507937, 0.507937, -0.0079334, -0.507937, -0.507937, -0.0079334, 0.507937, -0.507937, 0.0238095, 0.507937, 0.507937, 0.0238095, -0.507937, 0.507937, -0.0079334, 0.507937)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0332536, 0)
+mesh = ExtResource("1_8yg3k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Road"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8yg3k")
