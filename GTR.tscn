@@ -1,6 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://4ithsm3fbm5n"]
-
-[ext_resource type="Script" uid="uid://c7v4op3ucdpw8" path="res://gtr.gd" id="1_11cws"]
+[gd_scene load_steps=22 format=4 uid="uid://4ithsm3fbm5n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4aod"]
 resource_name = "chasis"
@@ -475,7 +473,6 @@ shadow_mesh = SubResource("ArrayMesh_eff7b")
 
 [node name="Nissan GTR" type="VehicleBody3D"]
 gravity_scale = 4.0
-script = ExtResource("1_11cws")
 
 [node name="car mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_3e4w1")
@@ -512,6 +509,7 @@ skeleton = NodePath("")
 
 [node name="FR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11171, -0.368999, 1.92343)
+engine_force = 100.0
 use_as_steering = true
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.4
@@ -525,6 +523,7 @@ skeleton = NodePath("")
 
 [node name="FL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12037, -0.378169, 1.97818)
+engine_force = 100.0
 use_as_steering = true
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.4
@@ -535,6 +534,3 @@ suspension_stiffness = 140.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06118, 0.390429, -1.95531)
 mesh = SubResource("ArrayMesh_legmr")
 skeleton = NodePath("")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -2.6143e-08, 8.34224e-08, 0, 0.95424, 0.299041, -8.74228e-08, 0.299041, -0.95424, 4.40048, 2.78886, -6.06345)
