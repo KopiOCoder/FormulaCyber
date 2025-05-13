@@ -1572,7 +1572,7 @@ shadow_enabled = true
 shape = SubResource("WorldBoundaryShape3D_sa3md")
 
 [node name="Nissan GTR" parent="Floor" instance=ExtResource("1_131ww")]
-transform = Transform3D(-0.350567, 0, -0.936538, 0, 1, 0, 0.936538, 0, -0.350567, 198.093, 3.72022, 138.548)
+transform = Transform3D(-0.350567, 0, -0.936538, 0, 1, 0, 0.936538, 0, -0.350567, -1.04423, 3.72022, -393.613)
 
 [node name="reference" type="CSGBox3D" parent="."]
 visible = false
