@@ -9,11 +9,10 @@ points = PackedVector3Array(0.507937, 0.0238095, 0.507937, -0.507937, -0.0079334
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="Road" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0332536, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.0332536, 0)
 mesh = ExtResource("1_8yg3k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Road"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_8yg3k")

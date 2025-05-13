@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0lp3btj0e1uh"]
+
+[ext_resource type="Script" uid="uid://hsifuh26ks80" path="res://UI/mode_selector.gd" id="1_wxpdk"]
+[ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="3_0kd6c"]
+[ext_resource type="Texture2D" uid="uid://cexos11copglk" path="res://ui Design for FC/Icons/Icon_Small_Blank_Arrow.png" id="3_mbyld"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbhd4"]
+texture = ExtResource("3_0kd6c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4isyk"]
+texture = ExtResource("3_mbyld")
+
+[node name="Mode-Selector" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxpdk")
+
+[node name="Buttons" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Stage" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(250, 500)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbhd4")
+text = "Stage"
+
+[node name="Free Roam" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(250, 500)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbhd4")
+text = "Free 
+Roam"
+
+[node name="Tutorial" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(250, 500)
+layout_mode = 2
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbhd4")
+text = "Tutorial"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 973.0
+offset_top = 74.0
+offset_right = 973.0
+offset_bottom = 574.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back button" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 543.0
+offset_right = 125.0
+offset_bottom = 627.0
+texture = ExtResource("3_0kd6c")
+
+[node name="MarginContainer" type="MarginContainer" parent="Back button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Back button/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_4isyk")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Stage" to="." method="_on_stage_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Free Roam" to="." method="_on_free_roam_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
