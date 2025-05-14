@@ -15,6 +15,7 @@ var nissan_gtr_scene = load("res://GTR_NEW.tscn")  # Load the scene
 var nissan_gtr_instance = nissan_gtr_scene.instantiate()  # Create an instance
 var cone = load("res://cone.tscn")
 var enemy_car = load("res://GTR.tscn")
+var enemy = false
 
 var initial_position : Vector3
 var current_position : Vector3
@@ -138,7 +139,7 @@ func generate_cone_at(chunk_pos: Vector2, base_pos: Vector3):
 				cone_instances[chunk_pos].append(cone_instance)
 				
 func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
-		if randf() > 0.1:
+		if randf() > 0.1 and enemy == false:
 			print("Car Spawned")
 			var i = 3
 			var left_z = (i - 2) * 2
@@ -149,6 +150,20 @@ func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
 			enemy_car_instance.rotation_degrees.y = 90
 			get_tree().current_scene.add_child(enemy_car_instance)
 			enemy_car_instance.global_transform.origin = candidate_pos
+			enemy = true
+			await get_tree().create_timer(10).timeout
+			if player.global_transform.origin > enemy_car_instance.global_transform.origin:
+				total_distance += 50
+				score = round(int(total_distance))
+				$"../Gui/Score".text = str(score)
+				enemy = false
+				enemy_car_instance.queue_free()
+			else:
+				total_distance -= 50
+				score = round(int(total_distance))
+				$"../Gui/Score".text = str(score)
+				enemy = false
+				enemy_car_instance.queue_free()
 		else:
 			return
 			

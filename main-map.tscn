@@ -6935,7 +6935,7 @@ mesh = SubResource("ArrayMesh_0aw7n")
 shape = SubResource("ConcavePolygonShape3D_qe4hd")
 
 [node name="Nissan GTR" parent="." instance=ExtResource("1_131ww")]
-transform = Transform3D(-0.350567, 0, -0.936538, 0, 1, 0, 0.936538, 0, -0.350567, 198.093, 3.72022, 138.548)
+transform = Transform3D(0.995385, 0, 0.0959675, 0, 1, 0, -0.0959675, 0, 0.995385, 198.979, 3.72022, 125.697)
 
 [node name="Gui" type="CanvasLayer" parent="."]
 

@@ -471,7 +471,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eff7b")
 
-[node name="Nissan GTR" type="VehicleBody3D"]
+[node name="Enemy" type="VehicleBody3D"]
 gravity_scale = 4.0
 
 [node name="car mesh" type="MeshInstance3D" parent="."]
