@@ -13,17 +13,25 @@ script = ExtResource("1_n6nvk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 238.0
-offset_top = 55.0
-offset_right = 846.0
-offset_bottom = 606.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 214.0
+offset_top = 33.0
+offset_right = -214.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Simulate Entry"
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,17 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://bmu1l7g7epgvv"]
+[gd_scene load_steps=20 format=3 uid="uid://bmu1l7g7epgvv"]
 
 [ext_resource type="Script" uid="uid://dkkldbknxoaa7" path="res://UI/settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Texture2D" uid="uid://co4xabuj4cnyd" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Rounded.png" id="2_0cmel"]
-[ext_resource type="Script" uid="uid://c7nuptlsgg3wx" path="res://UI/audio_options.gd" id="2_2tlyv"]
 [ext_resource type="Shader" uid="uid://cqermrrr7fk66" path="res://UI/settings_menu.gdshader" id="2_yl4dm"]
-[ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="3_d0eu6"]
+[ext_resource type="PackedScene" uid="uid://b4u44mbhbp4gv" path="res://UI/volume_slider.tscn" id="4_3pt1a"]
 [ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_fiqec"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_2d6lb"]
-[ext_resource type="Texture2D" uid="uid://0us31olcjuc4" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blank_Square.png" id="7_nxj4t"]
-[ext_resource type="Texture2D" uid="uid://bopjlw67o6x7c" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Rounded.png" id="8_nxj4t"]
-[ext_resource type="Script" uid="uid://b01b713e6tthu" path="res://UI/volume_slider.gd" id="9_a0cf0"]
-[ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="9_yl4dm"]
-[ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="10_ttjgw"]
+[ext_resource type="Texture2D" uid="uid://desbotctxyh0a" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blank_Rounded.png" id="5_a0cf0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ttjgw"]
 shader = ExtResource("2_yl4dm")
@@ -40,18 +35,6 @@ texture = ExtResource("4_fiqec")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2tlyv"]
 texture = ExtResource("4_fiqec")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8pph3"]
-texture = ExtResource("8_nxj4t")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exc7q"]
-texture = ExtResource("8_nxj4t")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwvxn"]
-texture = ExtResource("10_ttjgw")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajx48"]
-texture = ExtResource("9_yl4dm")
 
 [sub_resource type="Animation" id="Animation_8pph3"]
 resource_name = "Blur"
@@ -207,13 +190,13 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(350, 350)
+[node name="Backplate" type="MarginContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(550, 550)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Backplate" type="NinePatchRect" parent="PanelContainer/MarginContainer/MarginContainer"]
+[node name="Backplate_design" type="NinePatchRect" parent="PanelContainer/MarginContainer/Backplate"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_0cmel")
@@ -222,25 +205,99 @@ patch_margin_top = 200
 patch_margin_right = 200
 patch_margin_bottom = 200
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/MarginContainer/Backplate"]
+[node name="Volume_box" type="MarginContainer" parent="PanelContainer/MarginContainer/Backplate/Backplate_design"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -68.5
+offset_right = 225.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box"]
+layout_mode = 2
+
+[node name="Master_label" type="Label" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+text = "Master Volume"
+
+[node name="Master_vol" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer" instance=ExtResource("4_3pt1a")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music_label" type="Label" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+text = "Music Volume"
+
+[node name="Music_vol" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer" instance=ExtResource("4_3pt1a")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX_label" type="Label" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+text = "SFX Volume"
+
+[node name="SFX_vol" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Volume_box/VBoxContainer" instance=ExtResource("4_3pt1a")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Pause_label" type="MarginContainer" parent="PanelContainer/MarginContainer/Backplate/Backplate_design"]
+custom_minimum_size = Vector2(200, 90)
+layout_mode = 2
+offset_left = 175.0
+offset_right = 375.0
+offset_bottom = 90.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_bottom = 15
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Pause_label"]
+layout_mode = 2
+texture = ExtResource("5_a0cf0")
+region_rect = Rect2(1, 0, 360, 355)
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Pause_label/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 136.0
-offset_right = -65.0
-offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 100
+theme_override_constants/outline_size = 15
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Buttons" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer"]
+[node name="Quit_Resume" type="MarginContainer" parent="PanelContainer/MarginContainer/Backplate/Backplate_design"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -250.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume"]
+custom_minimum_size = Vector2(350, 150)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 10
 
-[node name="Resume" type="Button" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer/Buttons"]
+[node name="Resume" type="Button" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
@@ -250,7 +307,17 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_i8lcu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_h437d")
 text = "Resume"
 
-[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer/Buttons"]
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_yl4dm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ttjgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i8lcu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h437d")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
@@ -260,91 +327,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_4b38l")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2tlyv")
 text = "Quit"
 
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/MarginContainer/Backplate"]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 63.0
-offset_right = 338.0
-offset_bottom = 148.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2"]
-layout_mode = 2
-texture = ExtResource("7_nxj4t")
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect"]
-layout_mode = 2
-offset_left = 15.0
-offset_top = 5.0
-offset_right = 276.0
-offset_bottom = 79.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 25
-text = "Paused"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AudioOptions" type="Control" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect"]
-anchors_preset = 0
-offset_left = -423.0
-offset_top = -187.0
-offset_right = -383.0
-offset_bottom = -147.0
-script = ExtResource("2_2tlyv")
-
-[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions"]
-layout_mode = 0
-offset_left = 401.0
-offset_top = 270.0
-offset_right = 752.0
-offset_bottom = 360.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3"]
-layout_mode = 2
-texture = ExtResource("3_d0eu6")
-region_rect = Rect2(10, 0, 250, 266)
-
-[node name="VolumeSlider" type="HSlider" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 37.0
-offset_right = 331.0
-offset_bottom = 86.0
-max_value = 1.0
-step = 0.001
-script = ExtResource("9_a0cf0")
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect"]
-layout_mode = 0
-offset_left = 26.0
-offset_right = 131.0
-offset_bottom = 55.0
-theme_override_constants/outline_size = 9
-theme_override_font_sizes/font_size = 25
-text = "Volume"
-vertical_alignment = 2
-
-[node name="ApplyButton" type="Button" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions"]
-layout_mode = 0
-offset_left = 781.0
-offset_top = 288.0
-offset_right = 882.0
-offset_bottom = 349.0
-theme_override_constants/outline_size = 5
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pph3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_exc7q")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mwvxn")
-theme_override_styles/normal = SubResource("StyleBoxTexture_ajx48")
-text = "Apply"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ajx48")
 }
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer/Buttons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer/Buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="mouse_exited" from="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect/VolumeSlider" to="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions" method="_on_h_slider_mouse_exited"]
-[connection signal="ready" from="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect/VolumeSlider" to="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions" method="_on_volume_slider_ready"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/ApplyButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Backplate/Backplate_design/Quit_Resume/Buttons/Quit" to="." method="_on_quit_pressed"]
