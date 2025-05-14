@@ -1,7 +1,9 @@
 extends Control
 
-@onready var master_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol
-@onready var sfx_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx
+@onready var master_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_vol
+@onready var music_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Music
+@onready var sfx_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/SFX_vol
+
 
 func _ready():
 	var audio_settings = ConfigFileHandler.load_audio_settings()
@@ -30,15 +32,14 @@ func _on_volume_slider_mouse_exited() -> void:
 	release_focus()
 
 
-func _on_apply_button_pressed() -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db($Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol.value))
-
-
-
 func _on_master_vol_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_setting("master_volume", master_volume_slider.value / 100)
 
+
+func _on_music_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		ConfigFileHandler.save_audio_setting("music_volume", music_volume_slider.value / 100)
 
 func _on_sfx_drag_ended(value_changed: bool) -> void:
 	if value_changed:

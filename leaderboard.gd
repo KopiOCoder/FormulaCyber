@@ -10,6 +10,7 @@ func _ready():
 	load_leaderboard()
 	update_leaderboard_ui()
 
+
 func add_score(name: String, time: float, score: int) -> void:
 	leaderboard.append({
 		"Name": name,
