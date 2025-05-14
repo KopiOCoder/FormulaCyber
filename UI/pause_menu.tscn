@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcpcogfafhf3e"]
 
-[ext_resource type="PackedScene" uid="uid://bmu1l7g7epgvv" path="res://settings_menu.tscn" id="1_nwcfo"]
+[ext_resource type="PackedScene" uid="uid://bmu1l7g7epgvv" path="res://UI/settings_menu.tscn" id="1_nwcfo"]
 [ext_resource type="Texture2D" uid="uid://dw7u6u3jmcba2" path="res://ui Design for FC/Icons/Icon_Small_Blank_Menu.png" id="2_05uyy"]
 
 [node name="Pause-Menu" type="Control"]

@@ -3,6 +3,7 @@ extends Control
 func ready():
 	$AnimationPlayer.play("RESET")
 
+
 func _on_resume_pressed() -> void:
 	resume()
 
@@ -22,7 +23,7 @@ func pause():
 
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
 
 
 func _on_pause_pressed() -> void:
