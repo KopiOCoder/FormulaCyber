@@ -38,11 +38,21 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta):
 	
+	if Input.is_action_pressed("drift"):
+		print("Drifting")
+		$BL.wheel_friction_slip = 5
+		$BR.wheel_friction_slip = 5
+		print($BL.wheel_friction_slip)
+	
+	if Input.is_action_just_released("drift"):
+		print("Not Drifting")
+		$BL.wheel_friction_slip = 10.5
+		$BR.wheel_friction_slip = 10.5
+		print($BL.wheel_friction_slip)
 	if Input.is_action_pressed("boost") and cooldown_timer <= 0 and boost_fuel > 0:
 		is_boosting = true
 		$Node3D/GPUParticles3D.emitting = is_boosting
 		cooldown_timer = boost_cooldown
-		ENGINE_POWER += boost_power
 		boost_fuel -= boost_deplete_rate
 		print(engine_force)
 		print(boost_fuel)

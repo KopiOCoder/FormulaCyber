@@ -562,48 +562,48 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_qgvpe")
 
-[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+[node name="BL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.011, -0.43, -1.658)
 use_as_traction = true
 wheel_roll_influence = 0.5
 wheel_rest_length = 0.2
 suspension_stiffness = 10.0
 
-[node name="Circle_003" type="MeshInstance3D" parent="VehicleWheel3D4"]
+[node name="Circle_003" type="MeshInstance3D" parent="BL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01101, 0.350956, 1.65789)
 mesh = SubResource("ArrayMesh_pg8yh")
 skeleton = NodePath("")
 
-[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+[node name="BR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.047, -0.43, -1.675)
 use_as_traction = true
 wheel_roll_influence = 0.5
 wheel_rest_length = 0.2
 suspension_stiffness = 10.0
 
-[node name="Circle_002" type="MeshInstance3D" parent="VehicleWheel3D3"]
+[node name="Circle_002" type="MeshInstance3D" parent="BR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.047, 0.351, 1.675)
 mesh = SubResource("ArrayMesh_iuifp")
 skeleton = NodePath("")
 
-[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+[node name="FR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.003, -0.43, 1.959)
 use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_rest_length = 0.2
 
-[node name="Circle_001" type="MeshInstance3D" parent="VehicleWheel3D2"]
+[node name="Circle_001" type="MeshInstance3D" parent="FR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.003, 0.351, -1.959)
 mesh = SubResource("ArrayMesh_tipoj")
 skeleton = NodePath("")
 
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+[node name="FL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.015, -0.43, 1.95)
 use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_rest_length = 0.2
 
-[node name="Circle" type="MeshInstance3D" parent="VehicleWheel3D"]
+[node name="Circle" type="MeshInstance3D" parent="FL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.015, 0.351, -1.95)
 mesh = SubResource("ArrayMesh_legmr")
 skeleton = NodePath("")
