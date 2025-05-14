@@ -21,6 +21,7 @@ var last_position : Vector3
 var total_distance = 0
 var distance = initial_position.distance_to(current_position)
 var score = int(distance)
+var last_checked_score = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,8 +29,8 @@ func _ready():
 	player = nissan_gtr_instance
 	nissan_gtr_instance.rotation_degrees.y = 90
 	_process_chunk_loading()
-	initial_position = global_transform.origin
-	last_position = global_transform.origin
+	initial_position = player.global_transform.origin
+	last_position = player.global_transform.origin
 	
 	var unload_timer = Timer.new()
 	unload_timer.wait_time = 1.0
@@ -40,12 +41,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	_process_chunk_loading()
-	current_position = global_transform.origin
+	current_position = player.global_transform.origin
 	distance = last_position.distance_to(current_position)
 	total_distance += distance
 	last_position = current_position
-	score = int(total_distance)
-
+	score = round(int(total_distance))
+	$"../Gui/Score".text = str(score)
+	
 func _process_chunk_loading():
 	var player_chunk = Vector2(
 		floor(local_to_map(player.position).x / chunk_size),
@@ -69,11 +71,12 @@ func _process_chunk_loading():
 				if base_pos:
 					generate_cone_at(newest_chunk, base_pos)
 					cone_spawned_chunks[newest_chunk] = true
-					if score % 100 == 0:
-						await get_tree().create_timer(1).timeout
-						generate_car_at(newest_chunk, base_pos)
-				else:
-					print("No base position found for chunk: ", chunk_pos)
+			if score % 100 == 0 and score > 0 and score != last_checked_score:
+				print("score")
+				last_checked_score = score
+				var base_pos = chunks.get(newest_chunk, null)
+				generate_car_at(newest_chunk, base_pos)
+					
 			
 	for key in chunks.keys():
 		if not active_chunks.has(key):
@@ -125,15 +128,15 @@ func generate_cone_at(chunk_pos: Vector2, base_pos: Vector3):
 					cone_instances[chunk_pos].append(cone_instance)
 
 func generate_car_at(chunk_pos: Vector2, base_pos: Vector3):
-	if randf() > 0.8:
-		for i in range(3):
-			var left_z = (i - 2) * 2
-			var right_z = (i + 1) * 2
-			var candidate_z = left_z if randf() < 0.5 else right_z
-			var candidate_pos = base_pos * 2 + Vector3(0, 1, candidate_z)
-			var enemy_car_instance = enemy_car.instantiate() 
-			enemy_car_instance.rotation_degrees.y = 90
-			get_tree().current_scene.add_child(enemy_car_instance)
-			enemy_car_instance.global_transform.origin = candidate_pos
-	else:
-		return
+		if randf() > 0.1	:
+			for i in range(3):
+				var left_z = (i - 2) * 2
+				var right_z = (i + 1) * 2
+				var candidate_z = left_z if randf() < 0.5 else right_z
+				var candidate_pos = base_pos * 2 + Vector3(0, 1, candidate_z)
+				var enemy_car_instance = enemy_car.instantiate() 
+				enemy_car_instance.rotation_degrees.y = 90
+				get_tree().current_scene.add_child(enemy_car_instance)
+				enemy_car_instance.global_transform.origin = candidate_pos
+		else:
+			return
