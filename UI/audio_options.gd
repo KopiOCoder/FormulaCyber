@@ -6,3 +6,6 @@ func _ready():
 func _on_h_slider_mouse_exited() -> void:
 	pass # Replace with function body.
 	release_focus()
+	
+	
+	
