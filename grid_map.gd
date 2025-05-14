@@ -1,6 +1,5 @@
 extends GridMap
 
-var terrain_noise := FastNoiseLite.new()
 var chunk_size = 8
 var load_distance = 8
 
@@ -13,13 +12,17 @@ var cone_instances = {}
 var player
 var nissan_gtr_scene = load("res://GTR_NEW.tscn")  # Load the scene
 var nissan_gtr_instance = nissan_gtr_scene.instantiate()  # Create an instance
-var cone = load("res://Assets/cone.tscn")
-
+var cone = load("res://cone.tscn")
+var enemy_car_scene = load("res://GTR.tscn")
+var enemy_car_instance = enemy_car_scene.instantiate()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(nissan_gtr_instance)
+	add_child(enemy_car_instance)
 	player = nissan_gtr_instance
 	nissan_gtr_instance.rotation_degrees.y = 90
+	enemy_car_instance.rotation_degrees.y = 90
+	enemy_car_instance.position = nissan_gtr_instance.position + Vector3(0, 0, -3)
 	_process_chunk_loading()
 	
 	var unload_timer = Timer.new()
@@ -91,7 +94,6 @@ func generate_chunk(chunk_x, chunk_y):
 
 func generate_cone_at(chunk_pos: Vector2, base_pos: Vector3):
 		var cone_gap = 2.0
-		var spawned = []
 		for i in range(3):
 			var left_z = (i - 2) * cone_gap
 			var right_z = (i + 1) * cone_gap
@@ -103,5 +105,6 @@ func generate_cone_at(chunk_pos: Vector2, base_pos: Vector3):
 			var cone_instance = cone.instantiate()
 			get_tree().current_scene.add_child(cone_instance)
 			cone_instance.global_transform.origin = candidate_pos
-			spawned.append(cone_instance)
-		cone_instances[chunk_pos] = spawned
+			if not cone_instances.has(chunk_pos):
+				cone_instances[chunk_pos] = []
+				cone_instances[chunk_pos].append(cone_instance)
