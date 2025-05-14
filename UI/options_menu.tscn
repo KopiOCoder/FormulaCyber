@@ -173,7 +173,7 @@ theme_override_font_sizes/font_size = 25
 text = "Music Volume"
 vertical_alignment = 1
 
-[node name="Music" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
+[node name="Music_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
 bus_name = "Music"
 

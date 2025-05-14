@@ -1,7 +1,7 @@
 extends Control
 
 @onready var master_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_vol
-@onready var music_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Music
+@onready var music_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Music_vol
 @onready var sfx_volume_slider = $Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/SFX_vol
 
 
@@ -9,6 +9,8 @@ func _ready():
 	var audio_settings = ConfigFileHandler.load_audio_settings()
 	master_volume_slider.value = min(audio_settings.master_volume, 1.0) * 100
 	sfx_volume_slider.value = min(audio_settings.sfx_volume, 1.0) * 100
+
+
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/Loading_Menu.tscn")

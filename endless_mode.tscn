@@ -1,10 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=13 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
 [ext_resource type="MeshLibrary" uid="uid://dgitntiscojhf" path="res://Assets/mesh_library.tres" id="1_eu2lg"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="3_47ka5"]
+[ext_resource type="Script" uid="uid://rk217tvv7785" path="res://game_over.gd" id="4_5s5bq"]
+[ext_resource type="Texture2D" uid="uid://b6b2okpgu00tw" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Square.png" id="5_qrtsg"]
+[ext_resource type="Texture2D" uid="uid://56b3krl3145" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blank_Square.png" id="6_2flgw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eu2lg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s5bq"]
+bg_color = Color(0, 0, 0, 0.776471)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lf71s"]
+texture = ExtResource("6_2flgw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5s5bq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrtsg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2flgw"]
 
 [node name="Endless_Mode" type="Node3D"]
 
@@ -27,8 +42,96 @@ offset_left = -2.0
 offset_top = -2.0
 offset_right = 1151.0
 offset_bottom = 81.0
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "0"
 clip_text = true
 
 [node name="Pause-Menu" parent="Gui" instance=ExtResource("3_47ka5")]
+
+[node name="Game_over" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("4_5s5bq")
+
+[node name="Panel" type="Panel" parent="Game_over"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5s5bq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Game_over/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -227.0
+offset_right = 259.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qrtsg")
+
+[node name="Game_over" type="Label" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = -19.0
+offset_right = -139.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_lf71s")
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 271.0
+offset_right = 390.0
+offset_bottom = 337.0
+
+[node name="Restart" type="Button" parent="Game_over/Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5s5bq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qrtsg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2flgw")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Game_over/Panel/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 96.0
+offset_right = 424.0
+offset_bottom = 207.0
+
+[node name="Score_label" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "Score :"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+clip_text = true
+
+[connection signal="pressed" from="Game_over/Panel/NinePatchRect/VBoxContainer/Restart" to="Game_over" method="_on_restart_pressed"]
+[connection signal="pressed" from="Game_over/Panel/NinePatchRect/VBoxContainer/Quit" to="Game_over" method="_on_quit_pressed"]

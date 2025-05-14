@@ -49,7 +49,9 @@ func _process(_delta):
 	last_position = current_position
 	score = round(int(total_distance))
 	$"../Gui/Score".text = str(score)
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/Score".text = str(score)
 	if player.global_transform.origin.y < void_limit:
+		$"../Gui".visible = false
 		game_over()
 
 
@@ -153,7 +155,8 @@ func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
 			return
 			
 func game_over():
-	get_tree().reload_current_scene()
+	get_tree().paused = true
+	$"../Game_over".visible = true
 
 func _on_cone_hit():
 	print("cone hit")
