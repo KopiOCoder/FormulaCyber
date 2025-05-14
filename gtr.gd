@@ -26,7 +26,6 @@ const zoomed_in_fov = 90.0
 const default_fov = 80.0
 
 func _ready() -> void:
-	GlobalData.set_nissan_gtr(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	look_at = global_position
 	initial_position = global_transform.origin
