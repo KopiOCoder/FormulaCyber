@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=4 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=232 format=4 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
@@ -14,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bri5u22jix5xg" path="res://City map/Models/OBJ format/road-curve.obj" id="13_0bku8"]
 [ext_resource type="ArrayMesh" uid="uid://lcyv4r5j5qfl" path="res://City map/Models/OBJ format/road-intersection-path.obj" id="14_ilgwd"]
 [ext_resource type="ArrayMesh" uid="uid://brd4di6vc88g5" path="res://City map/Models/OBJ format/road-bend-square.obj" id="14_tgii8"]
+[ext_resource type="PackedScene" uid="uid://cnyyu55frvtw6" path="res://Assets/buidling3d/salam.tscn" id="15_tgii8"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sa3md"]
 
@@ -6939,3 +6940,5 @@ mesh = SubResource("ArrayMesh_0aw7n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road/G11/StaticBody3D26"]
 shape = SubResource("ConcavePolygonShape3D_qe4hd")
+
+[node name="Node3D" parent="Road" instance=ExtResource("15_tgii8")]
