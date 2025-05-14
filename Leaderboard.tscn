@@ -11,18 +11,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n6nvk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 offset_left = 238.0
 offset_top = 55.0
 offset_right = 846.0
 offset_bottom = 606.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 text = "Simulate Entry"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
