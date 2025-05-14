@@ -11,3 +11,8 @@ albedo_texture = ExtResource("1_y6ydy")
 transform = Transform3D(7, 0, 0, 0, 2, 0, 0, 0, 2, 3.868, 0.893782, -16.959)
 size = Vector3(1, 0.927185, 1)
 material = SubResource("StandardMaterial3D_eisdv")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 2, 0, 0, 0, 2, 11.868, 0.894, -16.959)
+size = Vector3(1, 0.927185, 1)
+material = SubResource("StandardMaterial3D_eisdv")
