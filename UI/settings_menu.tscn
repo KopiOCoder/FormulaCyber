@@ -1,14 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmu1l7g7epgvv"]
+[gd_scene load_steps=29 format=3 uid="uid://bmu1l7g7epgvv"]
 
-[ext_resource type="Script" uid="uid://dkkldbknxoaa7" path="res://settings_menu.gd" id="1_ufg0w"]
+[ext_resource type="Script" uid="uid://dkkldbknxoaa7" path="res://UI/settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Texture2D" uid="uid://co4xabuj4cnyd" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Rounded.png" id="2_0cmel"]
-[ext_resource type="Script" uid="uid://c7nuptlsgg3wx" path="res://audio_options.gd" id="2_2tlyv"]
-[ext_resource type="Shader" uid="uid://cqermrrr7fk66" path="res://settings_menu.gdshader" id="2_yl4dm"]
+[ext_resource type="Script" uid="uid://c7nuptlsgg3wx" path="res://UI/audio_options.gd" id="2_2tlyv"]
+[ext_resource type="Shader" uid="uid://cqermrrr7fk66" path="res://UI/settings_menu.gdshader" id="2_yl4dm"]
 [ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="3_d0eu6"]
 [ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_fiqec"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_2d6lb"]
 [ext_resource type="Texture2D" uid="uid://0us31olcjuc4" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blank_Square.png" id="7_nxj4t"]
 [ext_resource type="Texture2D" uid="uid://bopjlw67o6x7c" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Rounded.png" id="8_nxj4t"]
+[ext_resource type="Script" uid="uid://b01b713e6tthu" path="res://UI/volume_slider.gd" id="9_a0cf0"]
 [ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="9_yl4dm"]
 [ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="10_ttjgw"]
 
@@ -309,6 +310,9 @@ offset_left = 17.0
 offset_top = 37.0
 offset_right = 331.0
 offset_bottom = 86.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("9_a0cf0")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/MarginContainer/Backplate/MarginContainer2/NinePatchRect/AudioOptions/MarginContainer3/NinePatchRect"]
 layout_mode = 0

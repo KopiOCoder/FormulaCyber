@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://3tx3c2582va7"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 2.0
+offset_right = 1151.0
+offset_bottom = 649.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Money-dis" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
