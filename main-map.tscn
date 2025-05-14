@@ -9,7 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ex0s2d8kl0nj" path="res://City map/Models/OBJ format/road-straight-half.obj" id="6_k2nc4"]
 [ext_resource type="ArrayMesh" uid="uid://bri5u22jix5xg" path="res://City map/Models/OBJ format/road-curve.obj" id="7_cyjlh"]
 [ext_resource type="ArrayMesh" uid="uid://cg05x688j3hbv" path="res://City map/Models/OBJ format/road-intersection-line.obj" id="8_k2nc4"]
-[ext_resource type="Texture2D" uid="uid://5seh3r8m3emc" path="res://City map/Models/OBJ format/Textures/colormap.png" id="9_cyjlh"]
+[ext_resource type="Texture2D" uid="uid://dsvcjai0xm6x7" path="res://City map/Models/OBJ format/Textures/colormap.png" id="9_cyjlh"]
 [ext_resource type="ArrayMesh" uid="uid://0tnjhbdloix0" path="res://City map/Models/OBJ format/road-crossroad-line.obj" id="10_131ww"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="11_mcgcu"]
 
