@@ -5,7 +5,7 @@ const MAX_STEER = 0.7
 var ENGINE_POWER = 150
 
 @export var boost_power = 200
-@export var boost_fuel = 10
+@export var boost_fuel = 10 
 @export var boost_cooldown = 3.5
 @export var boost_deplete_rate = 1.5
 @export var boost_replenish_rate = 0.5

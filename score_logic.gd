@@ -8,13 +8,13 @@ var score = int(distance)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	initial_position = global_transform.origin
-	last_position = global_transform.origin
+	initial_position = $"Nissan GTR".global_transform.origin
+	last_position = $"Nissan GTR".global_transform.origin
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	current_position = global_transform.origin
+	current_position = $"Nissan GTR".global_transform.origin
 	distance = last_position.distance_to(current_position)
 	total_distance += distance
 	last_position = current_position

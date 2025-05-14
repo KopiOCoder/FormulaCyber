@@ -2,6 +2,7 @@ extends GridMap
 
 var chunk_size = 8
 var load_distance = 8
+var void_limit = -10
 
 var chunks = {}
 var loaded_chunks = {}
@@ -38,6 +39,7 @@ func _ready():
 	unload_timer.connect("timeout", Callable(self,"_on_UnloadTimer_timeout"))
 	add_child(unload_timer)
 	unload_timer.start()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	_process_chunk_loading()
@@ -47,7 +49,9 @@ func _process(_delta):
 	last_position = current_position
 	score = round(int(total_distance))
 	$"../Gui/Score".text = str(score)
-	
+	if player.global_transform.origin.y < void_limit:
+		game_over()
+		
 func _process_chunk_loading():
 	var player_chunk = Vector2(
 		floor(local_to_map(player.position).x / chunk_size),
@@ -76,12 +80,12 @@ func _process_chunk_loading():
 				last_checked_score = score
 				var base_pos = chunks.get(newest_chunk, null)
 				generate_car_at(newest_chunk, base_pos)
-					
-			
+				
 	for key in chunks.keys():
 		if not active_chunks.has(key):
 			unload_chunk(key)
 			
+
 func _on_UnloadTimer_timeout():
 	for chunk_pos in loaded_chunks.keys():
 		if not active_chunks.has(chunk_pos):
@@ -123,11 +127,16 @@ func generate_cone_at(chunk_pos: Vector2, base_pos: Vector3):
 				var cone_instance = cone.instantiate()
 				get_tree().current_scene.add_child(cone_instance)
 				cone_instance.global_transform.origin = candidate_pos
+				var area_node = cone_instance.get_node("Area3D")
+				if area_node:
+					area_node.connect("cone_hit", Callable(self, "_on_cone_hit"))
+				else:
+					print("Warning: Area3D not found in cone_instance!")
 				if not cone_instances.has(chunk_pos):
 					cone_instances[chunk_pos] = []
 					cone_instances[chunk_pos].append(cone_instance)
 
-func generate_car_at(chunk_pos: Vector2, base_pos: Vector3):
+func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
 		if randf() > 0.1	:
 			for i in range(3):
 				var left_z = (i - 2) * 2
@@ -140,3 +149,12 @@ func generate_car_at(chunk_pos: Vector2, base_pos: Vector3):
 				enemy_car_instance.global_transform.origin = candidate_pos
 		else:
 			return
+
+func game_over():
+	get_tree().reload_current_scene()
+
+func _on_cone_hit():
+	print("cone hit")
+	total_distance -= 50
+	score = round(int(total_distance))
+	$"../Gui/Score".text = str(score)
