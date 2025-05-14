@@ -20,4 +20,3 @@ func _process(delta: float) -> void:
 	last_position = current_position
 	score = int(total_distance)
 	$Gui/Score.text = str(score)
-

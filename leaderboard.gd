@@ -8,7 +8,7 @@ var leaderboard : Array = []
 
 func _ready():
 	load_leaderboard()
-	update_lederboard_ui()
+	update_leaderboard_ui()
 
 func add_score(name: String, time: float, score: int) -> void:
 	leaderboard.append({
@@ -43,8 +43,8 @@ func update_leaderboard_ui() -> void:
 	leaderboard_container.clear_children()
 	
 	for entry in leaderboard:
-		var label = label.new()
-		lavel.text = "%s | Time: %.2f sec | Score: %d" % [
+		var label = Label.new()
+		label.text = "%s | Time: %.2f sec | Score: %d" % [
 			entry["Name"], entry["Time"], entry["Score"]
 		]
 		leaderboard_container.add_child(label)
