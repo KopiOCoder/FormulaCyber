@@ -5,7 +5,7 @@ const MAX_STEER = 0.7
 var ENGINE_POWER = 150
 
 @export var boost_power = 200
-@export var boost_fuel = 10 
+@export var boost_fuel = 10
 @export var boost_cooldown = 3.5
 @export var boost_deplete_rate = 1.5
 @export var boost_replenish_rate = 0.5
@@ -15,13 +15,22 @@ var ENGINE_POWER = 150
 var is_boosting = false
 var cooldown_timer = 0
 var look_at
+var initial_position : Vector3
+var current_position : Vector3
+var last_position : Vector3
+var total_distance = 0
+var distance = initial_position.distance_to(current_position)
+var score = int(distance)
 var audio_played = false
 const zoomed_in_fov = 90.0
 const default_fov = 80.0
 
 func _ready() -> void:
+	GlobalData.set_nissan_gtr(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	look_at = global_position
+	initial_position = global_transform.origin
+	last_position = global_transform.origin
 	boost_fuel = clamp(boost_fuel, 0, 10)
 
 func _process(delta: float) -> void:
@@ -33,6 +42,12 @@ func _process(delta: float) -> void:
 	camera_3d.look_at(look_at)
 	reverse_cam.look_at(look_at)
 	_check_camera_switch()
+	current_position = global_transform.origin
+	distance = last_position.distance_to(current_position)
+	total_distance += distance
+	last_position = current_position
+	score = int(total_distance)
+	$Gui/Score.text = str(score)
 
 func _physics_process(delta):
 	

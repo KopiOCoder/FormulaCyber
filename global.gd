@@ -1,16 +1,14 @@
 extends Node
 
 var nissan_gtr = null  # Stores the node reference
-var score = 0
 
 func set_nissan_gtr(node):
 	nissan_gtr = node
+
 func get_nissan_gtr():
 	return nissan_gtr
 	
 # Called when the node enters the scene tree for the first time.
-func get_score():
-	return score
 func _ready() -> void:
 	pass # Replace with function body.
 
