@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsf1kx2yakruw"]
+[gd_scene load_steps=7 format=3 uid="uid://bsf1kx2yakruw"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
+[ext_resource type="Script" uid="uid://0cx80q55vypy" path="res://score_logic.gd" id="1_th68x"]
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_haa73"]
 [ext_resource type="PackedScene" uid="uid://n0x0do1nv8xq" path="res://cone.tscn" id="3_b55i6"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="4_n3hra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haa73"]
 albedo_texture = ExtResource("1_tbtb0")
@@ -10,6 +12,7 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_th68x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.47712, 0.14952, 0, 0.299041, 0.95424, -0.5, 0.826396, -0.258977, 0, 0, 0)
@@ -43,3 +46,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76436, 4.39884, 13.9598)
 
 [node name="Node3D3" parent="." instance=ExtResource("3_b55i6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77873, 5.26852, 8.11919)
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="Gui"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+clip_text = true
+
+[node name="Pause-Menu" parent="Gui" instance=ExtResource("4_n3hra")]

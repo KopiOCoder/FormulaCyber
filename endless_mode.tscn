@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=5 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
 [ext_resource type="MeshLibrary" uid="uid://dgitntiscojhf" path="res://Assets/mesh_library.tres" id="1_eu2lg"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://pause_menu.tscn" id="3_47ka5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eu2lg"]
 
@@ -18,3 +19,16 @@ physics_material = SubResource("PhysicsMaterial_eu2lg")
 cell_octant_size = 9
 cell_scale = 15.0
 script = ExtResource("1_8at1e")
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="Gui"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+clip_text = true
+
+[node name="Pause-Menu" parent="Gui" instance=ExtResource("3_47ka5")]
