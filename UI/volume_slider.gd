@@ -13,7 +13,9 @@ func _ready() -> void:
 	value = db_to_linear(
 		AudioServer.get_bus_volume_db(bus_index)
 	)
-
+	print("Bus name at start:", bus_name)
+	for i in range(AudioServer.bus_count):
+		print("Bus ", i, ": ", AudioServer.get_bus_name(i))
 
 func _on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
