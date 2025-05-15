@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=6 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
 [ext_resource type="MeshLibrary" uid="uid://dgitntiscojhf" path="res://Assets/mesh_library.tres" id="1_eu2lg"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="3_47ka5"]
+[ext_resource type="AudioStream" uid="uid://bf5qxon65mvon" path="res://cone_hit.mp3" id="4_qcjw3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eu2lg"]
 
@@ -32,3 +33,7 @@ text = "0"
 clip_text = true
 
 [node name="Pause-Menu" parent="Gui" instance=ExtResource("3_47ka5")]
+
+[node name="Cone_hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_qcjw3")
+volume_db = 20.0
