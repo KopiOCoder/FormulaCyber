@@ -175,3 +175,4 @@ func _on_cone_hit():
 	total_distance -= 10
 	score = round(int(total_distance))
 	$"../Gui/Score".text = str(score)
+	$"../Cone_hit".playing = true
