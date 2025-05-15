@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2a8s6cqy1gjv"]
+[gd_scene load_steps=16 format=3 uid="uid://2a8s6cqy1gjv"]
 
 [ext_resource type="Script" uid="uid://crhmwwtd4rfud" path="res://UI/options_menu.gd" id="1_onhes"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="1_q6x1i"]
@@ -8,10 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqtytycj4c0o" path="res://Input settings/Input_settings.tscn" id="4_hrc50"]
 [ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="4_jpfgy"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_odouo"]
-[ext_resource type="Texture2D" uid="uid://bopjlw67o6x7c" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Red_Rounded.png" id="9_l8r4g"]
-[ext_resource type="Script" uid="uid://b01b713e6tthu" path="res://UI/volume_slider.gd" id="9_xdpr0"]
-[ext_resource type="Texture2D" uid="uid://syloulfvp7h6" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Rounded.png" id="10_xdpr0"]
-[ext_resource type="Texture2D" uid="uid://gwq0prmd750m" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Green_Rounded.png" id="11_13cjo"]
+[ext_resource type="PackedScene" uid="uid://b4u44mbhbp4gv" path="res://UI/volume_slider.tscn" id="10_13cjo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r4g"]
 texture = ExtResource("4_jpfgy")
@@ -30,18 +27,6 @@ bg_color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5j4i"]
 bg_color = Color(0, 0, 0, 0.392157)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mtuf"]
-texture = ExtResource("9_l8r4g")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng0rr"]
-texture = ExtResource("9_l8r4g")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1leo"]
-texture = ExtResource("10_xdpr0")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgnc0"]
-texture = ExtResource("11_13cjo")
 
 [node name="Options-menu" type="Control"]
 process_mode = 3
@@ -177,13 +162,22 @@ theme_override_font_sizes/font_size = 25
 text = "Master Volume"
 vertical_alignment = 1
 
-[node name="Master_Vol" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+[node name="Master_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.001
-script = ExtResource("9_xdpr0")
+
 bus_name = "Master"
+
+[node name="Label_Music" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 25
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="Music" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
+layout_mode = 2
+bus_name = "Music"
+
 
 [node name="Label_SFX" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
@@ -192,16 +186,13 @@ theme_override_font_sizes/font_size = 25
 text = "SFX Volume"
 vertical_alignment = 1
 
-[node name="sfx" type="HSlider" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
+[node name="SFX_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.001
-script = ExtResource("9_xdpr0")
+
 bus_name = "SFX"
 
 [node name="Seperator" type="Control" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="Keybinds" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
@@ -230,26 +221,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_442dt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u5j4i")
 text = "Configure Keybinds"
 
-[node name="ApplyButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 938.0
-offset_top = 232.0
-offset_right = 1097.0
-offset_bottom = 312.0
-theme_override_constants/outline_size = 5
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7mtuf")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ng0rr")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_d1leo")
-theme_override_styles/normal = SubResource("StyleBoxTexture_kgnc0")
-text = "Apply"
-
 [connection signal="pressed" from="Gui/MarginContainer/NinePatchRect/Key-Back" to="." method="_on_key_back_pressed"]
 [connection signal="pressed" from="Control/Back button/MarginContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="drag_ended" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_master_vol_drag_ended"]
-[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_volume_slider_mouse_exited"]
-[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/Master_Vol" to="." method="_on_volume_slider_ready"]
-[connection signal="drag_ended" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_sfx_drag_ended"]
-[connection signal="mouse_exited" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_volume_slider_mouse_exited"]
-[connection signal="ready" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume/sfx" to="." method="_on_volume_slider_ready"]
 [connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Keybinds/NinePatchRect/Config-button" to="." method="_on_configbutton_pressed"]
-[connection signal="pressed" from="Control/ApplyButton" to="." method="_on_apply_button_pressed"]
