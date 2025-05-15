@@ -16,6 +16,7 @@ var is_boosting = false
 var cooldown_timer = 0
 var look_at
 var audio_played = false
+var audio_played_drift = false
 const zoomed_in_fov = 90.0
 const default_fov = 80.0
 
@@ -40,15 +41,24 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("drift"):
 		print("Drifting")
-		$BL.wheel_friction_slip = 5
-		$BR.wheel_friction_slip = 5
+		$BL.wheel_friction_slip = 6
+		$BR.wheel_friction_slip = 6
 		print($BL.wheel_friction_slip)
+		if audio_played_drift == false:
+			$AudioStreamPlayer3D2.playing = true
+			audio_played_drift = true	
+		await get_tree().create_timer(1).timeout 
+		
+		if audio_played_drift == true:
+			$AudioStreamPlayer3D2.playing = false
 	
 	if Input.is_action_just_released("drift"):
 		print("Not Drifting")
 		$BL.wheel_friction_slip = 10.5
 		$BR.wheel_friction_slip = 10.5
 		print($BL.wheel_friction_slip)
+		audio_played_drift = false
+		
 	if Input.is_action_pressed("boost") and cooldown_timer <= 0 and boost_fuel > 0:
 		is_boosting = true
 		$Node3D/GPUParticles3D.emitting = is_boosting

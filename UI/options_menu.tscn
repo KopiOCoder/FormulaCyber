@@ -183,6 +183,7 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.001
 script = ExtResource("9_xdpr0")
+bus_name = "Master"
 
 [node name="Label_SFX" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
@@ -197,6 +198,7 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.001
 script = ExtResource("9_xdpr0")
+bus_name = "SFX"
 
 [node name="Seperator" type="Control" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
