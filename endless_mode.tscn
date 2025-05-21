@@ -107,7 +107,7 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="name_imput" type="LineEdit" parent="Game_over/Panel/NinePatchRect"]
+[node name="name_input" type="LineEdit" parent="Game_over/Panel/NinePatchRect"]
 layout_mode = 0
 offset_left = 124.0
 offset_top = 188.0
@@ -161,24 +161,28 @@ offset_right = 797.0
 offset_bottom = 433.0
 text = "submit"
 
-[node name="leaderboard" type="HBoxContainer" parent="Game_over"]
-offset_left = 839.0
-offset_top = 132.0
-offset_right = 1132.0
-offset_bottom = 532.0
+[node name="PanelContainer" type="PanelContainer" parent="Game_over"]
+offset_left = 844.0
+offset_top = 117.0
+offset_right = 1104.0
+offset_bottom = 549.0
 
-[node name="Label" type="Label" parent="Game_over/leaderboard"]
+[node name="leaderboard" type="VBoxContainer" parent="Game_over/PanelContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="Game_over/leaderboard"]
+[node name="Label" type="Label" parent="Game_over/PanelContainer/leaderboard"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Game_over/leaderboard"]
+[node name="Label2" type="Label" parent="Game_over/PanelContainer/leaderboard"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Game_over/PanelContainer/leaderboard"]
 layout_mode = 2
 
 [node name="Cone_hit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_qcjw3")
 volume_db = 20.0
+bus = &"SFX"
 
 [connection signal="pressed" from="Game_over/Panel/NinePatchRect/Buttons/Restart" to="Game_over" method="_on_restart_pressed"]
 [connection signal="pressed" from="Game_over/Panel/NinePatchRect/Buttons/Quit" to="Game_over" method="_on_quit_pressed"]

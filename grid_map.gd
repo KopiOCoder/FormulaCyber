@@ -1,5 +1,6 @@
 extends GridMap
 
+
 var chunk_size = 8
 var load_distance = 8
 var void_limit = -10
@@ -54,6 +55,7 @@ func _process(_delta):
 	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/Score".text = str(score)
 	if player.global_transform.origin.y < void_limit:
 		$"../Gui".visible = false
+		current_score = score
 		game_over()
 
 
@@ -177,8 +179,6 @@ var current_score: int = 0
 func game_over():
 	get_tree().paused = true
 	$"../Game_over".visible = true
-	
-	var score = current_score
 	$"../Game_over".show_game_over(score)
 
 

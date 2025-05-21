@@ -39,10 +39,10 @@ func _on_master_vol_drag_ended(value_changed: bool) -> void:
 		ConfigFileHandler.save_audio_setting("master_volume", master_volume_slider.value / 100)
 
 
-func _on_music_drag_ended(value_changed: bool) -> void:
+func _on_music_vol_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_setting("music_volume", music_volume_slider.value / 100)
 
-func _on_sfx_drag_ended(value_changed: bool) -> void:
+func _on_sfx_vol_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_setting("sfx_volume", sfx_volume_slider.value / 100)
