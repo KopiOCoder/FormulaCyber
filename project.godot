@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalData="*res://global.gd"
 ConfigFileHandler="*res://ConfigFileHandler.gd"
+Leaderboard="*res://leaderboard.gd"
 
 [filesystem]
 
