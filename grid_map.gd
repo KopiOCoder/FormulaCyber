@@ -158,6 +158,8 @@ func game_over():
 	get_tree().paused = true
 	$"../Game_over".visible = true
 
+
+
 func _on_cone_hit():
 	print("cone hit")
 	total_distance -= 10

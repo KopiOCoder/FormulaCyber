@@ -56,5 +56,8 @@ func update_leaderboard_ui() -> void:
 
 func _on_button_pressed() -> void:
 	var random_name = "Player" + str(randi() % 100)
+	var random_time = randf_range(60.0, 120.0)
+	var random_score = randi() %200
+	add_score(random_name, random_time, random_score)
 	
 	

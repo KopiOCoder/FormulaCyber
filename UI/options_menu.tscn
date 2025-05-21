@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqtytycj4c0o" path="res://Input settings/Input_settings.tscn" id="4_hrc50"]
 [ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="4_jpfgy"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_odouo"]
-[ext_resource type="PackedScene" uid="uid://b4u44mbhbp4gv" path="res://UI/volume_slider.tscn" id="10_13cjo"]
+[ext_resource type="PackedScene" uid="uid://bdi65qr1qegn2" path="res://UI/volume_slider.tscn" id="10_13cjo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r4g"]
 texture = ExtResource("4_jpfgy")
