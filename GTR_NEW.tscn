@@ -553,7 +553,7 @@ is_hemisphere = true
 [node name="Nissan GTR" type="VehicleBody3D"]
 mass = 20.0
 center_of_mass_mode = 1
-center_of_mass = Vector3(-0.0150012, -0.0576145, 1.40894)
+center_of_mass = Vector3(0, 0, -0.424871)
 script = ExtResource("1_h4xrs")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -639,3 +639,6 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_7kf8u")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.424871)

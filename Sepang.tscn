@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt741ube6e8dx"]
+
+[ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_815xx"]
+[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="2_tg8fv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8fv"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_815xx")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hhj1m"]
+
+[sub_resource type="Sky" id="Sky_kxd4r"]
+sky_material = SubResource("ProceduralSkyMaterial_hhj1m")
+
+[sub_resource type="Environment" id="Environment_iayo1"]
+background_mode = 2
+background_energy_multiplier = 1.8
+sky = SubResource("Sky_kxd4r")
+ambient_light_energy = 2.01
+
+[sub_resource type="Curve3D" id="Curve3D_tg8fv"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 59.2507, 0, 0.0752834, 0, 0, 0, 0, 0, 0, 44.3529, 0, -0.0311296, 0.968126, 0, 0.126933, -0.968126, 0, -0.126933, 29.7743, 0, 0.0752834, 0.0236053, 0, 1.72092, -0.0236053, 0, -1.72092, 27.0382, 0, -1.98106, -0.590515, 0, 0.100822, 0.590515, 0, -0.100822, 29.7743, 0, -4.18123, -0.100597, 0, 0.982963, 0.100597, 0, -0.982963, 33.4988, 0, -5.03253, 1.1678, 0, 0.564373, -1.1678, 0, -0.564373, 30.8385, 0, -7.58643, -0.627417, 0, 2.64754, 0.627417, 0, -2.64754, 28.6038, 0, -14.8225, -2.35994, 0, 1.55699, 2.35994, 0, -1.55699, 31.7962, 0, -19.2918, -5.41266, 0, 3.23247, 5.41266, 0, -3.23247, 51.6954, 0, -24.2932, -1.67754, 0, -2.17672, 1.67754, 0, 2.17672, 57.3352, 0, -12.8007, -1.62925, 0, 0.53189, 1.62925, 0, -0.53189, 62.4431, 0, -10.3532, -0.813454, 0, 1.18819, 0.813454, 0, -1.18819, 65.4226, 0, -13.4391, -2.35174, 0, 0.176447, 2.35174, 0, -0.176447, 69.2535, 0, -16.7379, 0, 0, 0, 0, 0, 0, 73.3598, 0, -13.8826, -0.68959, 0, -1.94511, 0.68959, 0, 1.94511, 84.3641, 0, 1.24582, 1.05798, 0, -0.341908, -1.05798, 0, 0.341908, 80.608, 0, 5.77671, 0, 0, 0, 0, 0, 0, 60.5276, 0, 6.99211, -0.0261917, 0, -1.29106, 0.0261917, 0, 1.29106, 57.4417, 0, 8.5883, -0.98394, 0, -2.68537, 0.98394, 0, 2.68537, 64.1457, 0, 13.0576, 3.49271, 0, -0.359489, -3.49271, 0, 0.359489, 62.1238, 0, 20.4001, 2.96099, 0, 0.0739202, -2.96099, 0, -0.0739202, 48.7158, 0, 13.8025, 3.06226, 0, -0.0698967, -3.06226, 0, 0.0698967, 41.9054, 0, 17.2077, -2.28756, 0, 3.85188, 2.28756, 0, -3.85188, 34.7757, 0, 7.30792, 0.124237, 0, 3.23033, -0.124237, 0, -3.23033, 73.1995, 0, 2.05914),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 25
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6348, 0, 0)
+size = Vector3(81.4923, 1, 56.882)
+material = SubResource("StandardMaterial3D_tg8fv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CSGBox3D"]
+environment = SubResource("Environment_iayo1")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -33.1791, 0, 0)
+curve = SubResource("Curve3D_tg8fv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+use_collision = true
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 708.919, 16.3255, -6.8586)
