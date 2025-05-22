@@ -284,7 +284,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
 mass = 35.0
 script = ExtResource("1_lolwo")
 wheels = [NodePath("FL"), NodePath("BL"), NodePath("FR"), NodePath("BR")]
-acceleration = 150.0
 accel_curve = SubResource("Curve_xfdtc")
 
 [node name="Car_mesh" type="MeshInstance3D" parent="Car"]
@@ -303,6 +302,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
+is_motor = true
 
 [node name="Wheel" type="MeshInstance3D" parent="Car/FL"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
@@ -336,6 +336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
+is_motor = true
 
 [node name="Wheel" type="MeshInstance3D" parent="Car/FR"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
@@ -368,6 +369,7 @@ skeleton = NodePath("../../../..")
 
 [node name="Camera3D" type="Camera3D" parent="Car/CameraPivot"]
 transform = Transform3D(-1, 2.99004e-08, -8.21506e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 0.160527, 2.40818, -7.12068)
+current = true
 size = 10.0
 
 [node name="ReverseCam" type="Camera3D" parent="Car/CameraPivot"]

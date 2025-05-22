@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt741ube6e8dx"]
+[gd_scene load_steps=13 format=3 uid="uid://dt741ube6e8dx"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_815xx"]
-[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="2_tg8fv"]
+[ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
+[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_tg8fv"]
+[ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="3_kxd4r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8fv"]
 vertex_color_use_as_albedo = true
@@ -26,6 +28,15 @@ _data = {
 }
 point_count = 25
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxd4r"]
+albedo_texture = ExtResource("2_hhj1m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iayo1"]
+albedo_texture = ExtResource("3_kxd4r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41rac"]
+albedo_texture = ExtResource("3_kxd4r")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -41,6 +52,7 @@ transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -33.1791, 0, 0)
 curve = SubResource("Curve3D_tg8fv")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kxd4r")
 use_collision = true
 mode = 2
 path_node = NodePath("../Path3D")
@@ -54,5 +66,40 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
 
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.40042, 0)
+material_override = SubResource("StandardMaterial3D_iayo1")
+use_collision = true
+polygon = PackedVector2Array(0.5, 0, 1, 1, 1, 1, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54891, 0)
+material_override = SubResource("StandardMaterial3D_41rac")
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.1, 0.5, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
 [node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 708.919, 16.3255, -6.8586)
+transform = Transform3D(0.0540788, 0, 0.998537, 0, 1, 0, -0.998537, 0, 0.0540788, 443.122, 15.912, -6.68898)
+mass = 40.0

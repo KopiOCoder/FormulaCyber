@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://conwf6r5e5ecv"]
+
+[ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_t17cu"]
+[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_t17cu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emba8"]
+albedo_texture = ExtResource("1_t17cu")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_emba8")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4.95612, 0.316165, -15.1922)
+use_collision = true
+height = 9.65576
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.99653, 0.307319, -11.9594)
+use_collision = true
+height = 9.65576
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4.91597, 0.299046, -9.31162)
+use_collision = true
+height = 9.65576
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.99653, 0.313357, -7.15533)
+use_collision = true
+height = 9.65576
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.5912, 3.3594, -8.55293)
+projection = 1
+current = true
+size = 10.0
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 20.4416, 0.624764, 20.6189)
+use_collision = true
+polygon = PackedVector2Array(-0.663545, -0.0607313, 1, 1, 1, 1, 1, 0)
+
+[node name="Nissan GTR" parent="." instance=ExtResource("2_t17cu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162804, 1.97663, -1.44128)

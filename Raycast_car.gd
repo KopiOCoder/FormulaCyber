@@ -5,26 +5,14 @@ extends RigidBody3D
 @export var deceleration := -200.0
 @export var max_speed := 20.0
 @export var accel_curve : Curve
-@export var lateral_friction_factor := 200.0 
-@export var angular_damp_factor := 200.0
-@onready var camera_pivot = $CameraPivot
-@onready var camera_3d = $CameraPivot/Camera3D
-@onready var reverse_cam = $CameraPivot/ReverseCam
+@export var lateral_friction_factor := 10.0 
+@export var angular_damp_factor := 10.0
 var look_at
 var motor_input := 0
 var turn_input := 0
 var rotated = false
 
-func _ready() -> void:
-	look_at = global_position
 
-func _process(delta: float) -> void:
-	camera_pivot.global_position = camera_pivot.global_position.lerp(global_position, delta * 20)
-	camera_pivot.transform = camera_pivot.transform.interpolate_with(transform, delta)
-	look_at = look_at.lerp(global_position + linear_velocity, delta * 5)
-	camera_3d.look_at(look_at)
-	reverse_cam.look_at(look_at)
-	_check_camera_switch()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("accelerate"):
@@ -39,14 +27,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		motor_input = 0
 	
 	if event.is_action_pressed("move_left"):
-		turn_input = -1
+		turn_input = 1
+		$".".angular_velocity.y = 1
 	elif event.is_action_released("move_left"):
 		turn_input = 0
+		$".".angular_velocity.y = 0
 	
 	if event.is_action_pressed("move_right"):
-		turn_input = 1
+		turn_input = -1
+		$".".angular_velocity.y = -1
 	elif event.is_action_released("move_right"):
 		turn_input = 0
+		$".".angular_velocity.y = 0
 		
 func _physics_process(_delta: float) -> void:
 	var grounded := false
@@ -67,8 +59,9 @@ func _physics_process(_delta: float) -> void:
 		var lateral_counterforce: Vector3 = -sideways_dir * sideways_speed * lateral_friction_factor
 		apply_force(lateral_counterforce, Vector3.ZERO)
 		var counter_torque: Vector3 = -angular_velocity * angular_damp_factor
-		apply_torque_impulse(counter_torque * _delta)
-
+		apply_torque_impulse(counter_torque)
+	
+		
 	if grounded:
 		center_of_mass = Vector3.ZERO
 	else:
@@ -88,8 +81,7 @@ func _do_single_wheel_acceleration(ray :RaycastWheel) -> void:
 		var ac:= accel_curve.sample_baked(speed_ratio)
 		var contact := ray.wheel.global_position
 		var force_vector := forward_dir * acceleration * motor_input * ac
-		var lateral_offset := Vector3.RIGHT * turn_input * 0.5
-		var force_pos := contact - global_position + lateral_offset
+		var force_pos := contact - global_position 
 		if motor_input:
 			apply_force(force_vector, force_pos)
 			
@@ -117,9 +109,3 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		contact = ray.wheel.global_position
 		var force_pos_offset := contact - global_position
 		apply_force(force_vector, force_pos_offset)
-
-func _check_camera_switch():
-	if linear_velocity.dot(transform.basis.z) > -1:
-		camera_3d.current = true
-	else:
-		reverse_cam.current = true
