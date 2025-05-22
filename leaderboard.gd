@@ -2,7 +2,7 @@ extends Control
 
 
 
-const LEADERBOARD_PATH := "user://leaderboard.json"
+const LEADERBOARD_PATH := "res://leaderboard.json"
 
 func load_leaderboard() -> Array:
 	if not FileAccess.file_exists(LEADERBOARD_PATH):
@@ -18,7 +18,7 @@ func load_leaderboard() -> Array:
 	var parsed = JSON.parse_string(data)
 	if typeof(parsed) == TYPE_ARRAY:
 		var leaderboard = parsed
-		leaderboard.sort_custom(func(a, b): return b["score"] - a["score"])
+		leaderboard.sort_custom(func(a, b): return b["score"] < a["score"])
 		return leaderboard
 	else:
 		print("Failed to parse leaderboard or invalid format.")
@@ -29,7 +29,7 @@ func save_score(name: String, score: int) -> void:
 	var leaderboard = load_leaderboard()
 	var clean_name = name.strip_edges().substr(0, 3).to_upper()
 	leaderboard.append({ "name": clean_name, "score": score })
-	leaderboard.sort_custom(func(a, b): return b["score"] - a["score"])
+	leaderboard.sort_custom(func(a, b): return b["score"] < a["score"])
 
 
 	if leaderboard.size() > 10:
@@ -44,4 +44,4 @@ func save_score(name: String, score: int) -> void:
 	file.close()
 
 func _sort_desc(a, b) -> int:
-	return b["score"] - a["score"]
+	return b["score"] < a["score"]
