@@ -101,4 +101,4 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 505.991, 16.3255, -4.92106)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 505.991, 16.3255, -5.70343)

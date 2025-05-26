@@ -6,13 +6,17 @@ extends RigidBody3D
 @export var max_speed := 20.0
 @export var accel_curve : Curve
 @export var max_steer_angle_deg := 30.0
-@export var steer_speed := 2
+@export var steer_speed := 1
 var look_at
+var boost_input := 1
 var motor_input := 0
 var turn_input := 0
 var rotated = false
 var steer_angle := 0.0
-
+var audio_drift = false
+var audio_boost = false
+const zoomed_in_fov = 90.0
+const default_fov = 80.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("accelerate"):
@@ -35,8 +39,37 @@ func _unhandled_input(event: InputEvent) -> void:
 		turn_input = -1
 	elif event.is_action_released("move_right"):
 		turn_input = 0
+	
+	if event.is_action_pressed("boost"):
+		max_speed = max_speed * 1.5
+		acceleration = acceleration * 1.5
+		$Node3D/GPUParticles3D.emitting = true
+		$Node3D/GPUParticles3D2.emitting = true
+		$CameraPivot/Camera3D.fov = zoomed_in_fov
+		if audio_boost == false:
+			$AudioStreamPlayer3D.playing = true
+			audio_boost = true
+	elif event.is_action_released("boost"):
+		max_speed = max_speed / 1.5
+		acceleration = acceleration / 1.5
+		$Node3D/GPUParticles3D.emitting = false
+		$Node3D/GPUParticles3D2.emitting = false
+		audio_boost = false
+		$CameraPivot/Camera3D.fov = default_fov
+	if event.is_action_pressed("drift"):
+		max_speed = max_speed / 2
+		acceleration = acceleration / 2
+		if audio_drift == false:
+			$AudioStreamPlayer3D2.playing = true
+			audio_drift = true
+	elif event.is_action_released("drift"):
+		max_speed = max_speed * 2
+		acceleration = acceleration * 2
+		audio_drift = false
 		
 func _physics_process(delta: float) -> void:
+	print(max_speed)
+	print(acceleration)
 	var target_steer_angle = turn_input * deg_to_rad(max_steer_angle_deg)
 	steer_angle = lerp(steer_angle, target_steer_angle, steer_speed * delta)
 	var grounded := false

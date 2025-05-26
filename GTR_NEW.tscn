@@ -498,7 +498,7 @@ curve = SubResource("Curve_qgvpe")
 offsets = PackedFloat32Array(0.954545, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qgvpe"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3lklo"]
 gradient = SubResource("Gradient_h4xrs")
 
 [sub_resource type="Gradient" id="Gradient_3lklo"]
@@ -512,7 +512,7 @@ gradient = SubResource("Gradient_3lklo")
 _data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.830882, 0.157303), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_xok8f"]
+[sub_resource type="CurveTexture" id="CurveTexture_ecqfm"]
 curve = SubResource("Curve_ecqfm")
 
 [sub_resource type="Curve" id="Curve_sf0u3"]
@@ -520,14 +520,14 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -0.280899), 0.0, 0.0, 0, 0, Vector2(0.919118, -0.707865), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_bm6in"]
+[sub_resource type="CurveTexture" id="CurveTexture_xok8f"]
 curve = SubResource("Curve_sf0u3")
 
 [sub_resource type="Curve" id="Curve_ih0jx"]
 _data = [Vector2(0.154412, 0.865169), 0.0, 0.0, 0, 0, Vector2(0.808824, 0.359551), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_l6r4n"]
+[sub_resource type="CurveTexture" id="CurveTexture_sf0u3"]
 curve = SubResource("Curve_ih0jx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7kf8u"]
@@ -542,22 +542,22 @@ angular_velocity_max = -1.60933e-05
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.7
-scale_curve = SubResource("CurveTexture_l6r4n")
+scale_curve = SubResource("CurveTexture_sf0u3")
 color = Color(0.858824, 0.380392, 0, 1)
 color_ramp = SubResource("GradientTexture1D_7lidk")
-color_initial_ramp = SubResource("GradientTexture1D_qgvpe")
+color_initial_ramp = SubResource("GradientTexture1D_3lklo")
 alpha_curve = SubResource("CurveTexture_7kf8u")
-emission_curve = SubResource("CurveTexture_xok8f")
+emission_curve = SubResource("CurveTexture_ecqfm")
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.1
-hue_variation_curve = SubResource("CurveTexture_bm6in")
+hue_variation_curve = SubResource("CurveTexture_xok8f")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rvt4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm6in"]
 vertex_color_use_as_albedo = true
 proximity_fade_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_p0qxd"]
-material = SubResource("StandardMaterial3D_7rvt4")
+material = SubResource("StandardMaterial3D_bm6in")
 radial_segments = 4
 rings = 1
 is_hemisphere = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=4 uid="uid://bdqwyaonx15xh"]
+[gd_scene load_steps=40 format=4 uid="uid://bdqwyaonx15xh"]
 
 [ext_resource type="Script" uid="uid://4wht4ygekpjm" path="res://Raycast_car.gd" id="1_lolwo"]
 [ext_resource type="ArrayMesh" uid="uid://emgdgo3vpbk" path="res://gtrwheel.tres" id="2_5dc1j"]
 [ext_resource type="Script" uid="uid://djq4c0jfwhx47" path="res://raycast_wheel.gd" id="2_j47c2"]
 [ext_resource type="Texture2D" uid="uid://dtjxa8v4uvwvc" path="res://kenney_prototype-textures/PNG/Dark/texture_04.png" id="3_xfdtc"]
+[ext_resource type="AudioStream" uid="uid://5bewof30otfo" path="res://nissan_gtr_boost_sound.mp3" id="5_ofmdy"]
+[ext_resource type="AudioStream" uid="uid://bwjv7q7qn53ja" path="res://nissan-maxima-handbrake-turn-04-25-2009-6098.mp3" id="6_a41jc"]
 
 [sub_resource type="Curve" id="Curve_xfdtc"]
 _data = [Vector2(0, 0.303371), 0.0, 0.0, 0, 0, Vector2(0.269231, 0.898876), 0.0, 0.0, 0, 0, Vector2(0.658654, 0.797753), 0.0, 0.0, 0, 0, Vector2(0.995192, 0.101124), 0.0, 0.0, 0, 0]
@@ -272,6 +274,81 @@ albedo_texture = ExtResource("3_xfdtc")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvtck"]
 albedo_texture = ExtResource("3_xfdtc")
 
+[sub_resource type="Curve" id="Curve_d8olc"]
+_data = [Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.558824, 0.539326), 0.0, 0.0, 0, 0, Vector2(0.823529, 0.303371), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7kf8u"]
+curve = SubResource("Curve_d8olc")
+
+[sub_resource type="Gradient" id="Gradient_pvtck"]
+offsets = PackedFloat32Array(0.954545, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qgvpe"]
+gradient = SubResource("Gradient_pvtck")
+
+[sub_resource type="Gradient" id="Gradient_uj35n"]
+offsets = PackedFloat32Array(0.936364, 0.972727)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7lidk"]
+gradient = SubResource("Gradient_uj35n")
+
+[sub_resource type="Curve" id="Curve_arru3"]
+_data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.830882, 0.157303), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xok8f"]
+curve = SubResource("Curve_arru3")
+
+[sub_resource type="Curve" id="Curve_a6uql"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -0.280899), 0.0, 0.0, 0, 0, Vector2(0.919118, -0.707865), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bm6in"]
+curve = SubResource("Curve_a6uql")
+
+[sub_resource type="Curve" id="Curve_5535e"]
+_data = [Vector2(0.154412, 0.865169), 0.0, 0.0, 0, 0, Vector2(0.808824, 0.359551), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l6r4n"]
+curve = SubResource("Curve_5535e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1efa"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 30.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_l6r4n")
+color = Color(0.858824, 0.380392, 0, 1)
+color_ramp = SubResource("GradientTexture1D_7lidk")
+color_initial_ramp = SubResource("GradientTexture1D_qgvpe")
+alpha_curve = SubResource("CurveTexture_7kf8u")
+emission_curve = SubResource("CurveTexture_xok8f")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("CurveTexture_bm6in")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rvt4"]
+vertex_color_use_as_albedo = true
+proximity_fade_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_0il0n"]
+material = SubResource("StandardMaterial3D_7rvt4")
+radial_segments = 4
+rings = 1
+is_hemisphere = true
+
 [node name="Nissan GTR" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -376,3 +453,34 @@ size = 10.0
 [node name="ReverseCam" type="Camera3D" parent="Car/CameraPivot"]
 transform = Transform3D(1, -7.2906e-15, 2.00308e-14, 0, 0.939693, 0.34202, -2.13163e-14, -0.34202, 0.939693, -0.174541, 2.7297, 7.06862)
 size = 10.0
+
+[node name="Node3D" type="Node3D" parent="Car"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.399588, -0.828602, -2.8518)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Car/Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.659988, -0.0531731, -0.0482055)
+emitting = false
+amount = 50
+lifetime = 0.3
+explosiveness = 0.13
+process_material = SubResource("ParticleProcessMaterial_m1efa")
+draw_pass_1 = SubResource("SphereMesh_0il0n")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Car/Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.659988, -0.0531731, -0.781897)
+emitting = false
+amount = 50
+lifetime = 0.3
+explosiveness = 0.13
+process_material = SubResource("ParticleProcessMaterial_m1efa")
+draw_pass_1 = SubResource("SphereMesh_0il0n")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
+stream = ExtResource("5_ofmdy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
+stream = ExtResource("6_a41jc")
