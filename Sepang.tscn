@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_815xx"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
-[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_tg8fv"]
+[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="2_tg8fv"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="3_kxd4r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8fv"]
@@ -101,5 +101,4 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
-transform = Transform3D(0.0540788, 0, 0.998537, 0, 1, 0, -0.998537, 0, 0.0540788, 443.122, 15.912, -6.68898)
-mass = 40.0
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 505.991, 16.3255, -4.92106)

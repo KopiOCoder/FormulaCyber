@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://conwf6r5e5ecv"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_t17cu"]
-[ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="2_t17cu"]
+[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="2_hrrsk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emba8"]
 albedo_texture = ExtResource("1_t17cu")
@@ -44,5 +44,5 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 20.441
 use_collision = true
 polygon = PackedVector2Array(-0.663545, -0.0607313, 1, 1, 1, 1, 1, 0)
 
-[node name="Nissan GTR" parent="." instance=ExtResource("2_t17cu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.162804, 1.97663, -1.44128)
+[node name="Nissan GTR" parent="." instance=ExtResource("2_hrrsk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.618072, 1.30957, 7.36548)

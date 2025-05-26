@@ -5,13 +5,13 @@ extends RigidBody3D
 @export var deceleration := -200.0
 @export var max_speed := 20.0
 @export var accel_curve : Curve
-@export var lateral_friction_factor := 10.0 
-@export var angular_damp_factor := 10.0
+@export var max_steer_angle_deg := 30.0
+@export var steer_speed := 2
 var look_at
 var motor_input := 0
 var turn_input := 0
 var rotated = false
-
+var steer_angle := 0.0
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -28,19 +28,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("move_left"):
 		turn_input = 1
-		$".".angular_velocity.y = 1
 	elif event.is_action_released("move_left"):
 		turn_input = 0
-		$".".angular_velocity.y = 0
 	
 	if event.is_action_pressed("move_right"):
 		turn_input = -1
-		$".".angular_velocity.y = -1
 	elif event.is_action_released("move_right"):
 		turn_input = 0
-		$".".angular_velocity.y = 0
 		
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	var target_steer_angle = turn_input * deg_to_rad(max_steer_angle_deg)
+	steer_angle = lerp(steer_angle, target_steer_angle, steer_speed * delta)
 	var grounded := false
 	for wheel in wheels:
 		if wheel.is_colliding():
@@ -48,18 +46,13 @@ func _physics_process(_delta: float) -> void:
 		wheel.force_raycast_update()
 		_do_single_wheel_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
-
-	
-	# --- Angular damping (counter torque) ---
-	# When no steering input exists (or even when there is, if you wish),
-	# apply a torque impulse opposite to the car's angular velocity.
-	if turn_input == 0:
-		var sideways_dir: Vector3 = global_transform.basis.x
-		var sideways_speed: float = linear_velocity.dot(sideways_dir)
-		var lateral_counterforce: Vector3 = -sideways_dir * sideways_speed * lateral_friction_factor
-		apply_force(lateral_counterforce, Vector3.ZERO)
-		var counter_torque: Vector3 = -angular_velocity * angular_damp_factor
-		apply_torque_impulse(counter_torque)
+		_do_lateral_friction(wheel)
+		_apply_rolling_resistance(wheel)
+		if wheel.is_steering:
+			wheel.steer_angle = steer_angle
+	for wheel in wheels:
+		if wheel.is_steering:
+			wheel.rotation.y = wheel.steer_angle # Rotates the RayCast3D
 	
 		
 	if grounded:
@@ -72,22 +65,25 @@ func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)
 
 func _do_single_wheel_acceleration(ray :RaycastWheel) -> void:
-	var forward_dir := ray.global_basis.z
-	var vel := forward_dir.dot(linear_velocity)
-	
+	var forward_dir := ray.global_transform.basis.z
+	var vel: float = forward_dir.dot(linear_velocity)
 	ray.wheel.rotate_x(vel * get_process_delta_time() * 2 * PI * ray.wheel_radius)
+
 	if ray.is_colliding() and ray.is_motor:
-		var speed_ratio := vel / max_speed
-		var ac:= accel_curve.sample_baked(speed_ratio)
-		var contact := ray.wheel.global_position
-		var force_vector := forward_dir * acceleration * motor_input * ac
-		var force_pos := contact - global_position 
+		var speed_ratio: float = clamp(vel / max_speed, -1.0, 1.0)
+		var accel_scale: float = accel_curve.sample_baked(abs(speed_ratio))
+		var contact := ray.get_collision_point()
+		var force_vector := forward_dir * acceleration * motor_input * accel_scale
+		var force_pos := contact - global_position
 		if motor_input:
 			apply_force(force_vector, force_pos)
 			
 		elif abs(vel) > 0.0 :	
 			force_vector = global_basis.z * deceleration * signf(vel)
 			apply_force(force_vector, force_pos)
+			var forward_drag: Vector3 = -forward_dir * vel * ray.longitudinal_friction
+			var force_pos_new := ray.global_position - global_position
+			apply_force(forward_drag, force_pos_new)
 		
 			
 func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
@@ -109,3 +105,31 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		contact = ray.wheel.global_position
 		var force_pos_offset := contact - global_position
 		apply_force(force_vector, force_pos_offset)
+		
+func _do_lateral_friction(ray: RaycastWheel) -> void:
+	if not ray.is_colliding():
+		return
+
+	var right_dir: Vector3 = ray.global_transform.basis.x
+	var wheel_velocity := _get_point_velocity(ray.global_position)
+	var lateral_speed := right_dir.dot(wheel_velocity)
+
+	if abs(lateral_speed) < 0.1:
+		return # prevent jitter
+
+	var lateral_force := -right_dir * lateral_speed * ray.lateral_friction
+	var force_position := ray.global_position - global_position
+
+	# Clamp force to avoid instability
+	var max_lateral_force := 1000.0
+	if lateral_force.length() > max_lateral_force:
+		lateral_force = lateral_force.normalized() * max_lateral_force
+
+	apply_force(lateral_force, force_position)
+	
+func _apply_rolling_resistance(wheel: RaycastWheel) -> void:
+	if not wheel.is_colliding():
+		return
+	var velocity := _get_point_velocity(wheel.global_position)
+	var resistance: Vector3 = -velocity * wheel.rolling_resistance
+	apply_force(resistance, wheel.global_position - global_position)
