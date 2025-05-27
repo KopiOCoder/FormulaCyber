@@ -68,8 +68,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		audio_drift = false
 		
 func _physics_process(delta: float) -> void:
-	print(max_speed)
-	print(acceleration)
 	var target_steer_angle = turn_input * deg_to_rad(max_steer_angle_deg)
 	steer_angle = lerp(steer_angle, target_steer_angle, steer_speed * delta)
 	var grounded := false
