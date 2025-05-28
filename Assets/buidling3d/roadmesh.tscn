@@ -1572,7 +1572,6 @@ material = SubResource("StandardMaterial3D_ilgwd")
 [node name="track" type="CSGCombiner3D" parent="."]
 
 [node name="G1" type="CSGCombiner3D" parent="track"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="track/G1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
@@ -2784,7 +2783,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.00567)
 shape = SubResource("ConcavePolygonShape3D_vdgit")
 
 [node name="G3" type="CSGCombiner3D" parent="track"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="track/G3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86953, 0.05, 32.091)
@@ -3128,7 +3126,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("ConcavePolygonShape3D_fbqyi")
 
 [node name="G4" type="CSGCombiner3D" parent="track"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="track/G4"]
 transform = Transform3D(0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, 18.207, 0.05, 32.792)
@@ -3637,7 +3634,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("ConcavePolygonShape3D_ak5ha")
 
 [node name="G5" type="CSGCombiner3D" parent="track"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="track/G5"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 10.1807, 0.0500005, 9.58521)

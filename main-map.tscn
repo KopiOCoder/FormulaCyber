@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=32 format=3 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="Script" uid="uid://0cx80q55vypy" path="res://score_logic.gd" id="1_0ci7p"]
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://o87h2f62l0cm" path="res://Assets/import/buildings/trees/treemiddle.obj" id="9_mcgcu"]
 [ext_resource type="ArrayMesh" uid="uid://dxislt7g6w5a3" path="res://Assets/import/buildings/buildings/apartment1.obj" id="10_ilgwd"]
 [ext_resource type="ArrayMesh" uid="uid://c7tt1hlib7rmj" path="res://Assets/import/buildings/shops/711.obj" id="10_tgii8"]
+[ext_resource type="ArrayMesh" uid="uid://baw0d8xmg0swb" path="res://Assets/import/buildings/shops/starbees.obj" id="11_22b57"]
 [ext_resource type="ArrayMesh" uid="uid://7p40mvxjotf2" path="res://Assets/import/buildings/shops/lawson.obj" id="11_xhfnc"]
 [ext_resource type="ArrayMesh" uid="uid://dqdu6bcg0gg2j" path="res://Assets/import/buildings/shops/dpulze.obj" id="12_ja0qg"]
 [ext_resource type="ArrayMesh" uid="uid://ce5tpx4bw4y0x" path="res://Assets/import/buildings/misc/parkinglot.obj" id="13_0bku8"]
@@ -21,6 +22,14 @@
 [ext_resource type="ArrayMesh" uid="uid://du7v41l2bu052" path="res://Assets/import/buildings/office/buildingblack.obj" id="17_5ffg4"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="17_w8lfg"]
 [ext_resource type="PackedScene" uid="uid://djkpqp8vfrvlj" path="res://Assets/import/buildings/skyscraper/klcc.glb" id="18_chmpd"]
+[ext_resource type="ArrayMesh" uid="uid://dfwfpkjr0nvp4" path="res://Assets/import/buildings/office/management.obj" id="19_jao7d"]
+[ext_resource type="ArrayMesh" uid="uid://r6agum8iwc6c" path="res://Assets/import/buildings/buildings/cyberia.obj" id="20_eqal0"]
+[ext_resource type="ArrayMesh" uid="uid://dy5dryu3ew3j4" path="res://Assets/import/buildings/buildings/mutiaraville.obj" id="21_hoauu"]
+[ext_resource type="ArrayMesh" uid="uid://bq7l7pkc7h2bv" path="res://Assets/import/buildings/shops/kanbe.obj" id="22_f6wgr"]
+[ext_resource type="ArrayMesh" uid="uid://c48v8i2hs0ddi" path="res://Assets/import/buildings/misc/track.obj" id="27_4bp7d"]
+[ext_resource type="ArrayMesh" uid="uid://b3fimx20kduvb" path="res://Assets/import/buildings/misc/swim.obj" id="28_7j5wa"]
+[ext_resource type="ArrayMesh" uid="uid://bs55r1rjthsx8" path="res://Assets/import/buildings/misc/surau.obj" id="29_xtww3"]
+[ext_resource type="ArrayMesh" uid="uid://csdmr7t072iyy" path="res://Assets/import/buildings/misc/football.obj" id="30_aucsd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dc8p"]
 albedo_texture = ExtResource("2_uxck0")
@@ -122,6 +131,10 @@ mesh = ExtResource("9_0bku8")
 transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, -20.893, 5.94545, -99.0228)
 mesh = ExtResource("10_tgii8")
 
+[node name="starbees" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, 26.963, 6.84285, -101.032)
+mesh = ExtResource("11_22b57")
+
 [node name="lawson" type="MeshInstance3D" parent="buildingcombiner/buildings"]
 transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -163.761, 13.7423, 254.389)
 mesh = ExtResource("11_xhfnc")
@@ -174,6 +187,26 @@ mesh = ExtResource("17_5ffg4")
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -12.1552, 49.4175, 335.452)
 mesh = ExtResource("17_5ffg4")
 
+[node name="management" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 12, 80.9136, 19.6648, -135.508)
+mesh = ExtResource("19_jao7d")
+
+[node name="management2" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(-6.55671e-07, 0, 15, 0, 5, 0, -15, 0, -6.55671e-07, -2.28486, 9.98488, -135.508)
+mesh = ExtResource("19_jao7d")
+
+[node name="cyberia" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(-7.43094e-07, 0, 17, 0, 17, 0, -17, 0, -7.43094e-07, -115.021, 14.823, -259.21)
+mesh = ExtResource("20_eqal0")
+
+[node name="mutiaraville" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(-7.43094e-07, 0, -17, 0, 17, 0, 17, 0, -7.43094e-07, -172.544, 16.1275, -475.081)
+mesh = ExtResource("21_hoauu")
+
+[node name="kanbe" type="MeshInstance3D" parent="buildingcombiner/buildings"]
+transform = Transform3D(-5.68248e-07, 0, -13, 0, 13, 0, 13, 0, -5.68248e-07, -4.55422, 12.907, 447.916)
+mesh = ExtResource("22_f6wgr")
+
 [node name="klcc2" parent="buildingcombiner/buildings" instance=ExtResource("18_chmpd")]
 
 [node name="treenbushes" type="CSGCombiner3D" parent="buildingcombiner"]
@@ -221,6 +254,101 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.7529, -7.62939e-06, -450.
 mesh = ExtResource("9_mcgcu")
 skeleton = NodePath("../bush")
 
+[node name="tree7" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.084, 0, 370.225)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree8" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5464, 0, 346.556)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree9" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.327, 0, 156.688)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree10" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.671, 1.52588e-05, 284)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree11" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.704, 1.52588e-05, 182.43)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree12" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 185.928, 0, -28.2865)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree13" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 74.4153, 0, -11.6556)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree14" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.1259, 0, -41.0394)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree15" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.1258, 0, -245.834)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree16" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37.215, 0, -245.834)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree17" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 108.626, 0, -200.873)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree18" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 119.8, 0, -97.5419)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree19" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.205, 0, -150.671)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree20" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 169.328, -1.14441e-05, -488.812)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="tree21" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 186.191, -1.52588e-05, -428.617)
+mesh = ExtResource("9_mcgcu")
+skeleton = NodePath("../bush")
+
+[node name="bush4" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(0.561068, 0, 0.418573, 0, 0.7, 0, -0.418573, 0, 0.561068, 191.5, 3.8147e-06, 234.037)
+mesh = ExtResource("8_131ww")
+
+[node name="bush5" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 150.135, -1.52588e-05, 90.8054)
+mesh = ExtResource("8_131ww")
+
+[node name="bush6" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 14.1937, 0, 1.26175)
+mesh = ExtResource("8_131ww")
+
+[node name="bush7" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(0.165512, 0, 0.986208, 0, 1, 0, -0.986208, 0, 0.165512, -177.437, 7.62939e-06, 179.97)
+mesh = ExtResource("8_131ww")
+
+[node name="bush8" type="MeshInstance3D" parent="buildingcombiner/treenbushes"]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 162.645, 0, -211.487)
+mesh = ExtResource("8_131ww")
+
 [node name="misc" type="CSGCombiner3D" parent="buildingcombiner"]
 
 [node name="parking" type="MeshInstance3D" parent="buildingcombiner/misc"]
@@ -236,5 +364,22 @@ transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 19.
 mesh = ExtResource("13_0bku8")
 
 [node name="parking4" type="MeshInstance3D" parent="buildingcombiner/misc"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 62.4259, 0, -87.256)
+transform = Transform3D(8.5, 0, 0, 0, 8.5, 0, 0, 0, 8.5, 74.2833, 0, -95.6601)
 mesh = ExtResource("13_0bku8")
+
+[node name="track" type="MeshInstance3D" parent="buildingcombiner/misc"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -9.73074, 0, -42.0476)
+mesh = ExtResource("27_4bp7d")
+
+[node name="swim" type="MeshInstance3D" parent="buildingcombiner/misc"]
+transform = Transform3D(-8, 0, -1.20797e-06, 0, 8, 0, 1.20797e-06, 0, -8, 55.8437, 0, -42.048)
+mesh = ExtResource("28_7j5wa")
+
+[node name="surau" type="MeshInstance3D" parent="buildingcombiner/misc"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -147.479, 9.76246, -20.2035)
+mesh = ExtResource("29_xtww3")
+skeleton = NodePath("../../buildings")
+
+[node name="football" type="MeshInstance3D" parent="buildingcombiner/misc"]
+transform = Transform3D(14.7943, 0, -2.47571, 0, 15, 0, 2.47571, 0, 14.7943, 182.951, 0, -229.967)
+mesh = ExtResource("30_aucsd")
