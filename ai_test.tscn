@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciwqh0fgov23n"]
+
+[ext_resource type="Script" uid="uid://j2iolwn8eeis" path="res://ai_test.gd" id="1_4p0tj"]
+[ext_resource type="Script" uid="uid://fl37muir15dm" path="res://context_steer.gd" id="1_6qo3l"]
+
+[sub_resource type="Curve2D" id="Curve2D_4p0tj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 194, 221, 0, 0, 0, 0, 504, 116, 0, 0, 0, 0, 826, 195, 0, 0, 0, 0, 940, 299, 0, 0, 0, 0, 997, 507, 0, 0, 0, 0, 693, 581, 0, 0, 0, 0, 279, 561)
+}
+point_count = 7
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4p0tj")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6qo3l")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-103, -224)
+anchor_mode = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(35, -7)
+scale = Vector2(0.1, 0.1)
+polygon = PackedVector2Array(296, 130, 52, 236, 52, 6)
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(405, 29)
+target_position = Vector2(291, -1)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-56, -252)
+curve = SubResource("Curve2D_4p0tj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(194, 221)
+rotation = -0.326581
