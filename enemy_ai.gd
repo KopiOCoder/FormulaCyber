@@ -16,55 +16,6 @@ var audio_drift = false
 var audio_boost = false
 const zoomed_in_fov = 90.0
 const default_fov = 80.0
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("accelerate"):
-		motor_input = 1
-	elif event.is_action_released("accelerate"):
-		motor_input = 0
-		print(motor_input)
-		
-	if event.is_action_pressed("decelerate"):
-		motor_input = -1
-	elif event.is_action_released("decelerate"):
-		motor_input = 0
-	
-	if event.is_action_pressed("move_left"):
-		turn_input = 1
-	elif event.is_action_released("move_left"):
-		turn_input = 0
-	
-	if event.is_action_pressed("move_right"):
-		turn_input = -1
-	elif event.is_action_released("move_right"):
-		turn_input = 0
-	
-	if event.is_action_pressed("boost"):
-		max_speed = max_speed * 1.5
-		acceleration = acceleration * 1.5
-		$Node3D/GPUParticles3D.emitting = true
-		$Node3D/GPUParticles3D2.emitting = true
-		$CameraPivot/Camera3D.fov = zoomed_in_fov
-		if audio_boost == false:
-			$AudioStreamPlayer3D.playing = true
-			audio_boost = true
-	elif event.is_action_released("boost"):
-		max_speed = max_speed / 1.5
-		acceleration = acceleration / 1.5
-		$Node3D/GPUParticles3D.emitting = false
-		$Node3D/GPUParticles3D2.emitting = false
-		audio_boost = false
-		$CameraPivot/Camera3D.fov = default_fov
-	if event.is_action_pressed("drift"):
-		max_speed = max_speed / 2
-		acceleration = acceleration / 2
-		if audio_drift == false:
-			$AudioStreamPlayer3D2.playing = true
-			audio_drift = true
-	elif event.is_action_released("drift"):
-		max_speed = max_speed * 2
-		acceleration = acceleration * 2
-		audio_drift = false
 		
 func _physics_process(delta: float) -> void:
 	var target_steer_angle = turn_input * deg_to_rad(max_steer_angle_deg)
@@ -75,7 +26,6 @@ func _physics_process(delta: float) -> void:
 			grounded = true
 		wheel.force_raycast_update()
 		_do_single_wheel_suspension(wheel)
-		_do_single_wheel_acceleration(wheel)
 		_do_lateral_friction(wheel)
 		_apply_rolling_resistance(wheel)
 		if wheel.is_steering:

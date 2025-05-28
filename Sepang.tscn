@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt741ube6e8dx"]
+[gd_scene load_steps=17 format=3 uid="uid://dt741ube6e8dx"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_kxd4r"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
 [ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="2_tg8fv"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="3_kxd4r"]
+[ext_resource type="Script" uid="uid://dlxslp6g6n4c5" path="res://testing_path.gd" id="5_41rac"]
+[ext_resource type="PackedScene" uid="uid://bps53nid7diqf" path="res://enemy.tscn" id="5_iayo1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hhj1m"]
 
@@ -38,6 +40,14 @@ size = Vector3(10, 10, 14)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iayo1"]
 size = Vector3(10, 10, 14)
+
+[sub_resource type="Curve3D" id="Curve3D_iayo1"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 902.764, 0, -5.77914, 0, 0, 0, 0, 0, 0, 451.479, 0, -4.55945, 0, 0, 28.0529, 0, 0, -28.0529, 410.009, 0, -31.3927, 0, 0, 0, 0, 0, 0, 495.388, 0, -59.4455, 2.43939, 0, 15.856, -2.43939, 0, -15.856, 513.683, 0, -80.1803, 0, 0, 0, 0, 0, 0, 479.532, 0, -115.551, 10.9773, 0, 10.9772, -10.9773, 0, -10.9772, 461.236, 0, -124.089, 7.31818, 0, 26.8332, -7.31818, 0, -26.8332, 435.623, 0, -180.195, -6.09845, 0, 8.53784, 6.09845, 0, -8.53784, 444.161, 0, -254.596, -9.75748, 0, 2.43939, 9.75748, 0, -2.43939, 494.168, 0, -292.406, -26.8332, 0, 4.87878, 26.8332, 0, -4.87878, 684.44, 0, -324.118, -19.515, 0, 7.31812, 19.515, 0, -7.31812, 803.969, 0, -368.027, 8.53784, 0, 28.0529, -8.53784, 0, -28.0529, 839.34, 0, -254.596, -18.2953, 0, -10.9772, 18.2953, 0, 10.9772, 863.734, 0, -175.316, -48.7876, 0, 8.53783, 48.7876, 0, -8.53783, 936.916, 0, -147.263, -39.0302, 0, -10.9772, 39.0302, 0, 10.9772, 1040.59, 0, -243.619, -64.6436, 0, -81.7193, 64.6436, 0, 81.7193, 1152.8, 0, -128.968, 0, 0, -25.6135, 0, 0, 25.6135, 1260.13, 0, 29.5919, 0, 0, 0, 0, 0, 0, 1208.91, 0, 79.5992, 32.9316, 0, -1.2197, -32.9316, 0, 1.2197, 893.007, 0, 96.6749, 14.6362, 0, -23.1741, -14.6362, 0, 23.1741, 856.416, 0, 125.947, -26.8332, 0, -34.1513, 26.8332, 0, 34.1513, 950.332, 0, 188.152, 32.9316, 0, -15.856, -32.9316, 0, 15.856, 940.575, 0, 300.363, 48.7876, 0, 2.43939, -48.7876, 0, -2.43939, 729.568, 0, 201.568, 58.5451, 0, -14.6363, -58.5451, 0, 14.6363, 636.872, 0, 249.136, 1.21973, 0, 24.3938, -1.21973, 0, -24.3938, 519.781, 0, 143.023, -140.264, 0, 10.9772, 140.264, 0, -10.9772, 655.167, 0, 84.478, 0, 0, 0, 0, 0, 0, 1032.05, 0, 61.3038, 0, 0, 36.5907, 0, 0, -36.5907, 1104.01, 0, 25.9328, 0, 0, 0, 0, 0, 0, 975.946, 0, -8.21853),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 30
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_kxd4r")
@@ -99,9 +109,6 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1238.05, 16.3255, -13.1918)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LapTimeLabel" type="Label" parent="CanvasLayer"]
@@ -113,6 +120,12 @@ offset_left = 1.0
 offset_top = 30.0
 offset_right = 41.0
 offset_bottom = 53.0
+
+[node name="EnemyLapsLeftLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 55.0
+offset_right = 41.0
+offset_bottom = 78.0
 
 [node name="Finish_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
@@ -128,6 +141,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1245.21, 10.5004, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.07932, 0)
 shape = SubResource("BoxShape3D_iayo1")
 debug_fill = false
+
+[node name="Nissan GTR" parent="." instance=ExtResource("2_tg8fv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 906.542, 16.3255, -9.19095)
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0453, 0)
+curve = SubResource("Curve3D_iayo1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-0.00270275, 0, 0.999996, 0, 1, 0, -0.999996, 0, -0.00270275, 902.764, 0, -5.77914)
+script = ExtResource("5_41rac")
+
+[node name="Enemy" parent="Path3D3/PathFollow3D" instance=ExtResource("5_iayo1")]
+transform = Transform3D(-1, 0, -8.70787e-08, 0, 1, 0, 8.70787e-08, 0, -1, 0.339387, 0.433191, 14.9333)
 
 [connection signal="body_entered" from="Finish_line" to="." method="_on_finish_line_body_entered"]
 [connection signal="body_entered" from="Middle_line" to="." method="_on_middle_line_body_entered"]

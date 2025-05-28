@@ -2,17 +2,20 @@ extends Node3D
 
 @export var total_laps: int = 3
 var current_lap: int = 0
+var enemy_current_lap: int = 0
 var lap_start_time_ms: int = 0
 var lap_times: Array = []
 var race_started = false
 var pass_middle = false
-@export var player: Node3D  # assign your player node here or via export
-
+var enemy_pass_middle = false
+@export var player: Node3D  
+@export var enemy: Node3D
 func _ready() -> void:
 	start_race()
 	
 func start_race():
 	current_lap = 1
+	enemy_current_lap = 1
 	lap_start_time_ms = Time.get_ticks_msec()
 	race_started = true
 	lap_times.clear()
@@ -40,12 +43,15 @@ func _process(_delta):
 		var now_ms = Time.get_ticks_msec()
 		var current_lap_time = (now_ms - lap_start_time_ms) / 1000.0
 		var laps_left = total_laps - current_lap + 1
+		var enemy_laps_left = total_laps - enemy_current_lap + 1
 
 		$CanvasLayer/LapTimeLabel.text = "Lap Time: %.2fs" % current_lap_time
 		$CanvasLayer/LapsLeftLabel.text = "Laps Left: %d" % laps_left
+		$CanvasLayer/EnemyLapsLeftLabel.text = "Enemy Laps Left: %d" % enemy_laps_left
 	else:
 		$CanvasLayer/LapTimeLabel.text = "Race not started"
 		$CanvasLayer/LapsLeftLabel.text = ""
+		$CanvasLayer/EnemyLapsLeftLabel.text = ""
 		
 func _on_finish_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
@@ -54,7 +60,8 @@ func _on_finish_line_body_entered(body: Node) -> void:
 	if body.get_parent() == player and race_started and pass_middle == true:
 		print("finish")
 		finish_lap()
-
+	elif body.get_parent() == enemy and race_started and enemy_pass_middle == true:
+		print("enemy finish")
 
 func _on_middle_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
@@ -63,3 +70,12 @@ func _on_middle_line_body_entered(body: Node) -> void:
 		pass_middle = true
 	print(pass_middle)
 	return
+	
+func finish_lap_enemy():
+	if not race_started:
+		return
+	enemy_pass_middle = false
+	enemy_current_lap += 1
+	if enemy_current_lap > total_laps:
+		race_started = false
+		print("Race finished! Lap times: ", lap_times)
