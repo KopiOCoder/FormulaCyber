@@ -55,3 +55,5 @@ func _on_submit_button_pressed() -> void:
 	Leaderboard.save_score(name, final_score)
 	update_leaderboard_display()
 	name_input.text = ""
+	$Panel/Submit_button.visible = false
+	$Panel/NinePatchRect/name_input.visible = false
