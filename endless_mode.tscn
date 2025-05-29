@@ -36,6 +36,7 @@ texture = ExtResource("7_2flgw")
 texture = ExtResource("7_2flgw")
 
 [node name="Endless_Mode" type="Node3D"]
+process_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.826098, 0.537739, -0.168517, 0, 0.299041, 0.95424, 0.563526, 0.788296, -0.247037, 0, 0, 0)

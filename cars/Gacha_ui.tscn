@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu1imtt1hqwv5"]
+
+[ext_resource type="Script" uid="uid://bqv1yu7lbuiua" path="res://control.gd" id="1_idlmq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idlmq")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -94.0
+offset_right = 19.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Pull_button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Pull"
+
+[node name="result" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 124.0
+offset_right = 880.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 30
+text = "Result Here"
+horizontal_alignment = 1
+vertical_alignment = 1

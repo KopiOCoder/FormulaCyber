@@ -1,7 +1,15 @@
 [
 	{
+		"name": "YAY",
+		"score": 631.0
+	},
+	{
+		"name": "6O9",
+		"score": 631
+	},
+	{
 		"name": "OSO",
-		"score": 361
+		"score": 361.0
 	},
 	{
 		"name": "5XZ",
@@ -10,5 +18,13 @@
 	{
 		"name": "DEF",
 		"score": 158.0
+	},
+	{
+		"name": "DSD",
+		"score": 112.0
+	},
+	{
+		"name": "G56",
+		"score": 109.0
 	}
 ]
