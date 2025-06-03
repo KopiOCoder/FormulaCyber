@@ -143,7 +143,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 17
-text = "Formular
+text = "Formula
    Cyberjaya25"
 
 [node name="quit" type="CanvasLayer" parent="."]

@@ -81,6 +81,7 @@ material = SubResource("StandardMaterial3D_eqbyj")
 size = Vector3(31.7369, 24.6759, 17.2885)
 
 [node name="Map" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_0ci7p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

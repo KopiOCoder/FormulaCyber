@@ -1,13 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=18 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
 [ext_resource type="MeshLibrary" uid="uid://dgitntiscojhf" path="res://Assets/mesh_library.tres" id="1_eu2lg"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="3_47ka5"]
+[ext_resource type="Script" uid="uid://rk217tvv7785" path="res://game_over.gd" id="4_5s5bq"]
 [ext_resource type="AudioStream" uid="uid://bf5qxon65mvon" path="res://cone_hit.mp3" id="4_qcjw3"]
+[ext_resource type="Texture2D" uid="uid://b6b2okpgu00tw" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Square.png" id="5_qrtsg"]
+[ext_resource type="Texture2D" uid="uid://56b3krl3145" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blank_Square.png" id="6_2flgw"]
+[ext_resource type="Texture2D" uid="uid://bqwdl5xfsjweq" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blue_Square.png" id="7_2flgw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eu2lg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s5bq"]
+bg_color = Color(0, 0, 0, 0.776471)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lf71s"]
+texture = ExtResource("6_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i1t1"]
+texture = ExtResource("7_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e85l5"]
+texture = ExtResource("7_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5cwh"]
+texture = ExtResource("7_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xnn6"]
+texture = ExtResource("7_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18vgc"]
+texture = ExtResource("7_2flgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmpkf"]
+texture = ExtResource("7_2flgw")
+
 [node name="Endless_Mode" type="Node3D"]
+process_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.826098, 0.537739, -0.168517, 0, 0.299041, 0.95424, 0.563526, 0.788296, -0.247037, 0, 0, 0)
@@ -28,12 +57,134 @@ offset_left = -2.0
 offset_top = -2.0
 offset_right = 1151.0
 offset_bottom = 81.0
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "0"
 clip_text = true
 
 [node name="Pause-Menu" parent="Gui" instance=ExtResource("3_47ka5")]
 
+[node name="Game_over" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_5s5bq")
+
+[node name="Panel" type="Panel" parent="Game_over"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5s5bq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Game_over/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -227.0
+offset_right = 259.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qrtsg")
+
+[node name="Game_over" type="Label" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = -19.0
+offset_right = -139.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_lf71s")
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name_input" type="LineEdit" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 188.0
+offset_right = 392.0
+offset_bottom = 288.0
+placeholder_text = "\"Enter 3 letters/numbers\""
+alignment = 1
+max_length = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 358.0
+offset_right = 392.0
+offset_bottom = 415.0
+
+[node name="Restart" type="Button" parent="Game_over/Panel/NinePatchRect/Buttons"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6i1t1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e85l5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b5cwh")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Game_over/Panel/NinePatchRect/Buttons"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_3xnn6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_18vgc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rmpkf")
+text = "Quit"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Game_over/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 47.0
+offset_right = 424.0
+offset_bottom = 183.0
+
+[node name="Score" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Submit_button" type="Button" parent="Game_over/Panel"]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 394.0
+offset_right = 797.0
+offset_bottom = 433.0
+text = "submit"
+
+[node name="PanelContainer" type="PanelContainer" parent="Game_over"]
+offset_left = 844.0
+offset_top = 117.0
+offset_right = 1104.0
+offset_bottom = 549.0
+
+[node name="leaderboard" type="VBoxContainer" parent="Game_over/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Game_over/PanelContainer/leaderboard"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Game_over/PanelContainer/leaderboard"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Game_over/PanelContainer/leaderboard"]
+layout_mode = 2
+
 [node name="Cone_hit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_qcjw3")
 volume_db = 20.0
+bus = &"SFX"
+
+[connection signal="pressed" from="Game_over/Panel/NinePatchRect/Buttons/Restart" to="Game_over" method="_on_restart_pressed"]
+[connection signal="pressed" from="Game_over/Panel/NinePatchRect/Buttons/Quit" to="Game_over" method="_on_quit_pressed"]
+[connection signal="pressed" from="Game_over/Panel/Submit_button" to="Game_over" method="_on_submit_button_pressed"]

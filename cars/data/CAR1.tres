@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CarData" load_steps=2 format=3 uid="uid://b36l2untwodvx"]
+
+[ext_resource type="Script" uid="uid://cu747kflcw00l" path="res://CarData.gd" id="1_rhbr4"]
+
+[resource]
+script = ExtResource("1_rhbr4")
+name = "Car1"
+rarity = "epic"
+scene_path = ""
+metadata/_custom_type_script = "uid://cu747kflcw00l"

@@ -1,5 +1,6 @@
 extends GridMap
 
+
 var chunk_size = 8
 var load_distance = 8
 var void_limit = -10
@@ -24,6 +25,7 @@ var total_distance = 0
 var distance = initial_position.distance_to(current_position)
 var score = int(distance)
 var last_checked_score = -1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +52,10 @@ func _process(_delta):
 	last_position = current_position
 	score = round(int(total_distance))
 	$"../Gui/Score".text = str(score)
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/Score".text = str(score)
 	if player.global_transform.origin.y < void_limit:
+		$"../Gui".visible = false
+		current_score = score
 		game_over()
 
 
@@ -167,8 +172,17 @@ func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
 		else:
 			return
 			
+
+
+var current_score: int = 0
+
 func game_over():
-	get_tree().reload_current_scene()
+	get_tree().paused = true
+	$"../Game_over".visible = true
+	$"../Game_over".show_game_over(score)
+
+
+
 
 func _on_cone_hit():
 	print("cone hit")

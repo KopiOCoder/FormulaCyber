@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqtytycj4c0o" path="res://Input settings/Input_settings.tscn" id="4_hrc50"]
 [ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="4_jpfgy"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_odouo"]
-[ext_resource type="PackedScene" uid="uid://b4u44mbhbp4gv" path="res://UI/volume_slider.tscn" id="10_13cjo"]
+[ext_resource type="PackedScene" uid="uid://bdi65qr1qegn2" path="res://UI/volume_slider.tscn" id="10_13cjo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r4g"]
 texture = ExtResource("4_jpfgy")
@@ -164,7 +164,6 @@ vertical_alignment = 1
 
 [node name="Master_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
-
 bus_name = "Master"
 
 [node name="Label_Music" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
@@ -174,10 +173,9 @@ theme_override_font_sizes/font_size = 25
 text = "Music Volume"
 vertical_alignment = 1
 
-[node name="Music" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
+[node name="Music_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
 bus_name = "Music"
-
 
 [node name="Label_SFX" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume"]
 layout_mode = 2
@@ -188,7 +186,6 @@ vertical_alignment = 1
 
 [node name="SFX_vol" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Volume/Volume" instance=ExtResource("10_13cjo")]
 layout_mode = 2
-
 bus_name = "SFX"
 
 [node name="Seperator" type="Control" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]

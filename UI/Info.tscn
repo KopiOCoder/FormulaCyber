@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0e405jp06cue"]
 
-[ext_resource type="Script" uid="uid://cymbuge1yh06o" path="res://info.gd" id="1_lai0j"]
+[ext_resource type="Script" uid="uid://cymbuge1yh06o" path="res://UI/info.gd" id="1_lai0j"]
 [ext_resource type="Texture2D" uid="uid://b1njpotmw5ht5" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Orange_Square.png" id="1_v3brf"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="2_xaqnp"]
 [ext_resource type="Texture2D" uid="uid://hwvarxks7ywm" path="res://ui Design for FC/Icons/SVG/Icon_Small_Blank_Arrow.svg" id="3_lai0j"]
@@ -9,6 +9,7 @@
 texture = ExtResource("3_lai0j")
 
 [node name="Info" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
