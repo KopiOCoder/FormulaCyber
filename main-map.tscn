@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=45 format=3 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="Script" uid="uid://0cx80q55vypy" path="res://score_logic.gd" id="1_0ci7p"]
 [ext_resource type="PackedScene" uid="uid://cir7hn7anugml" path="res://GTR_NEW.tscn" id="1_131ww"]
@@ -30,9 +30,55 @@
 [ext_resource type="ArrayMesh" uid="uid://b3fimx20kduvb" path="res://Assets/import/buildings/misc/swim.obj" id="28_7j5wa"]
 [ext_resource type="ArrayMesh" uid="uid://bs55r1rjthsx8" path="res://Assets/import/buildings/misc/surau.obj" id="29_xtww3"]
 [ext_resource type="ArrayMesh" uid="uid://csdmr7t072iyy" path="res://Assets/import/buildings/misc/football.obj" id="30_aucsd"]
+[ext_resource type="Script" uid="uid://cp34jk6y10i80" path="res://mcdarea.gd" id="31_jao7d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dc8p"]
 albedo_texture = ExtResource("2_uxck0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22b57"]
+size = Vector3(12.9973, 4.67706, 13.1091)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22b57"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.607843, 0, 0, 0.588235)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jao7d"]
+material = SubResource("StandardMaterial3D_22b57")
+size = Vector3(12.9973, 4.67706, 13.1091)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eqal0"]
+size = Vector3(22.4601, 8.96024, 6.82712)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hoauu"]
+transparency = 1
+albedo_color = Color(0.607843, 0, 0, 0.588235)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6wgr"]
+material = SubResource("StandardMaterial3D_hoauu")
+size = Vector3(22.4601, 5.21735, 6.82712)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bp7d"]
+size = Vector3(413.488, 57.5176, 243.598)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7j5wa"]
+transparency = 1
+albedo_color = Color(0.607843, 0, 0, 0.588235)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xtww3"]
+material = SubResource("StandardMaterial3D_7j5wa")
+size = Vector3(413.488, 57.5176, 243.598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aucsd"]
+size = Vector3(31.7369, 24.6759, 17.2885)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqbyj"]
+transparency = 1
+albedo_color = Color(0.607843, 0, 0, 0.588235)
+
+[sub_resource type="BoxMesh" id="BoxMesh_81pjy"]
+material = SubResource("StandardMaterial3D_eqbyj")
+size = Vector3(31.7369, 24.6759, 17.2885)
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_0ci7p")
@@ -54,7 +100,7 @@ size = Vector3(1000, 0.002, 1250)
 [node name="roadcollision" type="MeshInstance3D" parent="."]
 
 [node name="Nissan GTR" parent="." instance=ExtResource("1_131ww")]
-transform = Transform3D(0.995385, 0, 0.0959675, 0, 1, 0, -0.0959675, 0, 0.995385, 213.757, 3.72022, 223.808)
+transform = Transform3D(0.995385, 0, 0.0959675, 0, 1, 0, -0.0959675, 0, 0.995385, -266.553, 3.72022, 481.489)
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
@@ -383,3 +429,44 @@ skeleton = NodePath("../../buildings")
 [node name="football" type="MeshInstance3D" parent="buildingcombiner/misc"]
 transform = Transform3D(14.7943, 0, -2.47571, 0, 15, 0, 2.47571, 0, 14.7943, 182.951, 0, -229.967)
 mesh = ExtResource("30_aucsd")
+
+[node name="mcdarea" type="Area3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -236.133, -4.27438, 375.987)
+script = ExtResource("31_jao7d")
+
+[node name="mcdcollision" type="CollisionShape3D" parent="mcdarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62341, 1.83853, 5.32711)
+shape = SubResource("BoxShape3D_22b57")
+
+[node name="mcdmesh" type="MeshInstance3D" parent="mcdarea/mcdcollision"]
+mesh = SubResource("BoxMesh_jao7d")
+
+[node name="salamarea" type="Area3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 55.0335, 0.000335693, -305.753)
+
+[node name="salamcollision" type="CollisionShape3D" parent="salamarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49188, 2.07576, 4.95249)
+shape = SubResource("BoxShape3D_eqal0")
+
+[node name="salammesh" type="MeshInstance3D" parent="salamarea/salamcollision"]
+mesh = SubResource("BoxMesh_f6wgr")
+
+[node name="klccarea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8061, 3.05176e-05, -68.1718)
+
+[node name="klcccollision" type="CollisionShape3D" parent="klccarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5546, 32.206, -347.025)
+shape = SubResource("BoxShape3D_4bp7d")
+
+[node name="klccmesh" type="MeshInstance3D" parent="klccarea/klcccollision"]
+mesh = SubResource("BoxMesh_xtww3")
+
+[node name="mmuarea" type="Area3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -243.028, 3.05176e-05, 375.965)
+
+[node name="mmucollision" type="CollisionShape3D" parent="mmuarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9835, -2.39026, -23.0645)
+shape = SubResource("BoxShape3D_aucsd")
+
+[node name="mmumesh" type="MeshInstance3D" parent="mmuarea/mmucollision"]
+mesh = SubResource("BoxMesh_81pjy")
