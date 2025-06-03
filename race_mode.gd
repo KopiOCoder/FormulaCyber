@@ -10,6 +10,17 @@ var pass_middle = false
 var enemy_pass_middle = false
 @export var player: Node3D  
 @export var enemy: Node3D
+@onready var path = $Path3D3
+@onready var path_follow = $Path3D3/PathFollow3D
+var debug = false
+
+
+func get_path_direction(pos):
+	var offset = path.get_closest_offset(pos)
+	path_follow.progress = offset
+
+	return path_follow.transform.x
+
 func _ready() -> void:
 	start_race()
 	

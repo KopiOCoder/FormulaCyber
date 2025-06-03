@@ -1,15 +1,11 @@
-[gd_scene load_steps=40 format=4 uid="uid://bps53nid7diqf"]
+[gd_scene load_steps=39 format=4 uid="uid://c558g1vdejqj1"]
 
-[ext_resource type="Script" uid="uid://blgw6wtaxe17k" path="res://enemy_ai.gd" id="1_3yqyl"]
-[ext_resource type="Script" uid="uid://djq4c0jfwhx47" path="res://raycast_wheel.gd" id="2_wujgv"]
-[ext_resource type="Texture2D" uid="uid://dtjxa8v4uvwvc" path="res://kenney_prototype-textures/PNG/Dark/texture_04.png" id="3_hb8ge"]
-[ext_resource type="ArrayMesh" uid="uid://emgdgo3vpbk" path="res://gtrwheel.tres" id="4_e1ltt"]
-[ext_resource type="AudioStream" uid="uid://5bewof30otfo" path="res://nissan_gtr_boost_sound.mp3" id="5_dxifv"]
-[ext_resource type="AudioStream" uid="uid://bwjv7q7qn53ja" path="res://nissan-maxima-handbrake-turn-04-25-2009-6098.mp3" id="6_pwjut"]
-
-[sub_resource type="Curve" id="Curve_3yqyl"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.297872, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="Script" uid="uid://boutcdkd8ep03" path="res://context_steering.gd" id="1_3uclr"]
+[ext_resource type="Script" uid="uid://djq4c0jfwhx47" path="res://raycast_wheel.gd" id="1_hdrrr"]
+[ext_resource type="Texture2D" uid="uid://dtjxa8v4uvwvc" path="res://kenney_prototype-textures/PNG/Dark/texture_04.png" id="2_3uclr"]
+[ext_resource type="ArrayMesh" uid="uid://emgdgo3vpbk" path="res://gtrwheel.tres" id="3_tvvi1"]
+[ext_resource type="AudioStream" uid="uid://5bewof30otfo" path="res://nissan_gtr_boost_sound.mp3" id="4_y5vxn"]
+[ext_resource type="AudioStream" uid="uid://bwjv7q7qn53ja" path="res://nissan-maxima-handbrake-turn-04-25-2009-6098.mp3" id="5_1w5uo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4aod"]
 resource_name = "chasis"
@@ -146,7 +142,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_n0g06"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_4e084"]
 resource_name = "Nissan GTR_Plane-Mesh"
 _surfaces = [{
 "aabb": AABB(-0.493582, -0.109588, 3.1427, 0.987164, 0.037056, 0.047466),
@@ -251,73 +247,73 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ofmdy")
 
-[sub_resource type="BoxMesh" id="BoxMesh_ar8e5"]
+[sub_resource type="BoxMesh" id="BoxMesh_04dh4"]
 size = Vector3(2, 0.5, 4.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_doop2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oco7p"]
 size = Vector3(2, 0.5, 5.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hcft"]
-albedo_texture = ExtResource("3_hb8ge")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4pvc"]
+albedo_texture = ExtResource("2_3uclr")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_nnovl"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_marm3"]
 top_radius = 0.4
 bottom_radius = 0.4
 height = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmwgi"]
-albedo_texture = ExtResource("3_hb8ge")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_867o1"]
+albedo_texture = ExtResource("2_3uclr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2u8i"]
-albedo_texture = ExtResource("3_hb8ge")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yg2j"]
+albedo_texture = ExtResource("2_3uclr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otto8"]
-albedo_texture = ExtResource("3_hb8ge")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7ek7"]
+albedo_texture = ExtResource("2_3uclr")
 
-[sub_resource type="Curve" id="Curve_8q82m"]
+[sub_resource type="Curve" id="Curve_3hyk6"]
 _data = [Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.558824, 0.539326), 0.0, 0.0, 0, 0, Vector2(0.823529, 0.303371), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_a41jc"]
-curve = SubResource("Curve_8q82m")
+curve = SubResource("Curve_3hyk6")
 
-[sub_resource type="Gradient" id="Gradient_epc7x"]
+[sub_resource type="Gradient" id="Gradient_ln38j"]
 offsets = PackedFloat32Array(0.954545, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d8olc"]
-gradient = SubResource("Gradient_epc7x")
+gradient = SubResource("Gradient_ln38j")
 
-[sub_resource type="Gradient" id="Gradient_o7rgc"]
+[sub_resource type="Gradient" id="Gradient_2exmp"]
 offsets = PackedFloat32Array(0.936364, 0.972727)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pvtck"]
-gradient = SubResource("Gradient_o7rgc")
+gradient = SubResource("Gradient_2exmp")
 
-[sub_resource type="Curve" id="Curve_kdav3"]
+[sub_resource type="Curve" id="Curve_kpxia"]
 _data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.830882, 0.157303), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_uj35n"]
-curve = SubResource("Curve_kdav3")
+curve = SubResource("Curve_kpxia")
 
-[sub_resource type="Curve" id="Curve_jpbtr"]
+[sub_resource type="Curve" id="Curve_sampn"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -0.280899), 0.0, 0.0, 0, 0, Vector2(0.919118, -0.707865), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_arru3"]
-curve = SubResource("Curve_jpbtr")
+curve = SubResource("Curve_sampn")
 
-[sub_resource type="Curve" id="Curve_qgdfx"]
+[sub_resource type="Curve" id="Curve_xibxa"]
 _data = [Vector2(0.154412, 0.865169), 0.0, 0.0, 0, 0, Vector2(0.808824, 0.359551), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_a6uql"]
-curve = SubResource("Curve_qgdfx")
+curve = SubResource("Curve_xibxa")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qku5p"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b213q"]
 emission_shape_scale = Vector3(0.2, 0.2, 0.2)
 angle_min = 1.07288e-05
 angle_max = 1.07288e-05
@@ -343,37 +339,34 @@ hue_variation_curve = SubResource("CurveTexture_arru3")
 vertex_color_use_as_albedo = true
 proximity_fade_enabled = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_l1fjw"]
+[sub_resource type="SphereMesh" id="SphereMesh_6jfpd"]
 material = SubResource("StandardMaterial3D_5535e")
 radial_segments = 4
 rings = 1
 is_hemisphere = true
 
-[node name="Enemy" type="Node3D"]
+[node name="enemy_easy" type="Node3D"]
 
 [node name="Enemy" type="RigidBody3D" parent="." node_paths=PackedStringArray("wheels")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
 mass = 35.0
-script = ExtResource("1_3yqyl")
+script = ExtResource("1_3uclr")
 wheels = [NodePath("FL"), NodePath("BL"), NodePath("FR"), NodePath("BR")]
-acceleration = 300.0
-max_speed = 15.0
-accel_curve = SubResource("Curve_3yqyl")
 
 [node name="Car_mesh" type="MeshInstance3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0590587, -0.188496)
-mesh = SubResource("ArrayMesh_n0g06")
+mesh = SubResource("ArrayMesh_4e084")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
-mesh = SubResource("BoxMesh_ar8e5")
+mesh = SubResource("BoxMesh_04dh4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
-shape = SubResource("BoxShape3D_doop2")
+shape = SubResource("BoxShape3D_oco7p")
 
 [node name="FL" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 1.8)
-script = ExtResource("2_wujgv")
+script = ExtResource("1_hdrrr")
 spring_str = 1000.0
 spring_dmp = 112.0
 is_motor = true
@@ -381,33 +374,33 @@ is_steering = true
 
 [node name="Wheel" type="MeshInstance3D" parent="Enemy/FL"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_5hcft")
-mesh = SubResource("CylinderMesh_nnovl")
+material_override = SubResource("StandardMaterial3D_v4pvc")
+mesh = SubResource("CylinderMesh_marm3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/FL/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.377317, -1.08305, -1.94365)
-mesh = ExtResource("4_e1ltt")
+mesh = ExtResource("3_tvvi1")
 skeleton = NodePath("../../../..")
 
 [node name="BL" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, -1.8)
-script = ExtResource("2_wujgv")
+script = ExtResource("1_hdrrr")
 spring_str = 1000.0
 spring_dmp = 112.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Enemy/BL"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_jmwgi")
-mesh = SubResource("CylinderMesh_nnovl")
+material_override = SubResource("StandardMaterial3D_867o1")
+mesh = SubResource("CylinderMesh_marm3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/BL/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.373379, -1.09047, -1.94589)
-mesh = ExtResource("4_e1ltt")
+mesh = ExtResource("3_tvvi1")
 skeleton = NodePath("../../../..")
 
 [node name="FR" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 1.8)
-script = ExtResource("2_wujgv")
+script = ExtResource("1_hdrrr")
 spring_str = 1000.0
 spring_dmp = 112.0
 is_motor = true
@@ -415,28 +408,28 @@ is_steering = true
 
 [node name="Wheel" type="MeshInstance3D" parent="Enemy/FR"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_g2u8i")
-mesh = SubResource("CylinderMesh_nnovl")
+material_override = SubResource("StandardMaterial3D_6yg2j")
+mesh = SubResource("CylinderMesh_marm3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/FR/Wheel"]
 transform = Transform3D(-4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 0, 0, 0, 1, 0.378999, 1.09407, -1.94655)
-mesh = ExtResource("4_e1ltt")
+mesh = ExtResource("3_tvvi1")
 skeleton = NodePath("../../../..")
 
 [node name="BR" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, -1.8)
-script = ExtResource("2_wujgv")
+script = ExtResource("1_hdrrr")
 spring_str = 1000.0
 spring_dmp = 112.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Enemy/BR"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_otto8")
-mesh = SubResource("CylinderMesh_nnovl")
+material_override = SubResource("StandardMaterial3D_r7ek7")
+mesh = SubResource("CylinderMesh_marm3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/BR/Wheel"]
 transform = Transform3D(-4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 0, 0, 0, 1, 0.378999, 1.09407, -1.94081)
-mesh = ExtResource("4_e1ltt")
+mesh = ExtResource("3_tvvi1")
 skeleton = NodePath("../../../..")
 
 [node name="Node3D" type="Node3D" parent="Enemy"]
@@ -448,8 +441,8 @@ emitting = false
 amount = 50
 lifetime = 0.3
 explosiveness = 0.13
-process_material = SubResource("ParticleProcessMaterial_qku5p")
-draw_pass_1 = SubResource("SphereMesh_l1fjw")
+process_material = SubResource("ParticleProcessMaterial_b213q")
+draw_pass_1 = SubResource("SphereMesh_6jfpd")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Enemy/Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.659988, -0.0531731, -0.781897)
@@ -457,18 +450,18 @@ emitting = false
 amount = 50
 lifetime = 0.3
 explosiveness = 0.13
-process_material = SubResource("ParticleProcessMaterial_qku5p")
-draw_pass_1 = SubResource("SphereMesh_l1fjw")
+process_material = SubResource("ParticleProcessMaterial_b213q")
+draw_pass_1 = SubResource("SphereMesh_6jfpd")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
-stream = ExtResource("5_dxifv")
+stream = ExtResource("4_y5vxn")
 volume_db = -10.0
 bus = &"SFX"
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
-stream = ExtResource("6_pwjut")
+stream = ExtResource("5_1w5uo")
 
 [node name="front" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1.91068e-15, 4.37114e-08, -1, 1, -4.37114e-08, -1.27055e-21, -4.37114e-08, -1, -4.37114e-08, 0, 0, 2.664)
