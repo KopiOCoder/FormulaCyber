@@ -10,7 +10,7 @@ func _on_garagebutton_pressed() -> void:
 
 
 func _on_shopbutton_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Shop.tscn")
 
 
 func _on_button_pressed() -> void:

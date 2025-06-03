@@ -10,6 +10,7 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_th68x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

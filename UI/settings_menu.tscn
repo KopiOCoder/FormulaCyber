@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkkldbknxoaa7" path="res://UI/settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Texture2D" uid="uid://co4xabuj4cnyd" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Rounded.png" id="2_0cmel"]
 [ext_resource type="Shader" uid="uid://cqermrrr7fk66" path="res://UI/settings_menu.gdshader" id="2_yl4dm"]
-[ext_resource type="PackedScene" uid="uid://b4u44mbhbp4gv" path="res://UI/volume_slider.tscn" id="4_3pt1a"]
+[ext_resource type="PackedScene" uid="uid://bdi65qr1qegn2" path="res://UI/volume_slider.tscn" id="4_3pt1a"]
 [ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_fiqec"]
 [ext_resource type="Texture2D" uid="uid://daqtevtdk7yc" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_GreyOutline_Square.png" id="5_2d6lb"]
 [ext_resource type="Texture2D" uid="uid://desbotctxyh0a" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Blank_Rounded.png" id="5_a0cf0"]

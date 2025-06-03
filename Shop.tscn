@@ -1,19 +1,124 @@
-[gd_scene format=3 uid="uid://3tx3c2582va7"]
+[gd_scene load_steps=16 format=3 uid="uid://3tx3c2582va7"]
 
-[node name="Shop" type="Node2D"]
+[ext_resource type="Script" uid="uid://p325k5ucu0q1" path="res://shop.gd" id="1_odqjv"]
+[ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="2_vdbi3"]
+[ext_resource type="Texture2D" uid="uid://bhigfa17utj3n" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Red_Square.png" id="3_2x7t7"]
+[ext_resource type="Texture2D" uid="uid://d2chtjwxb3sxw" path="res://ui Design for FC/ButtonsIcons/IconButton_Small_Blue_Square.png" id="4_db8k6"]
+[ext_resource type="Texture2D" uid="uid://dwimebbyhk54s" path="res://ui Design for FC/ButtonsText/PremadeButtons_ExitRed.png" id="5_6epge"]
+[ext_resource type="Texture2D" uid="uid://b3g8y3uuax4r6" path="res://ui Design for FC/ButtonsText/PremadeButtons_ExitOrange.png" id="6_cl6py"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wr8g1"]
+texture = ExtResource("3_2x7t7")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 2.0
-offset_right = 1151.0
-offset_bottom = 649.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bmy5l"]
+texture = ExtResource("3_2x7t7")
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5mf3"]
+texture = ExtResource("4_db8k6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rl2n"]
+texture = ExtResource("3_2x7t7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_olj3c"]
+texture = ExtResource("3_2x7t7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfn0r"]
+texture = ExtResource("4_db8k6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ysly5"]
+texture = ExtResource("5_6epge")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v17rq"]
+texture = ExtResource("5_6epge")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5qpgp"]
+texture = ExtResource("6_cl6py")
+
+[node name="Shop" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odqjv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 71.0
+offset_right = -138.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
+texture = ExtResource("2_vdbi3")
+region_rect = Rect2(8, 7, 342, 342)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = 284.0
+offset_right = 74.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Money-dis" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+[node name="item_shop" type="Button" parent="MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_wr8g1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bmy5l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u5mf3")
+text = "Collectable"
+
+[node name="gacha" type="Button" parent="MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rl2n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_olj3c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yfn0r")
+text = "Gacha"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -63.0
+offset_right = 159.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="exit" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_ysly5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v17rq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5qpgp")
+
+[connection signal="pressed" from="MarginContainer/NinePatchRect/HBoxContainer/item_shop" to="." method="_on_item_shop_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/HBoxContainer/gacha" to="." method="_on_gacha_pressed"]
+[connection signal="pressed" from="MarginContainer2/exit" to="." method="_on_exit_pressed"]
