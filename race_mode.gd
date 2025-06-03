@@ -10,6 +10,8 @@ var pass_middle = false
 var enemy_pass_middle = false
 @export var player: Node3D  
 @export var enemy: Node3D
+
+
 func _ready() -> void:
 	start_race()
 	
@@ -52,7 +54,7 @@ func _process(_delta):
 		$CanvasLayer/LapTimeLabel.text = "Race not started"
 		$CanvasLayer/LapsLeftLabel.text = ""
 		$CanvasLayer/EnemyLapsLeftLabel.text = ""
-		
+
 func _on_finish_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)

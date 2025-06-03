@@ -59,7 +59,7 @@ albedo_color = Color(0.749103, 0.749103, 0.749103, 1)
 roughness = 0.903922
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ofmdy"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t53yr"]
 _surfaces = [{
 "aabb": AABB(-0.493582, -0.109588, 3.1427, 0.987164, 0.037056, 0.047466),
 "format": 34359742465,
@@ -249,7 +249,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("exERP97H8T4J3qg/Y3zAPqTE9j5m+q0/AAAAAKby9j5XW7E/WwujPs2vZj+4yvM+AAAAALd9Zz9lcPw+cXNKP5pg6D4dIZ0/rAFGP0Sm7D67fp8/HxBAP8fWKz+wVkU/DMpcPwzp4D6EgY8/xLEePymuYj+bHdE+5h9NP0fJWz/LSlM+OBN/P73fAD83pVg/j29TP3+/VD99eaE+5XpLPw4vYD/JzIU90sWCPzCe6T5NvPu+UfhIPwPvZD/5LcK+2qyCP7NE3z6qSG0/JhxKP0oJXT9jQ0e/gO6BP0Jc8T5nRSy/yZJJP2X/YD/kLxG/Dd5/P3UDBT/NsZy/o8yAP+upAT86XJu/c/JOP8PyFz89RNO/twsxP2a8WT/vdZq/niUoP/H2YD9evJe/do1OP1UwEj987ee/UHMePzjAZD+QpJa/Fk+lPsmqaD+emZa/AAAAAFzIGz8VbwPAAAAAAAK7aj+UM5a/kPQNP7aFGz/bp/+//1wcP7COGz+TOP2/DQDVPul9Gz891ALAAAAAAKby9j5XW7E/Y3zAvqTE9j5m+q0/exERv97H8T4J3qg/cXNKv5pg6D4dIZ0/rAFGv0Sm7D67fp8/Wwujvs2vZj+4yvM+AAAAALd9Zz9lcPw+HxBAv8fWKz+wVkU/xLEevymuYj+bHdE+DMpcvwzp4D6EgY8/j29Tv3+/VD99eaE+OBN/v73fAD83pVg/2qyCv7NE3z6qSG0/5h9Nv0fJWz/LSlM+UfhIvwPvZD/5LcK+5XpLvw4vYD/JzIU90sWCvzCe6T5NvPu+yZJJv2X/YD/kLxG/gO6Bv0Jc8T5nRSy/o8yAv+upAT86XJu/JhxKv0oJXT9jQ0e/Dd5/v3UDBT/NsZy/niUov/H2YD9evJe/twsxv2a8WT/vdZq/c/JOv8PyFz89RNO/UHMevzjAZD+QpJa/do1Ov1UwEj987ee//1wcv7COGz+TOP2/DQDVvul9Gz891ALAkPQNv7aFGz/bp/+/AAAAAAK7aj+UM5a/Fk+lvsmqaD+emZa/AAAAAFzIGz8VbwPAYIulz////z9gi6XP////P2CLpc////8/YIulz////z9gi6XP////P2CLpc////8/YIulz////z9gi6XP////P2CLpc////8/YIulz////z9X1NKr////v1fU0qv///+/V9TSq////79X1NKr////v1fU0qv///+/V9TSq////79X1NKr////v9PQlK7///8/09CUrv///z/T0JSu////P9PQlK7///8/09CUrv///z+AqZn0////v4CpmfT///+/gKmZ9P///7+AqZn0////v4CpmfT///+/gKmZ9P///7+AqZn0////v4CpmfT///+/gKmZ9P///7+AqZn0////v4CpmfT///+/nnSlz////z+edKXP////P550pc////8/nnSlz////z+edKXP////P550pc////8/nnSlz////z+edKXP////P550pc////8/nnSlz////z+nK9Kr////v6cr0qv///+/pyvSq////7+nK9Kr////v6cr0qv///+/pyvSq////7+nK9Kr////vysvlK7///8/Ky+Urv///z8rL5Su////PysvlK7///8/Ky+Urv///z9+Vpn0////v35WmfT///+/flaZ9P///79+Vpn0////v35WmfT///+/flaZ9P///79+Vpn0////v35WmfT///+/flaZ9P///79+Vpn0////v35WmfT///+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ofmdy")
+shadow_mesh = SubResource("ArrayMesh_t53yr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ar8e5"]
 size = Vector3(2, 0.5, 4.5)
@@ -278,28 +278,28 @@ albedo_texture = ExtResource("3_hb8ge")
 _data = [Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.558824, 0.539326), 0.0, 0.0, 0, 0, Vector2(0.823529, 0.303371), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_a41jc"]
+[sub_resource type="CurveTexture" id="CurveTexture_ceeks"]
 curve = SubResource("Curve_8q82m")
 
 [sub_resource type="Gradient" id="Gradient_epc7x"]
 offsets = PackedFloat32Array(0.954545, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8olc"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mqcn"]
 gradient = SubResource("Gradient_epc7x")
 
 [sub_resource type="Gradient" id="Gradient_o7rgc"]
 offsets = PackedFloat32Array(0.936364, 0.972727)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pvtck"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ww2oj"]
 gradient = SubResource("Gradient_o7rgc")
 
 [sub_resource type="Curve" id="Curve_kdav3"]
 _data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.830882, 0.157303), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_uj35n"]
+[sub_resource type="CurveTexture" id="CurveTexture_ombqt"]
 curve = SubResource("Curve_kdav3")
 
 [sub_resource type="Curve" id="Curve_jpbtr"]
@@ -307,14 +307,14 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -0.280899), 0.0, 0.0, 0, 0, Vector2(0.919118, -0.707865), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_arru3"]
+[sub_resource type="CurveTexture" id="CurveTexture_2562f"]
 curve = SubResource("Curve_jpbtr")
 
 [sub_resource type="Curve" id="Curve_qgdfx"]
 _data = [Vector2(0.154412, 0.865169), 0.0, 0.0, 0, 0, Vector2(0.808824, 0.359551), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_a6uql"]
+[sub_resource type="CurveTexture" id="CurveTexture_nb075"]
 curve = SubResource("Curve_qgdfx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qku5p"]
@@ -329,22 +329,22 @@ angular_velocity_max = -1.60933e-05
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.7
-scale_curve = SubResource("CurveTexture_a6uql")
+scale_curve = SubResource("CurveTexture_nb075")
 color = Color(0.858824, 0.380392, 0, 1)
-color_ramp = SubResource("GradientTexture1D_pvtck")
-color_initial_ramp = SubResource("GradientTexture1D_d8olc")
-alpha_curve = SubResource("CurveTexture_a41jc")
-emission_curve = SubResource("CurveTexture_uj35n")
+color_ramp = SubResource("GradientTexture1D_ww2oj")
+color_initial_ramp = SubResource("GradientTexture1D_8mqcn")
+alpha_curve = SubResource("CurveTexture_ceeks")
+emission_curve = SubResource("CurveTexture_ombqt")
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.1
-hue_variation_curve = SubResource("CurveTexture_arru3")
+hue_variation_curve = SubResource("CurveTexture_2562f")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5535e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h57xy"]
 vertex_color_use_as_albedo = true
 proximity_fade_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_l1fjw"]
-material = SubResource("StandardMaterial3D_5535e")
+material = SubResource("StandardMaterial3D_h57xy")
 radial_segments = 4
 rings = 1
 is_hemisphere = true
