@@ -10,16 +10,7 @@ var pass_middle = false
 var enemy_pass_middle = false
 @export var player: Node3D  
 @export var enemy: Node3D
-@onready var path = $Path3D3
-@onready var path_follow = $Path3D3/PathFollow3D
-var debug = false
 
-
-func get_path_direction(pos):
-	var offset = path.get_closest_offset(pos)
-	path_follow.progress = offset
-
-	return path_follow.transform.x
 
 func _ready() -> void:
 	start_race()
@@ -63,7 +54,7 @@ func _process(_delta):
 		$CanvasLayer/LapTimeLabel.text = "Race not started"
 		$CanvasLayer/LapsLeftLabel.text = ""
 		$CanvasLayer/EnemyLapsLeftLabel.text = ""
-		
+
 func _on_finish_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)
