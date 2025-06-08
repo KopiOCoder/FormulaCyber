@@ -350,116 +350,112 @@ radial_segments = 4
 rings = 1
 is_hemisphere = true
 
-[node name="Nissan GTR" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.454618, 0.20814, 0, 0.416281, 0.909236, -0.5, 0.787422, -0.36051, 0, 0, 0)
-light_energy = 1.75
-shadow_enabled = true
-
-[node name="Nissan GTR" type="RigidBody3D" parent="." node_paths=PackedStringArray("wheels")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
+[node name="Nissan GTR" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
 mass = 35.0
 script = ExtResource("1_lolwo")
 wheels = [NodePath("FL"), NodePath("BL"), NodePath("FR"), NodePath("BR")]
-max_speed = 40.0
+max_speed = 25.0
 accel_curve = SubResource("Curve_ofmdy")
 
-[node name="Car_mesh" type="MeshInstance3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0590587, -0.188496)
+[node name="Car_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.594439, -0.188496)
 mesh = SubResource("ArrayMesh_3e4w1")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Nissan GTR"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
 visible = false
 mesh = SubResource("BoxMesh_lolwo")
+skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Nissan GTR"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
 shape = SubResource("BoxShape3D_lolwo")
 
-[node name="FL" type="RayCast3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 1.8)
+[node name="FL" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.653498, 1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
 is_motor = true
 is_steering = true
 
-[node name="Wheel" type="MeshInstance3D" parent="Nissan GTR/FL"]
+[node name="Wheel" type="MeshInstance3D" parent="FL"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_ofmdy")
 mesh = SubResource("CylinderMesh_lolwo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Nissan GTR/FL/Wheel"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FL/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.377317, -1.08305, -1.94365)
 mesh = ExtResource("2_5dc1j")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="BL" type="RayCast3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, -1.8)
+[node name="BL" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.653498, -1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
 
-[node name="Wheel" type="MeshInstance3D" parent="Nissan GTR/BL"]
+[node name="Wheel" type="MeshInstance3D" parent="BL"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_a41jc")
 mesh = SubResource("CylinderMesh_lolwo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Nissan GTR/BL/Wheel"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BL/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.373379, -1.09047, -1.94589)
 mesh = ExtResource("2_5dc1j")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="FR" type="RayCast3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 1.8)
+[node name="FR" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.653498, 1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
 is_motor = true
 is_steering = true
 
-[node name="Wheel" type="MeshInstance3D" parent="Nissan GTR/FR"]
+[node name="Wheel" type="MeshInstance3D" parent="FR"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_d8olc")
 mesh = SubResource("CylinderMesh_lolwo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Nissan GTR/FR/Wheel"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FR/Wheel"]
 transform = Transform3D(-4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 0, 0, 0, 1, 0.378999, 1.09407, -1.94655)
 mesh = ExtResource("2_5dc1j")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="BR" type="RayCast3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, -1.8)
+[node name="BR" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.653498, -1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
 spring_dmp = 112.0
 
-[node name="Wheel" type="MeshInstance3D" parent="Nissan GTR/BR"]
+[node name="Wheel" type="MeshInstance3D" parent="BR"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_pvtck")
 mesh = SubResource("CylinderMesh_lolwo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Nissan GTR/BR/Wheel"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BR/Wheel"]
 transform = Transform3D(-4.37113e-08, 0.999999, 0, -0.999999, -4.37113e-08, 0, 0, 0, 1, 0.378999, 1.09407, -1.94081)
 mesh = ExtResource("2_5dc1j")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="CameraPivot" type="Node3D" parent="Nissan GTR"]
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Nissan GTR/CameraPivot"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(-1, 2.99004e-08, -8.21506e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 0.160527, 2.40818, -7.12068)
 current = true
 size = 10.0
 
-[node name="ReverseCam" type="Camera3D" parent="Nissan GTR/CameraPivot"]
+[node name="ReverseCam" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, -7.2906e-15, 2.00308e-14, 0, 0.939693, 0.34202, -2.13163e-14, -0.34202, 0.939693, -0.174541, 2.7297, 7.06862)
 size = 10.0
 
-[node name="Node3D" type="Node3D" parent="Nissan GTR"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.399588, -0.828602, -2.8518)
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.399588, -0.175104, -2.8518)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Nissan GTR/Node3D"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.659988, -0.0531731, -0.0482055)
 emitting = false
 amount = 50
@@ -468,7 +464,7 @@ explosiveness = 0.13
 process_material = SubResource("ParticleProcessMaterial_m1efa")
 draw_pass_1 = SubResource("SphereMesh_0il0n")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="Nissan GTR/Node3D"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.659988, -0.0531731, -0.781897)
 emitting = false
 amount = 50
@@ -477,12 +473,10 @@ explosiveness = 0.13
 process_material = SubResource("ParticleProcessMaterial_m1efa")
 draw_pass_1 = SubResource("SphereMesh_0il0n")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_ofmdy")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Nissan GTR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653498, 0)
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_a41jc")

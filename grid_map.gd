@@ -11,7 +11,7 @@ var cone_spawned_chunks = {}
 var cone_instances = {}
 
 var player
-var nissan_gtr_scene = load("res://GTR_NEW.tscn")  # Load the scene
+var nissan_gtr_scene = load("res://Raycast_car.tscn")  # Load the scene
 var nissan_gtr_instance = nissan_gtr_scene.instantiate()  # Create an instance
 var cone = load("res://cone.tscn")
 var enemy_car = load("res://GTR.tscn")
