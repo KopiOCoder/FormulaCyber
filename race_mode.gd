@@ -64,13 +64,16 @@ func _on_finish_line_body_entered(body: Node) -> void:
 		finish_lap()
 	elif body.get_parent() == enemy and race_started and enemy_pass_middle == true:
 		print("enemy finish")
+		finish_lap_enemy()
 
 func _on_middle_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)
 	if body.get_parent() == player and race_started:
 		pass_middle = true
-	print(pass_middle)
+	return
+	if body.get_parent() == enemy and race_started:
+		enemy_pass_middle = true
 	return
 	
 func finish_lap_enemy():
