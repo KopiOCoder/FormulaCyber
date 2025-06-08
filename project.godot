@@ -22,6 +22,7 @@ ConfigFileHandler="*res://ConfigFileHandler.gd"
 Leaderboard="*res://leaderboard.gd"
 Inventory="*res://inventory_manager.gd"
 GachaLogic="*res://GachaLogic.gd"
+SaveData="*res://SaveData.gd"
 
 [filesystem]
 

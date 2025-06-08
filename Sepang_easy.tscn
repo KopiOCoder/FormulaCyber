@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq82dpyfmiimc"]
+[gd_scene load_steps=17 format=3 uid="uid://cq82dpyfmiimc"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_77cna"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="1_jdyio"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="2_77cna"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="4_77cna"]
 [ext_resource type="PackedScene" uid="uid://c558g1vdejqj1" path="res://enemy_easy.tscn" id="4_enca5"]
 [ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="5_yfn0b"]
 
@@ -136,6 +137,8 @@ offset_right = 41.0
 offset_bottom = 78.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Pause-Menu" parent="CanvasLayer" instance=ExtResource("4_77cna")]
+
 [node name="Finish_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
 
@@ -156,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0453, 0)
 curve = SubResource("Curve3D_a2vsl")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
-transform = Transform3D(-0.00270274, 0, 0.999993, 0, 0.999998, 0, -0.999993, 0, -0.00270275, 902.764, 0, -5.77914)
+transform = Transform3D(-0.00270274, 0, 0.999993, 0, 0.999998, 0, -0.999993, 0, -0.00270274, 902.764, 0, -5.77914)
 
 [node name="enemy_easy" parent="Path3D3" instance=ExtResource("4_enca5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 881.412, 1.4632, -7.46704)
