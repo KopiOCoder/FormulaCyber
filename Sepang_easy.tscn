@@ -1,0 +1,169 @@
+[gd_scene load_steps=17 format=3 uid="uid://cq82dpyfmiimc"]
+
+[ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_77cna"]
+[ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="1_jdyio"]
+[ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="2_77cna"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="4_77cna"]
+[ext_resource type="PackedScene" uid="uid://c558g1vdejqj1" path="res://enemy_easy.tscn" id="4_enca5"]
+[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="5_yfn0b"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5danf"]
+
+[sub_resource type="Sky" id="Sky_kxd4r"]
+sky_material = SubResource("ProceduralSkyMaterial_5danf")
+
+[sub_resource type="Environment" id="Environment_a8ym0"]
+background_mode = 2
+background_energy_multiplier = 1.8
+sky = SubResource("Sky_kxd4r")
+ambient_light_energy = 2.01
+
+[sub_resource type="Curve3D" id="Curve3D_evmn6"]
+closed = true
+_data = {
+"points": PackedVector3Array(5.07997, 0, 0.0961446, -5.07997, 0, -0.0961446, 59.2507, 0, 0.0752834, 0, 0, 0, 0, 0, 0, 44.3529, 0, -0.0311296, 0.968126, 0, 0.126933, -0.968126, 0, -0.126933, 29.7743, 0, 0.0752834, 0.0236053, 0, 1.72092, -0.0236053, 0, -1.72092, 27.0382, 0, -1.98106, -0.590515, 0, 0.100822, 0.590515, 0, -0.100822, 29.7743, 0, -4.18123, -0.100597, 0, 0.982963, 0.100597, 0, -0.982963, 33.4988, 0, -5.03253, 1.1678, 0, 0.564373, -1.1678, 0, -0.564373, 30.8385, 0, -7.58643, -0.627417, 0, 2.64754, 0.627417, 0, -2.64754, 28.6038, 0, -14.8225, -2.35994, 0, 1.55699, 2.35994, 0, -1.55699, 31.7962, 0, -19.2918, -5.41266, 0, 3.23247, 5.41266, 0, -3.23247, 51.6954, 0, -24.2932, -1.67754, 0, -2.17672, 1.67754, 0, 2.17672, 57.3352, 0, -12.8007, -1.62925, 0, 0.53189, 1.62925, 0, -0.53189, 62.4431, 0, -10.3532, -0.813454, 0, 1.18819, 0.813454, 0, -1.18819, 65.4226, 0, -13.4391, -2.35174, 0, 0.176447, 2.35174, 0, -0.176447, 69.2535, 0, -16.7379, 0, 0, 0, 0, 0, 0, 73.3598, 0, -13.8826, -0.68959, 0, -1.94511, 0.68959, 0, 1.94511, 84.3641, 0, 1.24582, 1.05798, 0, -0.341908, -1.05798, 0, 0.341908, 80.608, 0, 5.77671, 0, 0, 0, 0, 0, 0, 60.5276, 0, 6.99211, -0.0261917, 0, -1.29106, 0.0261917, 0, 1.29106, 57.4417, 0, 8.5883, -0.98394, 0, -2.68537, 0.98394, 0, 2.68537, 64.1457, 0, 13.0576, 3.49271, 0, -0.359489, -3.49271, 0, 0.359489, 62.1238, 0, 20.4001, 2.96099, 0, 0.0739202, -2.96099, 0, -0.0739202, 48.7158, 0, 13.8025, 3.06226, 0, -0.0698967, -3.06226, 0, 0.0698967, 41.9054, 0, 17.2077, -2.28756, 0, 3.85188, 2.28756, 0, -3.85188, 34.7757, 0, 7.30792, 0.124237, 0, 3.23033, -0.124237, 0, -3.23033, 73.1995, 0, 2.05914),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1mae"]
+albedo_texture = ExtResource("1_jdyio")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpm68"]
+albedo_texture = ExtResource("2_77cna")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkqu2"]
+albedo_texture = ExtResource("2_77cna")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl4td"]
+size = Vector3(10, 10, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tydqg"]
+size = Vector3(10, 10, 14)
+
+[sub_resource type="Curve3D" id="Curve3D_a2vsl"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 902.764, 0, -5.77914, 0, 0, 0, 0, 0, 0, 451.479, 0, -4.55945, 0, 0, 28.0529, 0, 0, -28.0529, 410.009, 0, -31.3927, -10.433, -0.118316, 2.5247, 10.433, 0.118316, -2.5247, 495.388, 0, -59.4455, 2.43939, 0, 15.856, -2.43939, 0, -15.856, 509.71, 0.906101, -80.1744, 3.34985, -0.410597, 1.22759, -3.34985, 0.410597, -1.22759, 485.311, 0.946362, -109.187, 10.9773, 0, 10.9772, -10.9773, 0, -10.9772, 461.236, 0, -124.089, 7.31818, 0, 26.8332, -7.31818, 0, -26.8332, 435.623, 0, -180.195, -5.78854, -0.190704, 9.57806, 5.78854, 0.190704, -9.57806, 444.161, 0, -254.596, -20.8732, 0.388725, 6.64087, 20.8732, -0.388725, -6.64087, 494.168, 0, -292.406, -26.8332, 0, 4.87878, 26.8332, 0, -4.87878, 684.44, 0, -324.118, -19.5922, 0.555763, -0.409851, 19.5922, -0.555763, 0.409851, 804.585, 0.171318, -365.439, -2.112, -0.726357, -30.5141, 2.112, 0.726357, 30.5141, 839.34, 0, -254.596, -3.57306, -0.377014, -5.47696, 3.57306, 0.377014, 5.47696, 853.531, 0.903538, -187.033, -48.7876, 0, 8.53783, 48.7876, 0, -8.53783, 936.916, 0, -147.263, -39.0302, 0, -10.9772, 39.0302, 0, 10.9772, 1040.59, 0, -243.619, -63.0188, 1.18302, -83.6405, 63.0188, -1.18302, 83.6405, 1152.8, 0, -128.968, -0.0944824, -0.558079, -20.0983, 0.0944824, 0.558079, 20.0983, 1260.13, 0, 29.5919, 13.8126, 1.50406, -5.64275, -13.8126, -1.50406, 5.64275, 1208.91, 0, 79.5992, 14.5237, 2.72732, -3.2652, -14.5237, -2.72732, 3.2652, 892.822, -0.386925, 99.8638, 3.70776, -0.970097, -19.2943, -3.70776, 0.970097, 19.2943, 853.501, 0.0665588, 127.546, -29.1126, -0.801697, -31.7181, 29.1126, 0.801697, 31.7181, 947.836, -1.78904, 186.307, 32.9316, 0, -15.856, -32.9316, 0, 15.856, 940.77, -0.171024, 298.951, 45.3779, 0.50779, 0.835159, -45.3779, -0.50779, -0.835159, 731.331, -0.459896, 199.907, 47.3187, 0.984715, -15.9665, -47.3187, -0.984715, 15.9665, 638.646, -1.15317, 250.763, 1.21973, 0, 24.3938, -1.21973, 0, -24.3938, 519.781, 0, 143.023, -140.264, 0, 10.9772, 140.264, 0, -10.9772, 655.167, 0, 84.478, 0, 0, 0, 0, 0, 0, 1032.05, 0, 61.3038, 4.39758, -3.33749, 34.0252, -4.39758, 3.33749, -34.0252, 1104.47, -0.0495834, 22.7109, 0, 0, 0, 0, 0, 0, 975.946, 0, -8.21853),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 30
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("1_77cna")
+player = NodePath("Nissan GTR")
+enemy = NodePath("Path3D3/enemy_easy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a8ym0")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+curve = SubResource("Curve3D_evmn6")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+material_override = SubResource("StandardMaterial3D_a1mae")
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.40042, 0)
+material_override = SubResource("StandardMaterial3D_bpm68")
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+polygon = PackedVector2Array(0.5, 0, 1, 1, 1, 1, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54891, 0)
+material_override = SubResource("StandardMaterial3D_jkqu2")
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+polygon = PackedVector2Array(0, 0, 0, 1, 0.1, 0.5, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LapTimeLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LapsLeftLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 41.0
+offset_bottom = 53.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyLapsLeftLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 55.0
+offset_right = 41.0
+offset_bottom = 78.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause-Menu" parent="CanvasLayer" instance=ExtResource("4_77cna")]
+
+[node name="Finish_line" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Finish_line"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4214, 5.3651, -8.78325)
+shape = SubResource("BoxShape3D_dl4td")
+
+[node name="Middle_line" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1245.21, 10.5004, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Middle_line"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.07932, 0)
+shape = SubResource("BoxShape3D_tydqg")
+debug_fill = false
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0453, 0)
+curve = SubResource("Curve3D_a2vsl")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(-0.00270274, 0, 0.999993, 0, 0.999998, 0, -0.999993, 0, -0.00270274, 902.764, 0, -5.77914)
+
+[node name="enemy_easy" parent="Path3D3" instance=ExtResource("4_enca5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 881.412, 1.4632, -7.46704)
+
+[node name="Nissan GTR" parent="." instance=ExtResource("5_yfn0b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 880.999, 16.3255, -2.44021)
+max_speed = 40.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxa1nkisoo6sn"]
 
-[ext_resource type="Script" uid="uid://dnts1jm7p6wf0" path="res://Cars/gacha_spinner.gd" id="1_73e4h"]
+[ext_resource type="Script" uid="uid://dnts1jm7p6wf0" path="res://cars/gacha_spinner.gd" id="1_73e4h"]
 
 [node name="gacha_spinner" type="Control"]
 layout_mode = 3
