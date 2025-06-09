@@ -1,9 +1,9 @@
 extends Area3D
 
-@onready var mesh = $mcdcollision/mcdmesh
+@onready var mesh = $salamcollision/salammesh
 @onready var popup = $"../CanvasLayer/areapopup"
 
-var variable_name = "mcd_unlocked"
+var variable_name = "salam_unlocked"
 
 func _ready():
 	mesh.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://lyt2mk250he2"]
+[gd_scene load_steps=48 format=3 uid="uid://lyt2mk250he2"]
 
 [ext_resource type="Script" uid="uid://0cx80q55vypy" path="res://score_logic.gd" id="1_0ci7p"]
 [ext_resource type="Texture2D" uid="uid://oucba3kwl3d6" path="res://map-design-texture-5-4.jpg" id="2_uxck0"]
@@ -30,7 +30,10 @@
 [ext_resource type="ArrayMesh" uid="uid://bs55r1rjthsx8" path="res://Assets/import/buildings/misc/surau.obj" id="29_xtww3"]
 [ext_resource type="ArrayMesh" uid="uid://csdmr7t072iyy" path="res://Assets/import/buildings/misc/football.obj" id="30_aucsd"]
 [ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="31_eqal0"]
+[ext_resource type="Script" uid="uid://wl5aculny7vr" path="res://salamarea.gd" id="31_f6wgr"]
 [ext_resource type="Script" uid="uid://cp34jk6y10i80" path="res://mcdarea.gd" id="31_jao7d"]
+[ext_resource type="Script" uid="uid://cbavdv17m2s32" path="res://klccarea.gd" id="32_4bp7d"]
+[ext_resource type="Script" uid="uid://skgjyfxoiukl" path="res://mmuarea.gd" id="33_7j5wa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dc8p"]
 albedo_texture = ExtResource("2_uxck0")
@@ -38,13 +41,13 @@ albedo_texture = ExtResource("2_uxck0")
 [sub_resource type="BoxShape3D" id="BoxShape3D_22b57"]
 size = Vector3(12.9973, 4.67706, 13.1091)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22b57"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jao7d"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.607843, 0, 0, 0.588235)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jao7d"]
-material = SubResource("StandardMaterial3D_22b57")
+material = SubResource("StandardMaterial3D_jao7d")
 size = Vector3(12.9973, 4.67706, 13.1091)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eqal0"]
@@ -85,8 +88,8 @@ process_mode = 1
 script = ExtResource("1_0ci7p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0, -4.37114e-08, 1, -0.5, 0.866025, 3.78552e-08, 0, 42.7185, 0)
-light_energy = 1.002
+transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0, -4.37114e-08, 1, -0.5, 0.866025, 3.78552e-08, 0, 0.844, 0)
+light_energy = 3.007
 shadow_enabled = true
 
 [node name="reference" type="CSGBox3D" parent="."]
@@ -441,6 +444,7 @@ mesh = SubResource("BoxMesh_jao7d")
 
 [node name="salamarea" type="Area3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 55.0335, 0.000335693, -305.753)
+script = ExtResource("31_f6wgr")
 
 [node name="salamcollision" type="CollisionShape3D" parent="salamarea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49188, 2.07576, 4.95249)
@@ -451,16 +455,19 @@ mesh = SubResource("BoxMesh_f6wgr")
 
 [node name="klccarea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8061, 3.05176e-05, -68.1718)
+script = ExtResource("32_4bp7d")
 
 [node name="klcccollision" type="CollisionShape3D" parent="klccarea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5546, 32.206, -347.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5546, 27.7213, -347.025)
 shape = SubResource("BoxShape3D_4bp7d")
 
 [node name="klccmesh" type="MeshInstance3D" parent="klccarea/klcccollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.98299, 0)
 mesh = SubResource("BoxMesh_xtww3")
 
 [node name="mmuarea" type="Area3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -243.028, 3.05176e-05, 375.965)
+script = ExtResource("33_7j5wa")
 
 [node name="mmucollision" type="CollisionShape3D" parent="mmuarea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9835, -2.39026, -23.0645)
@@ -471,3 +478,19 @@ mesh = SubResource("BoxMesh_81pjy")
 
 [node name="Nissan GTR" parent="." instance=ExtResource("31_eqal0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.885, 2.22555, 133.933)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="areapopup" type="PopupPanel" parent="CanvasLayer"]
+auto_translate_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/areapopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 308.0
+offset_bottom = 96.0
+text = "Area Unlocked!!!
+Check Shop for new purchasable items.
+(Click anywhere to close)"
+horizontal_alignment = 1
+vertical_alignment = 1
