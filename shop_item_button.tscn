@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cij61ij6mmmuw"]
+
+[ext_resource type="Texture2D" uid="uid://t8kiq5ayp4y5" path="res://ui Design for FC/spritesheet-removebg-preview.png" id="1_n286d"]
+[ext_resource type="Texture2D" uid="uid://lhg1w7atixuq" path="res://ui Design for FC/ButtonsIcons/SVG/IconButton_Large_GreyOutline_Square.svg" id="1_wjks0"]
+[ext_resource type="Texture2D" uid="uid://dp8kq3f17sl82" path="res://ui Design for FC/ButtonsIcons/SVG/IconButton_Large_Blue_Square.svg" id="2_7elfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7elfs"]
+texture = ExtResource("1_wjks0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqndg"]
+texture = ExtResource("1_wjks0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_du7pf"]
+texture = ExtResource("2_7elfs")
+
+[node name="Shop_item_button" type="Button"]
+custom_minimum_size = Vector2(220, 36)
+offset_right = 237.0
+offset_bottom = 52.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_7elfs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aqndg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_du7pf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 5.0
+offset_right = 164.0
+offset_bottom = 28.0
+theme_override_constants/outline_size = 10
+text = "Label For Item"
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 167.0
+offset_right = 204.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 10
+text = "1000"
+horizontal_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 53.0
+offset_bottom = 36.0
+texture = ExtResource("1_n286d")
+region_rect = Rect2(0, 0, 145, 149)

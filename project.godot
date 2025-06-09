@@ -23,6 +23,7 @@ Leaderboard="*res://leaderboard.gd"
 Inventory="*res://inventory_manager.gd"
 GachaLogic="*res://GachaLogic.gd"
 SaveData="*res://SaveData.gd"
+ShopCollectableMenu="*res://shop_collectable_menu.tscn"
 
 [filesystem]
 
