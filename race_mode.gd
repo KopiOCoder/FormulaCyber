@@ -8,12 +8,20 @@ var lap_times: Array = []
 var race_started = false
 var pass_middle = false
 var enemy_pass_middle = false
-@export var player: Node3D  
+var placeholder = false
+var player : Node3D
 @export var enemy: Node3D
 
 
 func _ready() -> void:
 	start_race()
+	if placeholder == true:
+		pass
+	else:
+		player = preload("res://Raycast_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
 	
 func start_race():
 	current_lap = 1
