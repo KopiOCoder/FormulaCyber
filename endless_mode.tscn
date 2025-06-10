@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://chvnn3h3qe3qv"]
 
+[ext_resource type="MeshLibrary" uid="uid://bbhsrwf6261dh" path="res://Assets/MeshLibrary.tres" id="1_2flgw"]
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
-[ext_resource type="MeshLibrary" uid="uid://dgitntiscojhf" path="res://Assets/mesh_library.tres" id="1_eu2lg"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="3_47ka5"]
 [ext_resource type="Script" uid="uid://rk217tvv7785" path="res://game_over.gd" id="4_5s5bq"]
 [ext_resource type="AudioStream" uid="uid://bf5qxon65mvon" path="res://cone_hit.mp3" id="4_qcjw3"]
@@ -44,7 +44,7 @@ light_energy = 5.19
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_eu2lg")
+mesh_library = ExtResource("1_2flgw")
 physics_material = SubResource("PhysicsMaterial_eu2lg")
 cell_octant_size = 9
 cell_scale = 15.0

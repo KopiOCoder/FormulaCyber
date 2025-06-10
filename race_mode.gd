@@ -9,7 +9,7 @@ var race_started = false
 var pass_middle = false
 var enemy_pass_middle = false
 var placeholder = false
-var player : Node3D
+var player 
 @export var enemy: Node3D
 
 
@@ -63,6 +63,8 @@ func _process(_delta):
 		$CanvasLayer/LapsLeftLabel.text = ""
 		$CanvasLayer/EnemyLapsLeftLabel.text = ""
 
+
+	
 func _on_finish_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)
