@@ -1,60 +1,47 @@
 extends Control
 
-const Save_File = "user://leaderboard.save"
-
-var leaderboard : Array = []
-
-@onready var  leaderboard_container = $VBoxContainer
-
-func _ready():
-	load_leaderboard()
-	update_leaderboard_ui()
 
 
-func add_score(name: String, time: float, score: int) -> void:
-	leaderboard.append({
-		"Name": name,
-		"Time": time,
-		"score": score
-	})
-	leaderboard.sort_custom(sort_leaderboard)
-	save_leaderboard()
-	update_leaderboard_ui()
+const LEADERBOARD_PATH := "res://leaderboard.json"
 
-func sort_leaderboard(a: Dictionary, b: Dictionary) -> bool:
-	if a["Time"] == b["Time"]:
-		return a["Score"] > b["Score"]
-	return a["Time"] < b["Time"]
+func load_leaderboard() -> Array:
+	if not FileAccess.file_exists(LEADERBOARD_PATH):
+		return []
 
+	var file := FileAccess.open(LEADERBOARD_PATH, FileAccess.READ)
+	if file == null:
+		return []
 
-func save_leaderboard() -> void:
-	var file = FileAccess.open(Save_File, FileAccess.WRITE)
-	file.store_var(leaderboard)
+	var data := file.get_as_text()
 	file.close()
 
+	var parsed = JSON.parse_string(data)
+	if typeof(parsed) == TYPE_ARRAY:
+		var leaderboard = parsed
+		leaderboard.sort_custom(func(a, b): return b["score"] < a["score"])
+		return leaderboard
+	else:
+		print("Failed to parse leaderboard or invalid format.")
+		return []
 
-func load_leaderboard() -> void:
-	if not FileAccess.file_exists(Save_File):
+
+func save_score(name: String, score: int) -> void:
+	var leaderboard = load_leaderboard()
+	var clean_name = name.strip_edges().substr(0, 3).to_upper()
+	leaderboard.append({ "name": clean_name, "score": score })
+	leaderboard.sort_custom(func(a, b): return b["score"] < a["score"])
+
+
+	if leaderboard.size() > 10:
+		leaderboard = leaderboard.slice(0, 10)
+
+	var file := FileAccess.open(LEADERBOARD_PATH, FileAccess.WRITE)
+	if file == null:
+		print("Failed to open leaderboard file for writing")
 		return
-	var file = FileAccess.open(Save_File, FileAccess.READ)
-	leaderboard = file.get_var()
+
+	file.store_string(JSON.stringify(leaderboard, "\t"))
 	file.close()
 
-func update_leaderboard_ui() -> void:
-	leaderboard_container.clear_children()
-	
-	for entry in leaderboard:
-		var label = Label.new()
-		label.text = "%s | Time: %.2f sec | Score: %d" % [
-			entry["Name"], entry["Time"], entry["Score"]
-		]
-		leaderboard_container.add_child(label)
-
-
-
-
-
-func _on_button_pressed() -> void:
-	var random_name = "Player" + str(randi() % 100)
-	
-	
+func _sort_desc(a, b) -> int:
+	return b["score"] < a["score"]
