@@ -1,5 +1,12 @@
 extends Control
 
+func _ready():
+	if not get_tree().root.has_node("AudioStreamPlayer"):
+		await get_tree().create_timer(1.0)
+		var musicplayer_scene = preload("res://musicplayer/musicplayer.tscn")
+		var musicplayer = musicplayer_scene.instantiate()
+		get_tree().root.add_child(musicplayer)
+
 
 func _on_play_pressed() -> void:
 	pass # Replace with function body.
