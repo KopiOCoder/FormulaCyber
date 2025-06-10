@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_kxd4r"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="3_kxd4r"]
-[ext_resource type="Script" uid="uid://dlxslp6g6n4c5" path="res://testing_path.gd" id="5_41rac"]
+[ext_resource type="Script" uid="uid://dlxslp6g6n4c5" path="res://hard_ai.gd" id="5_41rac"]
 [ext_resource type="PackedScene" uid="uid://bps53nid7diqf" path="res://enemy_hard.tscn" id="5_iayo1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hhj1m"]

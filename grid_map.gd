@@ -2,7 +2,6 @@ extends GridMap
 
 var placeholder = false
 
-
 var chunk_size = 8
 var load_distance = 8
 var void_limit = -10
