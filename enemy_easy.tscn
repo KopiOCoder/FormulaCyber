@@ -360,7 +360,7 @@ collision_mask = 2
 mass = 35.0
 script = ExtResource("1_3uclr")
 wheels = [NodePath("FL"), NodePath("BL"), NodePath("FR"), NodePath("BR")]
-max_speed = 40.0
+max_speed = 30.0
 accel_curve = SubResource("Curve_3uclr")
 
 [node name="Car_mesh" type="MeshInstance3D" parent="Enemy"]
@@ -369,9 +369,11 @@ mesh = SubResource("ArrayMesh_4e084")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+visible = false
 mesh = SubResource("BoxMesh_04dh4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+visible = false
 shape = SubResource("BoxShape3D_oco7p")
 
 [node name="FL" type="RayCast3D" parent="Enemy"]
@@ -475,26 +477,32 @@ stream = ExtResource("5_1w5uo")
 
 [node name="Left" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 1.18455, -0.28525, -5.17783e-08)
+visible = false
 collision_mask = 2
 
 [node name="Left_tilt" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(-1.00287e-07, -2.29431, -3.27661, 4, -1.74846e-07, 0, -1.43225e-07, -3.27661, 2.29431, 1.18455, -0.28525, 2.14084)
+visible = false
 collision_mask = 2
 
 [node name="Right_tilt" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(1.00287e-07, 2.29431, -3.27661, 4, -1.74846e-07, 0, -1.43225e-07, -3.27661, -2.29431, -1.185, -0.285, 2.141)
+visible = false
 collision_mask = 2
 
 [node name="Right" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, -1.185, -0.285498, 0)
+visible = false
 collision_mask = 2
 
 [node name="Front" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(3.82137e-15, 8.74228e-08, -2, 2, -8.74228e-08, 0, -8.74228e-08, -2, -8.74228e-08, 0.0392116, 0.0351962, 2.40257)
+visible = false
 collision_mask = 2
 
 [node name="Back" type="RayCast3D" parent="Enemy"]
 transform = Transform3D(3.82137e-15, 8.74228e-08, 2, 2, -8.74228e-08, 0, 8.74228e-08, 2, -8.74228e-08, 0.039, 0.035502, -2.403)
+visible = false
 collision_mask = 2
 
 [node name="Camera3D" type="Camera3D" parent="Enemy"]

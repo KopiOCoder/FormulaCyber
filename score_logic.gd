@@ -8,6 +8,7 @@ var score = int(distance)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = false
 	initial_position = $"Nissan GTR".global_transform.origin
 	last_position = $"Nissan GTR".global_transform.origin
 

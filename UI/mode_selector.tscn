@@ -33,6 +33,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 15
 
 [node name="Stage" type="Button" parent="Buttons/HBoxContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(250, 500)
 layout_mode = 2
 theme_override_constants/outline_size = 25

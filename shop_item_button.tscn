@@ -15,8 +15,8 @@ texture = ExtResource("2_7elfs")
 
 [node name="Shop_item_button" type="Button"]
 custom_minimum_size = Vector2(220, 36)
-offset_right = 237.0
-offset_bottom = 52.0
+offset_right = 220.0
+offset_bottom = 36.0
 theme_override_styles/hover = SubResource("StyleBoxTexture_7elfs")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_aqndg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_du7pf")
@@ -45,4 +45,4 @@ offset_left = 13.0
 offset_right = 53.0
 offset_bottom = 36.0
 texture = ExtResource("1_n286d")
-region_rect = Rect2(0, 0, 145, 149)
+region_rect = Rect2(0, 0, 144, 149)

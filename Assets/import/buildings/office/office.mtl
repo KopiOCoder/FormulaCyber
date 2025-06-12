@@ -1,24 +1,22 @@
+# Blender 4.4.3 MTL File: 'None'
+# www.blender.org
+
 newmtl SmoothBlockModel1Mtl
-Material Color
-Ka 0.618686 0.618686 0.618686
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
 Kd 0.618686 0.618686 0.618686
-Ks 0.0388195 0.0388195 0.0388195 
-
-d 1
-
-Ns 0
+Ks 0.038819 0.038819 0.038819
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
 
 newmtl SmoothBlockModel2Mtl
-Material Color
-Ka 1 1 1
-Kd 1 1 1
-Ks 0.0627451 0.0627451 0.0627451 
-
-d 1
-
-Ns 0
-
-map_Ka SmoothBlockModel2_diff.png
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.062745 0.062745 0.062745
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
 map_Kd SmoothBlockModel2_diff.png
 map_d SmoothBlockModel2_diff.png
-

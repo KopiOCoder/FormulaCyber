@@ -11,7 +11,7 @@ func save_game():
 		"money": money,
 	}
 	var json = JSON.new()
-	var json_string = json.stringify(save_dict, "\t")
+	var json_string = JSON.stringify(save_dict, "\t")
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_string(json_string)
 	file.close()
