@@ -144,6 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Finish_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4214, 5.3651, -8.78325)
+visible = false
 shape = SubResource("BoxShape3D_dl4td")
 
 [node name="Middle_line" type="Area3D" parent="."]
@@ -151,6 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1245.21, 10.5004, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Middle_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.07932, 0)
+visible = false
 shape = SubResource("BoxShape3D_tydqg")
 debug_fill = false
 

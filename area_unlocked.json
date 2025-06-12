@@ -1,6 +1,6 @@
 {
-	"klcc_unlocked": false,
-	"mcd_unlocked": false,
-	"mmu_unlocked": false,
-	"salam_unlocked": false
+	"klcc_unlocked": true,
+	"mcd_unlocked": true,
+	"mmu_unlocked": true,
+	"salam_unlocked": true
 }
