@@ -51,6 +51,7 @@ _data = {
 point_count = 30
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("player", "enemy")]
+process_mode = 1
 script = ExtResource("1_kxd4r")
 player = NodePath("Nissan GTR")
 enemy = NodePath("Path3D3/PathFollow3D/Enemy")

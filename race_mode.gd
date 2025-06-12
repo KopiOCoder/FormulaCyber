@@ -13,6 +13,7 @@ var enemy_pass_middle = false
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	start_race()
 	
 func start_race():

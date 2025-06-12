@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://di1fft1h4wd8t"]
+[gd_scene load_steps=6 format=3 uid="uid://di1fft1h4wd8t"]
 
 [ext_resource type="Script" uid="uid://2swygyyn32b5" path="res://Collectable_shop.gd" id="1_m77vv"]
 [ext_resource type="Texture2D" uid="uid://bydu46syvryoe" path="res://ui Design for FC/ButtonsIcons/IconButton_Large_Orange_Square.png" id="2_2tp6s"]
+[ext_resource type="Texture2D" uid="uid://b5vp101r1kjdr" path="res://ui Design for FC/ButtonsIcons/SVG/IconButton_Small_GreyOutline_Square.svg" id="3_2tp6s"]
 [ext_resource type="PackedScene" uid="uid://cij61ij6mmmuw" path="res://shop_item_button.tscn" id="3_wj25n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj25n"]
-texture_margin_top = 30.0
+texture = ExtResource("3_2tp6s")
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
+expand_margin_left = 2048.0
+expand_margin_top = 2048.0
+expand_margin_right = 1999.0
+expand_margin_bottom = 2048.0
 
 [node name="Shop_Collectable_Menu" type="Control"]
 layout_mode = 3
@@ -64,7 +69,6 @@ offset_right = 1021.0
 offset_bottom = 476.0
 
 [node name="Close" type="Button" parent="."]
-unique_name_in_owner = true
 layout_mode = 0
 offset_left = 866.0
 offset_top = 537.0
@@ -89,7 +93,6 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="Shop_item_container" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
@@ -128,3 +131,6 @@ layout_mode = 2
 
 [node name="Shop_item_button12" parent="ScrollContainer/MarginContainer/Shop_item_container" instance=ExtResource("3_wj25n")]
 layout_mode = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
