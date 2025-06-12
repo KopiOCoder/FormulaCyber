@@ -1,8 +1,10 @@
+
 [gd_scene load_steps=15 format=3 uid="uid://cq82dpyfmiimc"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_77cna"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="1_jdyio"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="2_77cna"]
+[ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="4_77cna"]
 [ext_resource type="PackedScene" uid="uid://c558g1vdejqj1" path="res://enemy_easy.tscn" id="4_enca5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5danf"]
@@ -46,6 +48,7 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 30
+
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_77cna")
@@ -133,6 +136,8 @@ offset_top = 55.0
 offset_right = 41.0
 offset_bottom = 78.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Pause-Menu" parent="CanvasLayer" instance=ExtResource("4_77cna")]
 
 [node name="Finish_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)

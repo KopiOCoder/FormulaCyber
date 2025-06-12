@@ -13,3 +13,7 @@ func on_pull_pressed():
 		result_label.text = "You pulled: " + car.name + " (" + car.rarity + ")"
 	else:
 		result_label.text = "Pull failed. No car found!"
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://Shop.tscn")

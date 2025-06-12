@@ -14,6 +14,7 @@ var player
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	start_race()
 	if placeholder == true:
 		pass
