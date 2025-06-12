@@ -54,5 +54,11 @@ custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 text = "Hard"
 
+[node name="Endless" type="Button" parent="MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+text = "Endless"
+
 [connection signal="pressed" from="MarginContainer/NinePatchRect/HBoxContainer/easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="MarginContainer/NinePatchRect/HBoxContainer/hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/HBoxContainer/Endless" to="." method="_on_endless_pressed"]
