@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsf1kx2yakruw"]
+[gd_scene load_steps=5 format=3 uid="uid://b5cdes1drvf1r"]
 
 [ext_resource type="Texture2D" uid="uid://hmjyh5hk862i" path="res://kenney_prototype-textures/PNG/Orange/texture_01.png" id="1_tbtb0"]
 [ext_resource type="Script" uid="uid://0cx80q55vypy" path="res://score_logic.gd" id="1_th68x"]

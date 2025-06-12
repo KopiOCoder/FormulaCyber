@@ -1,5 +1,6 @@
 extends GridMap
 
+var placeholder = false
 
 var chunk_size = 8
 var load_distance = 8
@@ -11,9 +12,7 @@ var active_chunks = {}
 var cone_spawned_chunks = {}
 var cone_instances = {}
 
-var player
-var nissan_gtr_scene = load("res://Raycast_car.tscn")  # Load the scene
-var nissan_gtr_instance = nissan_gtr_scene.instantiate()  # Create an instance
+var player : Node3D
 var cone = load("res://cone.tscn")
 var enemy_car = load("res://GTR.tscn")
 var enemy = false
@@ -34,9 +33,12 @@ func _ready():
 	money = SaveData.money
 	print("Money loaded:", money)
 	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = "$" + str(money)
-	add_child(nissan_gtr_instance)
-	player = nissan_gtr_instance
-	nissan_gtr_instance.rotation_degrees.y = 90
+	if placeholder == true:
+		pass
+	else:
+		player = preload("res://Raycast_car.tscn").instantiate()
+		player.rotate_y(89.5)
+		add_child(player)
 	_process_chunk_loading()
 	
 	initial_position = player.global_transform.origin

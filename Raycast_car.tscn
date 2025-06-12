@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=4 uid="uid://bdqwyaonx15xh"]
 
-[ext_resource type="Script" uid="uid://4wht4ygekpjm" path="res://Raycast_car.gd" id="1_lolwo"]
+[ext_resource type="Script" uid="uid://c3lsff2qrq3m6" path="res://Raycast_car.gd" id="1_lolwo"]
 [ext_resource type="ArrayMesh" uid="uid://emgdgo3vpbk" path="res://gtrwheel.tres" id="2_5dc1j"]
 [ext_resource type="Script" uid="uid://djq4c0jfwhx47" path="res://raycast_wheel.gd" id="2_j47c2"]
 [ext_resource type="Texture2D" uid="uid://dtjxa8v4uvwvc" path="res://kenney_prototype-textures/PNG/Dark/texture_04.png" id="3_xfdtc"]
@@ -370,13 +370,14 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653498, 0)
+visible = false
 shape = SubResource("BoxShape3D_lolwo")
 
 [node name="FL" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.653498, 1.8)
 script = ExtResource("2_j47c2")
 spring_str = 1000.0
-spring_dmp = 112.0
+spring_dmp = 132.0
 is_motor = true
 is_steering = true
 

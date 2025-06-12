@@ -17,6 +17,7 @@ var audio_boost = false
 const zoomed_in_fov = 90.0
 const default_fov = 80.0
 
+		
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("accelerate"):
 		motor_input = 1

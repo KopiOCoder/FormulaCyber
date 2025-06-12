@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq82dpyfmiimc"]
+
+[gd_scene load_steps=15 format=3 uid="uid://cq82dpyfmiimc"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_77cna"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="1_jdyio"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="2_77cna"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="4_77cna"]
 [ext_resource type="PackedScene" uid="uid://c558g1vdejqj1" path="res://enemy_easy.tscn" id="4_enca5"]
-[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="5_yfn0b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5danf"]
 
@@ -49,10 +49,9 @@ _data = {
 }
 point_count = 30
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("player", "enemy")]
-process_mode = 1
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_77cna")
-player = NodePath("Nissan GTR")
 enemy = NodePath("Path3D3/enemy_easy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -165,6 +164,5 @@ transform = Transform3D(-0.00270274, 0, 0.999993, 0, 0.999998, 0, -0.999993, 0, 
 [node name="enemy_easy" parent="Path3D3" instance=ExtResource("4_enca5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 881.412, 1.4632, -7.46704)
 
-[node name="Nissan GTR" parent="." instance=ExtResource("5_yfn0b")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 880.999, 16.3255, -2.44021)
-max_speed = 40.0
+[connection signal="body_entered" from="Finish_line" to="." method="_on_finish_line_body_entered"]
+[connection signal="body_entered" from="Middle_line" to="." method="_on_middle_line_body_entered"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://dt741ube6e8dx"]
+
+[gd_scene load_steps=16 format=3 uid="uid://dt741ube6e8dx"]
+
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_kxd4r"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
 [ext_resource type="Texture2D" uid="uid://c6syo0nrqnfui" path="res://kenney_prototype-textures/PNG/Light/texture_04.png" id="3_kxd4r"]
 [ext_resource type="PackedScene" uid="uid://bcpcogfafhf3e" path="res://UI/pause_menu.tscn" id="4_h4lud"]
-[ext_resource type="Script" uid="uid://dlxslp6g6n4c5" path="res://testing_path.gd" id="5_41rac"]
+[ext_resource type="Script" uid="uid://dlxslp6g6n4c5" path="res://hard_ai.gd" id="5_41rac"]
 [ext_resource type="PackedScene" uid="uid://bps53nid7diqf" path="res://enemy_hard.tscn" id="5_iayo1"]
-[ext_resource type="PackedScene" uid="uid://bdqwyaonx15xh" path="res://Raycast_car.tscn" id="6_41rac"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hhj1m"]
 
@@ -50,10 +51,9 @@ _data = {
 }
 point_count = 30
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("player", "enemy")]
-process_mode = 1
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_kxd4r")
-player = NodePath("Nissan GTR")
 enemy = NodePath("Path3D3/PathFollow3D/Enemy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -160,10 +160,6 @@ script = ExtResource("5_41rac")
 
 [node name="Enemy" parent="Path3D3/PathFollow3D" instance=ExtResource("5_iayo1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614276, 0, -22.7277)
-
-[node name="Nissan GTR" parent="." instance=ExtResource("6_41rac")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 880.999, 16.3255, -2.44021)
-max_speed = 40.0
 
 [connection signal="body_entered" from="Finish_line" to="." method="_on_finish_line_body_entered"]
 [connection signal="body_entered" from="Middle_line" to="." method="_on_middle_line_body_entered"]
