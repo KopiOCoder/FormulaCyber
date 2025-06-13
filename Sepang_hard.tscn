@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=16 format=3 uid="uid://dt741ube6e8dx"]
-
+[gd_scene load_steps=17 format=3 uid="uid://dt741ube6e8dx"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_kxd4r"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="2_hhj1m"]
@@ -50,7 +48,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 30
-
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_kxd4r")
