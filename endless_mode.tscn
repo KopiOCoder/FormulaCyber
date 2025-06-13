@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=17 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="MeshLibrary" uid="uid://bbhsrwf6261dh" path="res://Assets/MeshLibrary.tres" id="1_2flgw"]
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
@@ -44,6 +44,7 @@ light_energy = 5.19
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
+
 mesh_library = ExtResource("1_2flgw")
 physics_material = SubResource("PhysicsMaterial_eu2lg")
 cell_octant_size = 9
@@ -53,12 +54,10 @@ script = ExtResource("1_8at1e")
 [node name="Gui" type="CanvasLayer" parent="."]
 
 [node name="Score" type="Label" parent="Gui"]
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 81.0
+offset_right = 316.0
+offset_bottom = 83.0
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 50
 text = "0"
 clip_text = true
 
@@ -111,9 +110,9 @@ vertical_alignment = 1
 [node name="name_input" type="LineEdit" parent="Game_over/Panel/NinePatchRect"]
 layout_mode = 0
 offset_left = 124.0
-offset_top = 188.0
+offset_top = 285.0
 offset_right = 392.0
-offset_bottom = 288.0
+offset_bottom = 349.0
 placeholder_text = "\"Enter 3 letters/numbers\""
 alignment = 1
 max_length = 3
@@ -141,10 +140,10 @@ text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Game_over/Panel/NinePatchRect"]
 layout_mode = 0
-offset_left = 84.0
+offset_left = 86.0
 offset_top = 47.0
 offset_right = 424.0
-offset_bottom = 183.0
+offset_bottom = 188.0
 
 [node name="Score" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
 layout_mode = 2
@@ -153,6 +152,18 @@ theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 1
 clip_text = true
+
+[node name="money_earned" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="money_total" type="Label" parent="Game_over/Panel/NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+text = "0"
 
 [node name="Submit_button" type="Button" parent="Game_over/Panel"]
 layout_mode = 0
