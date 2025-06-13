@@ -49,7 +49,7 @@ point_count = 30
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_77cna")
-total_laps = 2
+total_laps = 1
 enemy = NodePath("Path3D3/enemy_easy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
