@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CarData" load_steps=2 format=3 uid="uid://fwrrdr5c1t2a"]
+
+[ext_resource type="Script" uid="uid://cu747kflcw00l" path="res://CarData.gd" id="1_f1tsy"]
+
+[resource]
+script = ExtResource("1_f1tsy")
+name = "Rx-7"
+rarity = "rare"
+scene_path = ""
+metadata/_custom_type_script = "uid://cu747kflcw00l"
