@@ -23,6 +23,7 @@ var last_position : Vector3
 var total_distance = 0
 var distance = initial_position.distance_to(current_position)
 var score = int(distance)
+var money: int = 0
 var last_checked_score = -1
 
 
@@ -58,6 +59,10 @@ func _ready():
 		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
 		player.rotate_y(89.5)
 		add_child(player)
+	SaveData.load_game()
+	money = SaveData.money
+	print("Money loaded:", money)
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = "$" + str(money)
 	
 	initial_position = player.global_transform.origin
 	last_position = player.global_transform.origin
@@ -76,7 +81,7 @@ func _process(_delta):
 	total_distance += distance
 	last_position = current_position
 	score = round(int(total_distance))
-	$"../Gui/Score".text = str(score)
+	$"../Gui/Score".text = "Score:" + str(score)
 	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/Score".text = str(score)
 	if player.global_transform.origin.y < void_limit:
 		$"../Gui".visible = false
@@ -202,6 +207,15 @@ func generate_car_at(_chunk_pos: Vector2, base_pos: Vector3):
 var current_score: int = 0
 
 func game_over():
+	var earned = int(total_distance * 0.1)
+	money += earned
+	SaveData.money = money
+	SaveData.save_game()
+	
+	print("Money earned this round: $" + str(earned))
+	print("Total saved money: $" + str(SaveData.money))
+	
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = str(money) + "$"
 	get_tree().paused = true
 	$"../Game_over".visible = true
 	$"../Game_over".show_game_over(score)

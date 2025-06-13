@@ -50,10 +50,22 @@ offset_right = 579.0
 offset_bottom = 594.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
+clip_contents = false
 layout_mode = 2
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/normal_font_size = 30
-text = "Future text to be added..."
+text = "Welcome To Formula Cyberjaya 25!!!
+
+       Well Controls are SIMPLEEEE
+
+To Accelarate : W
+To Turn Left/Right : A / D
+To Reverse : S
+BOOOOSTTTT : Shift
+Drifting : Spacebar
+
+Not Bad Right? Well If U Want, U Can Change It Later On :D . Have Fun Racis- I MEAN RACERSSS :>"
+tab_size = 6
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0

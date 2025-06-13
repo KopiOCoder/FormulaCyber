@@ -13,6 +13,7 @@ var player
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	start_race()
 	if Global.japanese == true:
 		player = preload("res://japanese.tscn").instantiate()

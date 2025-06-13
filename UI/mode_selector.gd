@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_stage_pressed() -> void:
-	get_tree().change_scene_to_file("res://endless_mode.tscn")
+	get_tree().change_scene_to_file("res://difficulty_choose.tscn")
 
 
 func _on_free_roam_pressed() -> void:

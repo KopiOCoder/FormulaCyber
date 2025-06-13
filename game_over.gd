@@ -4,7 +4,8 @@ extends CanvasLayer
 @onready var name_input = $Panel/NinePatchRect/name_input
 @onready var score_label = $Panel/NinePatchRect/VBoxContainer2/Score
 @onready var leaderboard_container = $PanelContainer/leaderboard
-
+@onready var money_earn_label = $Panel/NinePatchRect/VBoxContainer2/money_earned
+@onready var total_money_label = $Panel/NinePatchRect/VBoxContainer2/money_total
 
 var final_score: int = 0
 var name_regex = RegEx.new()
@@ -17,9 +18,22 @@ func _ready():
 func show_game_over(score: int) -> void:
 	final_score = score
 	score_label.text = "Your Score: %d" % score
+	
+	# Add money earned this session to total saved money
+	SaveData.money += SaveData.session_money
+	SaveData.score = score
+	SaveData.save_game()
+	
+	# Update labels
+	money_earn_label.text = "Money Earned: $" + str(SaveData.session_money)
+	total_money_label.text = "Total Money: $" + str(SaveData.money)
+
+	SaveData.session_money = 0  # Reset after saving
+	
 	update_leaderboard_display()
 	visible = true
 	get_tree().paused = true
+
 
 
 func update_leaderboard_display():
