@@ -50,6 +50,7 @@ point_count = 30
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_kxd4r")
+total_laps = 1
 enemy = NodePath("Path3D3/PathFollow3D/Enemy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -151,7 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0453, 0)
 curve = SubResource("Curve3D_iayo1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
-transform = Transform3D(-0.00270274, 0, 0.999993, 0, 0.999998, 0, -0.999993, 0, -0.00270274, 902.764, 0, -5.77914)
+transform = Transform3D(-0.00270274, 0, 0.999992, 0, 0.999996, 0, -0.999993, 0, -0.00270274, 902.764, 0, -5.77914)
 script = ExtResource("5_41rac")
 
 [node name="Enemy" parent="Path3D3/PathFollow3D" instance=ExtResource("5_iayo1")]

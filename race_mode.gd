@@ -8,15 +8,37 @@ var lap_times: Array = []
 var race_started = false
 var pass_middle = false
 var enemy_pass_middle = false
-var placeholder = false
 var player 
 @export var enemy: Node3D
 
 
 func _ready() -> void:
 	start_race()
-	if placeholder == true:
-		pass
+	if Global.japanese == true:
+		player = preload("res://japanese.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.tofu == true:
+		player = preload("res://tofu.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.A_R7 == true:
+		player = preload("res://A_R7.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.taxi == true:
+		player = preload("res://taxi.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.lambo == true:
+		player = preload("res://lambo.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
 	else:
 		player = preload("res://Raycast_car.tscn").instantiate()
 		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
@@ -69,22 +91,22 @@ func _on_finish_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)
 	print(pass_middle)
-	if body.get_parent() == player and race_started and pass_middle == true:
+	if body == player and race_started and pass_middle == true:
 		print("finish")
 		finish_lap()
-	elif body.get_parent() == enemy and race_started and enemy_pass_middle == true:
+	if body.get_parent() == enemy and race_started and enemy_pass_middle == true:
 		print("enemy finish")
 		finish_lap_enemy()
 
 func _on_middle_line_body_entered(body: Node) -> void:
 	print("Entered body: ", body.name)
 	print("Expected player: ", player.name)
-	if body.get_parent() == player and race_started:
+	if body == player and race_started:
 		pass_middle = true
-	return
-	if body.get_parent() == enemy and race_started:
+	elif body.get_parent() == enemy and race_started:
 		enemy_pass_middle = true
-	return
+		print(enemy_pass_middle)
+
 	
 func finish_lap_enemy():
 	if not race_started:
