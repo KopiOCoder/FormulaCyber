@@ -350,7 +350,7 @@ radial_segments = 4
 rings = 1
 is_hemisphere = true
 
-[node name="enemy_easy" type="Node3D"]
+[node name="Enemy" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Enemy" type="RigidBody3D" parent="." node_paths=PackedStringArray("wheels")]

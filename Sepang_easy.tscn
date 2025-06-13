@@ -50,6 +50,7 @@ point_count = 30
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_77cna")
+total_laps = 1
 enemy = NodePath("Path3D3/enemy_easy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -139,6 +140,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Finish_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Finish_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4214, 5.3651, -8.78325)
@@ -147,6 +150,8 @@ shape = SubResource("BoxShape3D_dl4td")
 
 [node name="Middle_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1245.21, 10.5004, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Middle_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.07932, 0)
