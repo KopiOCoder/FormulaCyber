@@ -7,6 +7,10 @@ var tofu = false
 var A_R7 = false
 var taxi = false
 var lambo = false
+var mmu = false
+var mcd = false
+var klcc = false
+var salam = false
 
 
 
@@ -36,3 +40,4 @@ func is_car_unlocked(car_path: String) -> bool:
 			return lambo
 		_:
 			return false
+

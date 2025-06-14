@@ -192,7 +192,7 @@ layout_mode = 2
 
 [node name="Cone_hit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_qcjw3")
-volume_db = 20.0
+volume_db = 30.0
 bus = &"SFX"
 
 [connection signal="pressed" from="Game_over/Panel/NinePatchRect/Buttons/Restart" to="Game_over" method="_on_restart_pressed"]
