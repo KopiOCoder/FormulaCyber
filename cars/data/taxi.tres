@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CarData" load_steps=2 format=3 uid="uid://pugfcpkxedl6"]
+[gd_resource type="Resource" script_class="CarData" load_steps=3 format=3 uid="uid://pugfcpkxedl6"]
 
+[ext_resource type="Texture2D" uid="uid://cuag18bo1a37h" path="res://Car 2D Pic/Taxi.webp" id="1_3gs7t"]
 [ext_resource type="Script" uid="uid://cu747kflcw00l" path="res://CarData.gd" id="1_v7xhe"]
 
 [resource]
 script = ExtResource("1_v7xhe")
 name = "Taxi"
 rarity = "rare"
-scene_path = ""
+icon = ExtResource("1_3gs7t")
+scene_path = "res://taxi.tscn"
 metadata/_custom_type_script = "uid://cu747kflcw00l"

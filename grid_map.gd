@@ -29,6 +29,7 @@ var last_checked_score = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if Global.japanese == true:
 		player = preload("res://japanese.tscn").instantiate()
 		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
@@ -59,7 +60,7 @@ func _ready():
 		player.transform.origin = Vector3(880.99, 1, -2.44)
 		player.rotate_y(89.5)
 		add_child(player)
-		
+	
 	SaveData.load_game()
 	money = SaveData.money
 	print("Money loaded:", money)

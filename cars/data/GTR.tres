@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CarData" load_steps=2 format=3 uid="uid://ckpvrh27ok5tk"]
+[gd_resource type="Resource" script_class="CarData" load_steps=3 format=3 uid="uid://ckpvrh27ok5tk"]
 
+[ext_resource type="Texture2D" uid="uid://c3mh1rgdejnvh" path="res://Car 2D Pic/GTR.jpg" id="1_na5yq"]
 [ext_resource type="Script" uid="uid://cu747kflcw00l" path="res://CarData.gd" id="1_tgeov"]
 
 [resource]
 script = ExtResource("1_tgeov")
 name = "GTR"
 rarity = "common"
-scene_path = "res://GTR_NEW.tscn"
+icon = ExtResource("1_na5yq")
+scene_path = "res://Raycast_car.tscn"
 metadata/_custom_type_script = "uid://cu747kflcw00l"
