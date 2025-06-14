@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=15 format=3 uid="uid://cq82dpyfmiimc"]
+[gd_scene load_steps=16 format=3 uid="uid://cq82dpyfmiimc"]
 
 [ext_resource type="Script" uid="uid://b5nyb8vyhpw8r" path="res://race_mode.gd" id="1_77cna"]
 [ext_resource type="Texture2D" uid="uid://boeexqmqafa51" path="res://kenney_prototype-textures/PNG/Dark/texture_10.png" id="1_jdyio"]
@@ -49,9 +48,9 @@ _data = {
 }
 point_count = 30
 
-
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_77cna")
+total_laps = 1
 enemy = NodePath("Path3D3/enemy_easy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -141,16 +140,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Finish_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 935.188, 9.03987, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Finish_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4214, 5.3651, -8.78325)
+visible = false
 shape = SubResource("BoxShape3D_dl4td")
 
 [node name="Middle_line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1245.21, 10.5004, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Middle_line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.07932, 0)
+visible = false
 shape = SubResource("BoxShape3D_tydqg")
 debug_fill = false
 
