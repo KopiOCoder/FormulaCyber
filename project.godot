@@ -11,16 +11,17 @@ config_version=5
 [application]
 
 config/name="FormulaCyber"
+run/main_scene="uid://bgur6s3cttspk"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalData="*res://global.gd"
 ConfigFileHandler="*res://ConfigFileHandler.gd"
 Leaderboard="*res://leaderboard.gd"
 Inventory="*res://inventory_manager.gd"
 GachaLogic="*res://GachaLogic.gd"
+Global="*res://global.gd"
 SaveData="*res://SaveData.gd"
 
 [filesystem]

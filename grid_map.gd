@@ -14,7 +14,7 @@ var cone_instances = {}
 
 var player : Node3D
 var cone = load("res://cone.tscn")
-var enemy_car = load("res://GTR.tscn")
+var enemy_car = load("res://enemy_easy.tscn")
 var enemy = false
 
 var initial_position : Vector3
@@ -29,17 +29,41 @@ var last_checked_score = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Global.japanese == true:
+		player = preload("res://japanese.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
+		player.rotate_y(89.5)
+		add_child(player)
+	elif Global.tofu == true:
+		player = preload("res://tofu.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
+		player.rotate_y(89.5)
+		add_child(player)
+	elif Global.A_R7 == true:
+		player = preload("res://A_R7.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
+		player.rotate_y(89.5)
+		add_child(player)
+	elif Global.taxi == true:
+		player = preload("res://taxi.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
+		player.rotate_y(89.5)
+		add_child(player)
+	elif Global.lambo == true:
+		player = preload("res://lambo.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
+		player.rotate_y(89.5)
+		add_child(player)
+	else:
+		player = preload("res://Raycast_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 1, -2.44)
+		player.rotate_y(89.5)
+		add_child(player)
+		
 	SaveData.load_game()
 	money = SaveData.money
 	print("Money loaded:", money)
 	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = "$" + str(money)
-	if placeholder == true:
-		pass
-	else:
-		player = preload("res://Raycast_car.tscn").instantiate()
-		player.rotate_y(89.5)
-		add_child(player)
-	_process_chunk_loading()
 	
 	initial_position = player.global_transform.origin
 	last_position = player.global_transform.origin
@@ -192,7 +216,7 @@ func game_over():
 	print("Money earned this round: $" + str(earned))
 	print("Total saved money: $" + str(SaveData.money))
 	
-	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = str(money) + "$"
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = str(earned) + "$"
 	get_tree().paused = true
 	$"../Game_over".visible = true
 	$"../Game_over".show_game_over(score)
