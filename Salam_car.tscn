@@ -112,6 +112,7 @@ rings = 1
 is_hemisphere = true
 
 [node name="Nissan GTR" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
+mass = 30.0
 script = ExtResource("1_xvk4s")
 wheels = [NodePath("FL"), NodePath("BL"), NodePath("FR"), NodePath("BR")]
 accel_curve = SubResource("Curve_a0qqi")
