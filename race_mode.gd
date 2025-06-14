@@ -40,6 +40,26 @@ func _ready() -> void:
 		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
 		player.rotate_y(-89.5)
 		add_child(player)
+	elif Global.salam == true:
+		player = preload("res://Salam_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.mcd == true:
+		player = preload("res://MCD_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.klcc == true:
+		player = preload("res://KLCC_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
+	elif Global.mmu == true:
+		player = preload("res://MMU_car.tscn").instantiate()
+		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position
+		player.rotate_y(-89.5)
+		add_child(player)
 	else:
 		player = preload("res://Raycast_car.tscn").instantiate()
 		player.transform.origin = Vector3(880.99, 16.326, -2.44)  # Set the desired position

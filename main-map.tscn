@@ -487,10 +487,10 @@ auto_translate_mode = 1
 [node name="Label" type="Label" parent="CanvasLayer/areapopup"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 308.0
+offset_right = 206.0
 offset_bottom = 96.0
-text = "Area Unlocked!!!
-Check Shop for new purchasable items.
+text = "New car skin unlocked!!!
+Check it out in the garage.
 (Click anywhere to close)"
 horizontal_alignment = 1
 vertical_alignment = 1
