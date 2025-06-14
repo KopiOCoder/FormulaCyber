@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chvnn3h3qe3qv"]
+[gd_scene load_steps=18 format=3 uid="uid://chvnn3h3qe3qv"]
 
 [ext_resource type="MeshLibrary" uid="uid://bbhsrwf6261dh" path="res://Assets/MeshLibrary.tres" id="1_2flgw"]
 [ext_resource type="Script" uid="uid://b411jondhu2ov" path="res://grid_map.gd" id="1_8at1e"]
@@ -44,7 +44,6 @@ light_energy = 5.19
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
-
 mesh_library = ExtResource("1_2flgw")
 physics_material = SubResource("PhysicsMaterial_eu2lg")
 cell_octant_size = 9
