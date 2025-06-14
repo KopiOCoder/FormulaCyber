@@ -63,4 +63,6 @@ func pull_car() -> CarData:
 	var chosen = candidates.pick_random()
 	print_debug("Chosen car: %s" % chosen.name)
 	Inventory.add_to_inventory(chosen)
+	Inventory.save_inventory()
+	print("You unlocked: " + chosen.name)
 	return chosen

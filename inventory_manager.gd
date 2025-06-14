@@ -51,3 +51,6 @@ func load_inventory() -> void:
 		var car = load(path)
 		if car:
 			owned_cars.append(car)
+
+func has_car(car: Resource) -> bool:
+	return owned_cars.has(car)

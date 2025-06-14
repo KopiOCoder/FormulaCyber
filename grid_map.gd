@@ -29,6 +29,7 @@ var last_checked_score = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if Global.japanese == true:
 		player = preload("res://japanese.tscn").instantiate()
 		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
@@ -79,6 +80,7 @@ func _ready():
 		player.transform.origin = Vector3(880.99, 1, -2.44)  # Set the desired position
 		player.rotate_y(89.5)
 		add_child(player)
+
 	SaveData.load_game()
 	money = SaveData.money
 	print("Money loaded:", money)
@@ -235,7 +237,7 @@ func game_over():
 	print("Money earned this round: $" + str(earned))
 	print("Total saved money: $" + str(SaveData.money))
 	
-	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = str(money) + "$"
+	$"../Game_over/Panel/NinePatchRect/VBoxContainer2/money_earned".text = str(earned) + "$"
 	get_tree().paused = true
 	$"../Game_over".visible = true
 	$"../Game_over".show_game_over(score)

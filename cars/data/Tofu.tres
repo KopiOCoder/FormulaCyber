@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CarData" load_steps=3 format=3 uid="uid://dboshrw080yl7"]
+
+[ext_resource type="Texture2D" uid="uid://cmex4vdksqwcu" path="res://Car 2D Pic/AE86.jpg" id="1_0qcr2"]
+[ext_resource type="Script" uid="uid://cu747kflcw00l" path="res://CarData.gd" id="1_aa55c"]
+
+[resource]
+script = ExtResource("1_aa55c")
+name = "Tofu"
+rarity = "epic"
+icon = ExtResource("1_0qcr2")
+scene_path = "res://tofu.tscn"
+metadata/_custom_type_script = "uid://cu747kflcw00l"

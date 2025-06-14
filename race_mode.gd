@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var total_laps: int = 3
+@export var total_laps: int = 1
 var current_lap: int = 0
 var enemy_current_lap: int = 0
 var lap_start_time_ms: int = 0
@@ -9,10 +9,16 @@ var race_started = false
 var pass_middle = false
 var enemy_pass_middle = false
 var player 
+var player_has_finished = false
+var enemy_has_finished = false
+var race_result_shown = false
 @export var enemy: Node3D
 
+var money: int = 0
+@export var reward_amount: int = 100
 
 func _ready() -> void:
+	SaveData.load_game()
 	get_tree().paused = false
 	start_race()
 	if Global.japanese == true:
@@ -73,6 +79,28 @@ func start_race():
 	race_started = true
 	lap_times.clear()
 
+func check_race_result():
+	if race_result_shown:
+		return
+	race_result_shown = true
+	
+	if enemy_has_finished and not player_has_finished:
+		race_started = false
+		print("Rival has Won! YOU LOSE.")
+		
+	elif player_has_finished and not enemy_has_finished:
+		race_started = false
+		SaveData.money += reward_amount
+		SaveData.save_game()
+		print("Player wins! Cash earned: %d | Total Cash: %d" % [reward_amount, SaveData.money])
+		$CanvasLayer/LapTimeLabel.text = "You Win! +$%d" % reward_amount
+		$CanvasLayer/CashLabel.text = "Cash: $%d" % money
+		
+	elif player_has_finished and enemy_has_finished:
+		print("It's a tie!")
+		$CanvasLayer/LapTimeLabel.text = "Tie!"
+
+
 func finish_lap():
 	if not race_started:
 		return
@@ -87,8 +115,9 @@ func finish_lap():
 	lap_start_time_ms = now_ms
 
 	if current_lap > total_laps:
-		race_started = false
+		player_has_finished = true
 		print("Race finished! Lap times: ", lap_times)
+		check_race_result()
 		# Handle end of race logic here
 
 func _process(_delta):
@@ -135,5 +164,6 @@ func finish_lap_enemy():
 	enemy_pass_middle = false
 	enemy_current_lap += 1
 	if enemy_current_lap > total_laps:
-		race_started = false
+		enemy_has_finished = true
 		print("Race finished! Lap times: ", lap_times)
+		check_race_result()

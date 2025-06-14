@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu8e6jg1dvg76"]
+
+[ext_resource type="Script" uid="uid://cwm3xne80o2dj" path="res://garage.gd" id="1_rao6x"]
+[ext_resource type="Resource" uid="uid://dlceogicocnmb" path="res://cars/data/R7.tres" id="2_3s08j"]
+[ext_resource type="Resource" uid="uid://ckpvrh27ok5tk" path="res://cars/data/GTR.tres" id="3_qfkxd"]
+[ext_resource type="Resource" uid="uid://fwrrdr5c1t2a" path="res://cars/data/Rx-7.tres" id="4_8g4m6"]
+[ext_resource type="Resource" uid="uid://dboshrw080yl7" path="res://cars/data/Tofu.tres" id="5_p2t0x"]
+[ext_resource type="Resource" uid="uid://pugfcpkxedl6" path="res://cars/data/taxi.tres" id="6_bvirc"]
+[ext_resource type="Resource" uid="uid://q7xhjhafuw6s" path="res://cars/data/Lambo.tres" id="7_vkf0m"]
+
+[node name="Garage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rao6x")
+all_car = Array[Resource]([ExtResource("2_3s08j"), ExtResource("3_qfkxd"), ExtResource("4_8g4m6"), ExtResource("5_p2t0x"), ExtResource("6_bvirc"), ExtResource("7_vkf0m")])
+
+[node name="car_display" type="Node3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -577.0
+offset_top = -648.0
+offset_right = 575.0
+offset_bottom = -335.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 6
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 5
+
+[node name="equip_button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -310.0
+offset_right = -61.0
+offset_bottom = -232.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Equip Car"
